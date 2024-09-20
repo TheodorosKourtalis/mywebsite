@@ -494,7 +494,37 @@ nav a {
         0 0 50px rgba(0, 255, 0, 0.1);
     font-family: 'Courier New', Courier, monospace;
 }
+/* Custom Styles for the File Hub Link */
+.file-hub-link {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.5rem 1rem;
+    background-color: var(--secondary);
+    color: var(--text-light);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color var(--transition-duration), color var(--transition-duration);
+}
 
+.file-hub-link:hover {
+    background-color: var(--secondary-hover);
+    color: var(--text-light);
+}
+
+/* Light Mode Adjustments */
+body.light-mode .file-hub-link {
+    background-color: var(--cool-glow); /* Cool blue for light mode */
+    color: var(--text-dark);
+}
+
+body.light-mode .file-hub-link:hover {
+    background-color: var(--secondary);
+    color: var(--text-light);
+}
 @keyframes move {
     0% { transform: translateY(-100vh) rotate(0deg); opacity: 0; }
     50% { opacity: 1; }
