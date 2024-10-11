@@ -112,45 +112,70 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // JavaScript for Animating Equations
     const equations = [
-        'Y = β0 + β1X + ε',
-        'E(Y|X) = β0 + β1X',
-        'ΔY = α + βΔX + γΔZ',
-        'Y = α + ΣβiXi + ε',
-        'log(Y) = β0 + β1X + ε',
-        'P(Y=1|X) = 1 / (1 + exp(-(β0 + β1X)))',
-        'Cov(X, Y) = E[(X - μX)(Y - μY)]',
-        'Var(X) = E[X^2] - (E[X])^2',
-        'Corr(X, Y) = Cov(X, Y) / (σX * σY)',
-        'Y = α + βX + γX^2 + ε',
-        'ln(Y) = α + βln(X) + ε',
-        'r = r_f + β (r_m - r_f)',
-        'σ^2_p = w^2_1σ^2_1 + w^2_2σ^2_2 + 2w_1w_2Cov_12',
-        'V_0 = D_1 / (r - g)',
-        'π_t = π_{t-1} + γ(u_t - u_n)',
-        'S_t = E_t(S_{t+1}) + (i_t - i*_t)',
-        'L = -∑ (Y_i log(π_i) + (1 - Y_i) log(1 - π_i))',
-        'R = σ_p / (E(R_p) - r_f)',
-        'NPV = ∑ (C_t / (1 + r)^t)',
-        'IRR: ∑ (C_t / (1 + IRR)^t) = 0',
-        'F = S e^(rT)',
-        'Call Option Price: C = S_0Φ(d1) - Ke^(-rT)Φ(d2)',
-        'Put Option Price: P = Ke^(-rT)Φ(-d2) - S_0Φ(-d1)',
-        'd1 = (ln(S/K) + (r + σ^2/2)T) / (σ√T)',
-        'd2 = d1 - σ√T',
-        'Delta (Δ) = Φ(d1)',
-        'Gamma (Γ) = Φ\'(d1) / (Sσ√T)',
-        'Theta (Θ) = -(SΦ\'(d1)σ) / (2√T) - rKe^(-rT)Φ(d2)',
-        'Vega (ν) = S√TΦ\'(d1)',
-        'CAPM: E(R) = Rf + β (Rm - Rf)',
-        'Sharpe Ratio = (E(R_p) - r_f) / σ_p',
-        'σ^2 = Σp_i(x_i - μ)^2',
-        'r = r_f + β (r_m - r_f)',
-        'Fisher Equation: r_n = r_r + π_e',
-        'Bond Price: P = Σ (C / (1 + r)^t) + F / (1 + r)^T',
-        'YTM = ∑ C / (1 + y)^t + F / (1 + y)^T',
-        'ModDur = MacDur / (1 + y/m)'
-    ];
+    // Microeconomics (6 Equations)
+    'P_x X + P_y Y = I', // Budget Constraint
+    'Q = A L^α K^β', // Cobb-Douglas Production Function
+    'π = P Q - C(Q)', // Profit Maximization
+    'MR = dTR/dQ', // Marginal Revenue
+    'Q_d = a - bP', // Demand Curve
+    'Q_s = c + dP', // Supply Curve
 
+    // Macroeconomics (6 Equations)
+    'Y = C + I + G + (X - M)', // GDP Identity
+    'C = a + bY_d', // Keynesian Consumption Function
+    'I = I_0 - b r', // Investment Function
+    'Y = C(Y - T) + I(r) + G', // IS Curve
+    'M/P = L(Y, r)', // LM Curve
+    'π = π_e - β(u - u_n)', // Phillips Curve
+
+    // Economic Geography (5 Equations)
+    'F = G (M_1 M_2)/D^2', // Gravity Model
+    'LQ = (E_i/E) / (E\'_i/E\')', // Location Quotient
+    'N = (3/√3)(A/B)^2', // Central Place Theory
+    'T_{ij} = k (P_i P_j)/D_{ij}^θ', // Spatial Interaction Model
+    'R_i = R_0 - c_i x_i', // Bid-Rent Function
+
+    // Network Theory in Economics (4 Equations)
+    'X_i = Σ a_{ij} X_j + Y_i', // Input-Output Model
+    'p_i + t_{ij} = p_j', // Network Equilibrium
+    'C_B(v) = Σ (σ_{st}(v)/σ_{st})', // Betweenness Centrality
+    'C_E(i) = (1/λ) Σ A_{ij} C_E(j)', // Eigenvector Centrality
+
+    // Econometrics (15 Equations)
+    'Y = β_0 + β_1X + ε', // Simple Linear Regression
+    'E(Y|X) = β_0 + β_1X', // Conditional Expectation
+    'ΔY = α + βΔX + γΔZ', // Difference Equation
+    'Y = α + Σβ_i X_i + ε', // Multiple Linear Regression
+    'log(Y) = β_0 + β_1X + ε', // Log-Linear Model
+    'P(Y=1|X) = 1 / (1 + exp(-(β_0 + β_1X)))', // Logistic Regression
+    'Cov(X, Y) = E[(X - μ_X)(Y - μ_Y)]', // Covariance
+    'Var(X) = E[X^2] - (E[X])^2', // Variance
+    'Corr(X, Y) = Cov(X, Y) / (σ_X σ_Y)', // Correlation
+    'Y = α + βX + γX^2 + ε', // Quadratic Regression
+    'ln(Y) = α + β ln(X) + ε', // Log-Log Model
+    'ε ~ N(0, σ^2)', // Error Term Assumption
+    'R^2 = 1 - (SS_{res}/SS_{tot})', // Coefficient of Determination
+    'DW = Σ(e_t - e_{t-1})^2 / Σe_t^2', // Durbin-Watson Statistic
+    'Heteroskedasticity: Var(ε|X) = σ^2(X)', // Heteroskedasticity Condition
+
+    // Complexity Economics (4 Equations)
+    'dx_i/dt = f(x_i, x_j, ...)', // Agent-Based Dynamics
+    'Y(t+1) = Y(t) + α Y(t)(1 - Y(t)/K)', // Logistic Growth (Non-linear Dynamics)
+    'A_{ij}(t+1) = A_{ij}(t) + η (x_i x_j - A_{ij}(t))', // Adaptive Network Formation
+    'S = Σ_{i,j} A_{ij} x_i x_j', // Network Spillover Effects
+
+    // Financial Economics (6 Equations)
+    'NPV = Σ (C_t / (1 + r)^t)', // Net Present Value
+    'Σ (C_t / (1 + IRR)^t) = 0', // Internal Rate of Return
+    'F = S e^{rT}', // Future Value
+    'C = S_0 Φ(d_1) - K e^{-rT} Φ(d_2)', // Call Option Price (Black-Scholes)
+    'P = K e^{-rT} Φ(-d_2) - S_0 Φ(-d_1)', // Put Option Price (Black-Scholes)
+    'E(R) = R_f + β (R_m - R_f)', // CAPM
+
+    // Additional Financial Economics (Optional, if needed)
+    'Sharpe Ratio = (E(R_p) - R_f) / σ_p', // Sharpe Ratio
+    'P = Σ (C / (1 + r)^t) + F / (1 + r)^T' // Bond Price
+];
     const container = document.getElementById('equations-container');
     let intervalId;
 
