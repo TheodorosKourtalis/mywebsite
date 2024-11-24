@@ -36,7 +36,7 @@
       color: white;
       padding: 10px;
       display: flex;
-      justify-content: flex-end; /* Align to the right */
+      justify-content: flex-end;
       align-items: center;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
       transition: background-color 0.3s;
@@ -74,7 +74,7 @@
       flex-direction: column;
       position: absolute;
       top: 50px;
-      right: 10px; /* Position on the right */
+      right: 10px;
       background-color: var(--menu-light);
       padding: 10px;
       border-radius: 5px;
@@ -134,35 +134,28 @@
 
     /* Enhanced Theme Toggle */
     #theme-toggle {
-  display: inline-block;
-  width: 50px;
-  height: 25px;
-  background-color: var(--toggle-bg-light);
-  border-radius: 25px;
-  position: relative;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-}
+      display: inline-block;
+      width: 50px;
+      height: 25px;
+      background-color: var(--toggle-bg-light);
+      border-radius: 25px;
+      position: relative;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
 
-#theme-toggle:before {
-  content: '';
-  position: absolute;
-  width: 22px;
-  height: 22px;
-  background-color: var(--toggle-circle);
-  border-radius: 50%;
-  top: 1.5px;
-  left: 2px;
-  transition: transform 0.3s ease-in-out;
-}
+    #theme-toggle:before {
+      content: '';
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      background-color: var(--toggle-circle);
+      border-radius: 50%;
+      top: 1.5px;
+      left: 2px;
+      transition: transform 0.3s ease-in-out;
+    }
 
-body.dark-mode #theme-toggle {
-  background-color: var(--toggle-bg-dark);
-}
-
-body.dark-mode #theme-toggle:before {
-  transform: translateX(24px);
-}
     body.dark-theme #theme-toggle {
       background-color: var(--toggle-bg-dark);
     }
@@ -170,84 +163,35 @@ body.dark-mode #theme-toggle:before {
     body.dark-theme #theme-toggle:before {
       transform: translateX(24px);
     }
-   /* Style for the fixed search bar */
-   .search-bar {
+
+    /* Style for search results */
+    #search-results {
       position: fixed;
-      bottom: 0;
-      width: 50%; /* Make the search bar half as long */
-      left: 50%; /* Center the bar horizontally */
-      transform: translateX(-50%); /* Adjust centering */
-      background-color: rgba(255, 255, 255, 0.2); /* Transparent color */
-      padding: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
-      border-radius: 10px; /* Optional: to give rounded corners */
-    }
-
-    body.dark-theme .search-bar {
-      background-color: rgba(0, 0, 0, 0.2); /* Transparent color for dark theme */
-    }
-
-    .search-bar input[type="text"] {
-      padding: 5px;
-      font-size: 14px;
-      border: none;
-      border-radius: 3px;
-      margin-right: 5px;
-      flex: 1;
-      background-color: rgba(255, 255, 255, 0.2); /* Slightly transparent input */
-      color: white; /* Input text color */
-    }
-
-    .search-bar button {
-      background-color: rgba(255, 255, 255, 0.2);
+      bottom: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50%;
+      max-height: 50%;
+      overflow-y: auto;
+      background-color: rgba(0, 0, 0, 0.8);
       color: white;
-      border: none;
-      padding: 8px;
-      margin: 0 2px;
+      padding: 10px;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+      display: none;
+      z-index: 1000;
+    }
+
+    #search-results p {
+      margin: 5px 0;
+      padding: 5px;
+      background-color: rgba(255, 255, 255, 0.1);
       cursor: pointer;
-      font-size: 14px;
       border-radius: 3px;
-      display: flex;
-      align-items: center;
-      transition: background-color 0.3s;
     }
-
-    .search-bar button:hover {
-      background-color: rgba(255, 255, 255, 0.4);
-    }
-
-  /* Style for search results to appear above the search bar */
-#search-results {
-  position: fixed;
-  bottom: 5px; /* Place it right above the search bar */
-  left: 20%; /* Center it horizontally */
-  transform: translateX(-50%); /* Adjust centering */
-  width: 25%; /* Cover a quarter of the screen's width */
-  max-height: 50%; /* Prevents it from covering more than half the screen */
-  overflow-y: auto;
-  background-color: rgba(0, 0, 0, 0.8); /* Slightly dark background for visibility */
-  color: white;
-  padding: 10px;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
-  display: none; /* Hidden by default, shown when results are available */
-  z-index: 1000;
-}
-
-#search-results p {
-  margin: 5px 0;
-  padding: 5px;
-  background-color: rgba(255, 255, 255, 0.1);
-  cursor: pointer;
-  border-radius: 3px;
-}
 
     #search-results p:hover {
       background-color: rgba(255, 255, 255, 0.2);
     }
-
   </style>
 </head>
 <body>
@@ -272,7 +216,7 @@ body.dark-mode #theme-toggle:before {
         <div class="menu-divider"></div>
 
         <div class="menu-section-title">Settings</div>
-        <div id="theme-toggle"></div> <!-- The theme toggle switch -->
+        <div id="theme-toggle"></div>
         <button id="sensitivity-menu"><i class="fas fa-mouse"></i> Sensitivity: 
           <input type="range" id="sensitivity-range" min="1" max="10" value="3" title="Mousepad Sensitivity">
         </button>
@@ -301,20 +245,20 @@ body.dark-mode #theme-toggle:before {
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
   <script>
-<script>
     // Function to get query parameters
     function getQueryParam(param) {
-        const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get(param);
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
     }
 
     // Get the 'pdf' parameter from the URL, default to 'στατ2.τκ-2.pdf' if not provided
     const pdfParam = getQueryParam('pdf') || 'στατ2.τκ-2.pdf';
 
-    // Optional: Validate the PDF filename to prevent unauthorized access
+    // Validate the PDF filename to prevent unauthorized access
     const allowedPDFs = ['στατ2.τκ-2.pdf', 'euler-1.pdf']; // Add more filenames as needed
     const url = allowedPDFs.includes(pdfParam) ? pdfParam : 'στατ2.τκ-2.pdf';
 
+    // Initialize pdf.js
     const pdfjsLib = window['pdfjs-dist/build/pdf'];
     pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.min.js';
 
@@ -322,41 +266,14 @@ body.dark-mode #theme-toggle:before {
         pageNum = 1,
         scale = 1.0,
         rotation = 0,
-        mousepadSensitivity = 0.03, // Start with a low sensitivity
+        mousepadSensitivity = 0.03,
         canvas = document.getElementById('pdf-viewer'),
         ctx = canvas.getContext('2d'),
         searchMatches = [],
         currentMatchIndex = 0,
         isRendering = false,
         pendingPage = null,
-        downloadAllowed = false; // Control access to download
-
-    // Rest of your existing JavaScript code remains unchanged
-    // ...
-    
-    // Load the PDF
-    pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
-        pdfDoc = pdfDoc_;
-        queueRenderPage(pageNum);
-    }).catch(function(error) {
-        console.error('Error loading PDF:', error);
-    });
-</script>
-    const pdfjsLib = window['pdfjs-dist/build/pdf'];
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.min.js';
-
-    let pdfDoc = null,
-        pageNum = 1,
-        scale = 1.0,
-        rotation = 0,
-        mousepadSensitivity = 0.03, // Start with a low sensitivity
-        canvas = document.getElementById('pdf-viewer'),
-        ctx = canvas.getContext('2d'),
-        searchMatches = [],
-        currentMatchIndex = 0,
-        isRendering = false,
-        pendingPage = null,
-        downloadAllowed = false; // Control access to download
+        downloadAllowed = false;
 
     function renderPage(num) {
       isRendering = true;
@@ -460,11 +377,11 @@ body.dark-mode #theme-toggle:before {
     function enterFullScreen() {
       if (canvas.requestFullscreen) {
         canvas.requestFullscreen();
-      } else if (canvas.mozRequestFullScreen) { // Firefox
+      } else if (canvas.mozRequestFullScreen) {
         canvas.mozRequestFullScreen();
-      } else if (canvas.webkitRequestFullscreen) { // Chrome, Safari and Opera
+      } else if (canvas.webkitRequestFullscreen) {
         canvas.webkitRequestFullscreen();
-      } else if (canvas.msRequestFullscreen) { // IE/Edge
+      } else if (canvas.msRequestFullscreen) {
         canvas.msRequestFullscreen();
       }
     }
@@ -570,8 +487,8 @@ body.dark-mode #theme-toggle:before {
 
     function enableCustomZoomAndScroll() {
       document.getElementById('pdf-viewer-container').addEventListener('wheel', function(event) {
-        if (event.ctrlKey) { // Only handle zoom if ctrlKey is pressed (indicating zoom gesture)
-          event.preventDefault(); // Prevent default zoom behavior
+        if (event.ctrlKey) {
+          event.preventDefault();
           const delta = event.deltaY > 0 ? -mousepadSensitivity : mousepadSensitivity;
           scale = Math.min(Math.max(scale + delta, 0.25), 5.0);
           queueRenderPage(pageNum);
@@ -581,7 +498,6 @@ body.dark-mode #theme-toggle:before {
       let startDistance = 0;
       let initialScale = scale;
 
-      // Touch gesture for zoom
       canvas.addEventListener('touchstart', function(event) {
         if (event.touches.length === 2) {
           startDistance = Math.hypot(
@@ -604,7 +520,6 @@ body.dark-mode #theme-toggle:before {
         }
       });
 
-      // Enable scroll functionality with up and down gestures
       let lastTouchY = 0;
       canvas.addEventListener('touchstart', function(event) {
         if (event.touches.length === 1) {
@@ -616,19 +531,17 @@ body.dark-mode #theme-toggle:before {
         if (event.touches.length === 1) {
           const touchY = event.touches[0].clientY;
           if (touchY > lastTouchY) {
-            window.scrollBy(0, -30); // Scroll up
+            window.scrollBy(0, -30);
           } else if (touchY < lastTouchY) {
-            window.scrollBy(0, 30); // Scroll down
+            window.scrollBy(0, 30);
           }
           lastTouchY = touchY;
         }
       });
     }
 
-    // Call enableCustomZoomAndScroll to activate the custom zoom and scroll functionality
     enableCustomZoomAndScroll();
 
-    // Existing event listeners and functionality
     document.getElementById('prev-page').addEventListener('click', onPrevPage);
     document.getElementById('next-page').addEventListener('click', onNextPage);
     document.getElementById('zoom-in-menu').addEventListener('click', zoomIn);
@@ -653,15 +566,14 @@ body.dark-mode #theme-toggle:before {
       mousepadSensitivity = parseFloat(this.value) * 0.01;
     });
     document.getElementById('page-selector').addEventListener('change', function() {
-      queueRenderPage(parseInt(this.value, 10));
+      pageNum = parseInt(this.value, 10);
+      queueRenderPage(pageNum);
     });
 
-    // Theme Toggle
     document.getElementById('theme-toggle').addEventListener('click', function() {
       document.body.classList.toggle('dark-theme');
     });
 
-    // Enable or disable download access
     function setDownloadAccess(allowed) {
       downloadAllowed = allowed;
       const downloadButton = document.getElementById('download-menu');
@@ -672,8 +584,7 @@ body.dark-mode #theme-toggle:before {
       }
     }
 
-    // Example: Restrict download access by default
-    setDownloadAccess(false); // Change to true if download should be allowed
+    setDownloadAccess(false);
 
     pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
       pdfDoc = pdfDoc_;
@@ -682,13 +593,11 @@ body.dark-mode #theme-toggle:before {
       console.error('Error loading PDF:', error);
     });
 
-    // Burger Menu Toggle
     document.querySelector('.burger-toggle').addEventListener('click', function() {
       this.classList.toggle('active');
       document.getElementById('burger-menu').classList.toggle('show');
     });
 
-    // Keyboard shortcuts
     document.addEventListener('keydown', function(event) {
       switch (event.key) {
         case 'ArrowLeft':
@@ -719,7 +628,6 @@ body.dark-mode #theme-toggle:before {
           break;
       }
     });
-
   </script>
 </body>
 </html>
