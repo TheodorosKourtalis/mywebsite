@@ -25,70 +25,67 @@
           a.appendChild(r);
       })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
   </script>
-</head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Theodoros Kourtalis</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <meta name="description" content="A personal portfolio website showcasing my projects and skills.">
-    <meta name="keywords" content="portfolio, web developer, projects, skills">
-    <meta name="author" content="Theodoros Kourtalis">
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-        .sticky {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background-color: rgba(31, 41, 55, 0.85); /* Tailwind's bg-gray-900 with opacity */
-            backdrop-filter: blur(10px); /* Optional: Add blur for better readability */
-        }
-        .fade-in {
-            opacity: 0;
-            animation: fadeIn 2s ease-in forwards;
-        }
-        .fade-in-delay {
-            opacity: 0;
-            animation: fadeIn 2s 1s ease-in forwards; /* Delay for 1 second */
-        }
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-        .accordion-toggle {
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .accordion-toggle:hover {
-            background-color: rgba(75, 85, 99, 0.5); /* Tailwind's bg-gray-600 with opacity */
-        }
-        .accordion-content {
-            display: none;
-            transition: max-height 0.3s ease;
-            overflow: hidden;
-        }
-        .accordion-toggle.active + .accordion-content {
-            display: block;
-        }
-        .equation {
-            position: absolute;
-            font-size: 24px;
-            color: rgba(255, 255, 255, 0.7);
-            animation: move 10s linear;
-            transition: transform 0.5s, opacity 0.5s;
-        }
-        .equation:hover {
-            transform: scale(1.2);
-            opacity: 1;
-        }
-        @keyframes move {
-            0% { transform: translateY(100vh); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: translateY(-100vh); opacity: 0; }
-        }
-    </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="A personal portfolio website showcasing my projects and skills.">
+  <meta name="keywords" content="portfolio, web developer, projects, skills">
+  <meta name="author" content="Theodoros Kourtalis">
+  <style>
+      html {
+          scroll-behavior: smooth;
+      }
+      .sticky {
+          position: sticky;
+          top: 0;
+          z-index: 1000;
+          background-color: rgba(31, 41, 55, 0.85); /* Tailwind's bg-gray-900 with opacity */
+          backdrop-filter: blur(10px); /* Optional: Add blur for better readability */
+      }
+      .fade-in {
+          opacity: 0;
+          animation: fadeIn 2s ease-in forwards;
+      }
+      .fade-in-delay {
+          opacity: 0;
+          animation: fadeIn 2s 1s ease-in forwards; /* Delay for 1 second */
+      }
+      @keyframes fadeIn {
+          to { opacity: 1; }
+      }
+      .accordion-toggle {
+          cursor: pointer;
+          transition: background-color 0.3s;
+      }
+      .accordion-toggle:hover {
+          background-color: rgba(75, 85, 99, 0.5); /* Tailwind's bg-gray-600 with opacity */
+      }
+      .accordion-content {
+          display: none;
+          transition: max-height 0.3s ease;
+          overflow: hidden;
+      }
+      .accordion-toggle.active + .accordion-content {
+          display: block;
+      }
+      .equation {
+          position: absolute;
+          font-size: 24px;
+          color: rgba(255, 255, 255, 0.7);
+          animation: move 10s linear;
+          transition: transform 0.5s, opacity 0.5s;
+      }
+      .equation:hover {
+          transform: scale(1.2);
+          opacity: 1;
+      }
+      @keyframes move {
+          0% { transform: translateY(100vh); opacity: 0; }
+          50% { opacity: 1; }
+          100% { transform: translateY(-100vh); opacity: 0; }
+      }
+  </style>
 </head>
 <body class="bg-gray-900 text-white transition-colors duration-500">
     <header class="relative bg-cover bg-center h-screen" style="background-image: url('header-bg.jpg');">
@@ -98,6 +95,7 @@
             <ul class="hidden md:flex space-x-5 items-center">
                 <li><a href="#about" class="hover:text-yellow-500">About</a></li>
                 <li><a href="#education" class="hover:text-yellow-500">Education</a></li>
+                <li><a href="#work" class="hover:text-yellow-500">Work</a></li> <!-- New Work Link -->
                 <li><a href="#skills" class="hover:text-yellow-500">Skills</a></li>
                 <li><a href="#projects" class="hover:text-yellow-500">Projects</a></li>
                 <li><a href="#contact" class="hover:text-yellow-500">Contact</a></li>
@@ -114,6 +112,7 @@
             <ul id="mobile-menu" class="hidden flex-col space-y-5 items-center bg-gray-900 p-5 md:hidden absolute top-16 left-0 w-full">
                 <li><a href="#about" class="hover:text-yellow-500">About</a></li>
                 <li><a href="#education" class="hover:text-yellow-500">Education</a></li>
+                <li><a href="#work" class="hover:text-yellow-500">Work</a></li> <!-- New Work Link -->
                 <li><a href="#skills" class="hover:text-yellow-500">Skills</a></li>
                 <li><a href="#projects" class="hover:text-yellow-500">Projects</a></li>
                 <li><a href="#contact" class="hover:text-yellow-500">Contact</a></li>
@@ -125,9 +124,11 @@
                 </li>
             </ul>
         </nav>
+        <!-- Note: The following mobile-menu is duplicated. Consider removing it if unintended. -->
         <ul id="mobile-menu" class="hidden flex-col space-y-5 items-center bg-gray-900 p-5 md:hidden absolute top-16 left-0 w-full">
             <li><a href="#about" class="hover:text-yellow-500">About</a></li>
             <li><a href="#education" class="hover:text-yellow-500">Education</a></li>
+            <li><a href="#work" class="hover:text-yellow-500">Work</a></li> <!-- New Work Link -->
             <li><a href="#skills" class="hover:text-yellow-500">Skills</a></li>
             <li><a href="#projects" class="hover:text-yellow-500">Projects</a></li>
             <li><a href="#contact" class="hover:text-yellow-500">Contact</a></li>
@@ -143,7 +144,8 @@
         <div class="flex h-full items-center justify-center flex-col text-center px-4 relative z-10">
             <h1 class="text-6xl font-bold fade-in">Welcome to My Portfolio</h1>
             <p class="text-2xl mt-4 fade-in-delay">Showcasing my work and skills</p>
-            <a href="#projects" class="mt-6 px-8 py-4 bg-yellow-500 text-black font-bold rounded hover:bg-yellow-600 transition">See My Work</a>
+            <!-- Updated "See My Work" Button to redirect to #work -->
+            <a href="#work" class="mt-6 px-8 py-4 bg-yellow-500 text-black font-bold rounded hover:bg-yellow-600 transition">See My Work</a>
         </div>
         <div class="absolute inset-0 bg-black opacity-50 z-0"></div>
     </header>
@@ -205,32 +207,37 @@
                 </div>
             </div>
         </section>
-        
-        <section id="languages" class="my-16">
-            <h2 class="text-4xl font-bold mb-10 text-center">Languages</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Greek Language Card -->
-                <div class="language-card">
-                    <div class="flex items-center mb-4">
-                        <img src="https://img.icons8.com/color/48/000000/greece.png" alt="Greek" class="mr-4" />
-                        <h3 class="text-2xl font-semibold greek">Greek</h3>
-                    </div>
-                    <p class="text-lg">Native Speaker</p>
-                </div>
-                <!-- English Language Card -->
-                <div class="language-card">
-                    <div class="flex items-center mb-4">
-                        <img src="https://img.icons8.com/color/48/000000/great-britain.png" alt="English" class="mr-4" />
-                        <h3 class="text-2xl font-semibold english">English (C2)</h3>
-                    </div>
-                    <p class="text-lg">Grade: Pass with Distinction</p>
+
+       <!-- Work Experience Section -->
+       <section id="work" class="my-16">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="work-experience-container">
+            <!-- Work Experience Card -->
+            <div class="work-experience-card">
+                <img src="athens_university_of_economics_and_business_logo.jpg" alt="EMOP Logo" class="company-logo" loading="lazy">
+                <div class="work-experience-details">
+                    <h3 class="job-title">Data & Text Analyst</h3>
+                    <h4 class="company-name">
+                        <a href="https://www.dept.aueb.gr/en/imop" target="_blank" rel="noopener noreferrer" class="hover:underline">
+                            EMOP Center
+                        </a>
+                    </h4>
+                    <div class="job-duration-location">Sept 2024 - Present | Athens, Greece</div>
+                    <p class="job-description">
+                        Conducting comprehensive data and text analyses under the wing of  
+                        <a href="https://evdioikitopoulos.com/" target="_blank" rel="noopener noreferrer" class="hover:underline">
+                            Evangelos V. Dioikitopoulos.
+                        </a> Utilizing advanced statistical tools and methodologies to interpret complex datasets to support economic research and policy development.
+                        <span class="skill-badge">Data Analysis</span>
+                        <span class="skill-badge">Text Analysis</span>
+                    </p>
                 </div>
             </div>
-        </section>
-        
-        
-        
-        
+            <!-- Add more work experience cards as needed -->
+        </div>
+    </section>
+    <!-- End of Work Experience Section -->
+
         
         <section id="projects" class="my-16">
             <h2 class="text-4xl font-bold mb-6 text-center">
@@ -249,13 +256,13 @@
                     <h3 class="text-2xl font-semibold">Project 1: Portfolio Website</h3>
                     <p class="mt-2">A personal portfolio website to showcase my projects and skills. Built with HTML, CSS, and JavaScript, and designed with Tailwind CSS for a modern and responsive look.</p>
                     <a href="tk.hub/project1.html" class="text-blue-500 mt-4 block">Open in browser natively</a>
-                    <a href="https://auebgr-my.sharepoint.com/:f:/g/personal/o1230087_aueb_gr/Ej2i25IYdZ5PhXxRBSuGloUBDN4y-E7C7Rro2RdhWKQbgA?e=7XCoh8" class="text-yellow-500 mt-2 block">View on Onedrive</a>
+                    <a href="https://auebgr-my.sharepoint.com/:f:/g/personal/o1230087_aueb_gr/Ej2i25IYdZ5PhXxRBSuGloUBDN4y-E7C7Rro2RdhWKQbgA?e=7XCoh8" class="text-yellow-500 mt-2 block">View on OneDrive</a>
                 </div>
                 <div class="bg-gray-700 text-white p-5 rounded-lg transition-transform transform hover:scale-105 hover:bg-gray-600">
                     <h3 class="text-2xl font-semibold">Project 2: Stock Forecasting Book and Python Script</h3>
                     <p class="mt-2">A sophisticated Python script designed for the analysis and forecasting of stock data and an accompanying LaTex book. The script integrates multiple functionalities from data retrieval to statistical analysis and visualization.</p>
                     <a href="tk.hub/project2.html" class="text-blue-500 mt-4 block">Open in browser natively</a>
-                    <a href="https://auebgr-my.sharepoint.com/:f:/g/personal/o1230087_aueb_gr/EqOwOE7ytUBBhUMbGRlyceQB2zyPjIkCntsZVFCe3dsSuw?e=Lg47M0" class="text-yellow-500 mt-2 block">View on Onedrive</a>
+                    <a href="https://auebgr-my.sharepoint.com/:f:/g/personal/o1230087_aueb_gr/EqOwOE7ytUBBhUMbGRlyceQB2zyPjIkCntsZVFCe3dsSuw?e=Lg47M0" class="text-yellow-500 mt-2 block">View on OneDrive</a>
                 </div>
             </div>
             
@@ -265,7 +272,6 @@
                 <a href="https://auebgr-my.sharepoint.com/:f:/g/personal/o1230087_aueb_gr/EiZasvv_Yy1Jm0_hq8xOAyoBZjy9-lLh_1XP43M3FwYa4A?e=6BNDQR" class="inline-block px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black text-2xl font-semibold rounded-lg shadow-lg hover:from-yellow-500 hover:to-yellow-700 transition-all transform hover:scale-105">
                     View Other Smaller Projects on OneDrive
                     <a href="tk.hub/project3.html" class="text-blue-500 mt-4 block">Open in browser natively</a>
-
                 </a>
             </div>
         </section>
@@ -417,4 +423,3 @@
 
 </body>
 </html>
-
