@@ -294,6 +294,209 @@ body.light-mode #education .bg-gray-800 {
     color: var(--text-dark);
 }
 
+/* ==============================
+   Work Experience Section Styles
+   ============================== */
+
+/* Container for Work Experience Section */
+#work {
+    padding: 3rem 2rem;
+    background-color: var(--bg-light);
+    transition: background-color var(--transition-duration), color var(--transition-duration);
+}
+
+body.dark-mode #work {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+
+/* Section Title */
+#work .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+    color: var(--text-dark);
+}
+
+body.dark-mode #work .section-title {
+    color: var(--text-light);
+}
+
+#work .section-title::after {
+    content: '';
+    width: 50%;
+    height: 4px;
+    background: var(--primary);
+    position: absolute;
+    left: 25%;
+    bottom: -10px;
+    border-radius: 2px;
+}
+
+body.dark-mode #work .section-title::after {
+    background: var(--secondary);
+}
+
+/* Work Experience Cards Container */
+.work-experience-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Individual Work Experience Card */
+.work-experience-card {
+    background: var(--bg-light);
+    border: 1px solid var(--gray-light);
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: transform var(--transition-duration), box-shadow var(--transition-duration), background-color var(--transition-duration);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .work-experience-card {
+    background: var(--bg-dark);
+    border: 1px solid var(--gray-darker);
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+/* Hover Effects */
+.work-experience-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .work-experience-card:hover {
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Company Logo */
+.work-experience-card img.company-logo {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 2rem;
+    border: 3px solid var(--primary);
+    transition: border-color var(--transition-duration), transform var(--transition-duration);
+}
+
+.work-experience-card img.company-logo:hover {
+    border-color: var(--secondary);
+    transform: scale(1.05);
+}
+
+/* Work Details */
+.work-experience-details {
+    flex: 1;
+}
+
+/* Job Title */
+.work-experience-details h3.job-title {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: inline-block;
+    color: var(--text-dark);
+}
+
+body.dark-mode .work-experience-details h3.job-title {
+    color: var(--text-light);
+}
+
+.work-experience-details h3.job-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 50%;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 2px;
+}
+
+body.dark-mode .work-experience-details h3.job-title::after {
+    background: var(--secondary);
+}
+
+/* Company Name */
+.work-experience-details h4.company-name {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--secondary);
+}
+
+body.dark-mode .work-experience-details h4.company-name {
+    color: var(--secondary-hover);
+}
+
+/* Duration and Location */
+.work-experience-details .job-duration-location {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: var(--gray-dark);
+}
+
+body.dark-mode .work-experience-details .job-duration-location {
+    color: var(--gray-light);
+}
+
+/* Job Description */
+.work-experience-details p.job-description {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Skill Badges within Job Description */
+.work-experience-details .skill-badge {
+    display: inline-block;
+    background-color: var(--secondary);
+    color: #000;
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+    transition: background-color var(--transition-duration), transform var(--transition-duration);
+    text-decoration: none;
+}
+
+.work-experience-details .skill-badge:hover {
+    background-color: var(--secondary-hover);
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+body.dark-mode .work-experience-details .skill-badge {
+    background-color: #cc4444; /* Dark mode adjustment */
+    color: #fff;
+}
+
+body.dark-mode .work-experience-details .skill-badge:hover {
+    background-color: #e6b800; /* Dark mode hover adjustment */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .work-experience-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .work-experience-card img.company-logo {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+}
+
+
 .skill-card {
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -316,6 +519,10 @@ body.light-mode #skills .bg-gray-800 {
 
 #skills ul {
     list-style-type: disc;
+}
+#work .bg-gray-700 {
+    background-color: var(--gray-darker); /* Darker background */
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 #projects .bg-gray-700 {
