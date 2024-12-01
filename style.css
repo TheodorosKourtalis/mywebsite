@@ -312,7 +312,7 @@ body.dark-mode #work {
 
 /* Section Title */
 #work .section-title {
-    text-align: center; /* You can change this to 'left' if you want the text to align left */
+    text-align: center; /* Default to center for mobile */
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 3rem;
@@ -327,17 +327,32 @@ body.dark-mode #work .section-title {
 
 #work .section-title::after {
     content: '';
-    width: 50%; /* Adjust the width as needed (e.g., 100% for full width) */
+    width: 50%; /* Adjust as needed */
     height: 4px;
     background: var(--primary);
     position: absolute;
-    left: 0; /* Changed from 25% to 0 to align with the start of the text */
+    left: 25%; /* Centered underline */
     bottom: -10px;
     border-radius: 2px;
 }
 
 body.dark-mode #work .section-title::after {
     background: var(--secondary);
+}
+
+/* Media Query for Larger Screens */
+@media (min-width: 769px) {
+    /* Align text to the left */
+    #work .section-title {
+        text-align: left;
+        display: block; /* Ensure it takes full width */
+    }
+
+    /* Align underline to the left */
+    #work .section-title::after {
+        left: 0; /* Start underline from the left */
+        width: 50%; /* Adjust width as needed */
+    }
 }
 
 /* Work Experience Cards Container */
@@ -493,6 +508,16 @@ body.dark-mode .work-experience-details .skill-badge:hover {
     .work-experience-card img.company-logo {
         margin-right: 0;
         margin-bottom: 1rem;
+    }
+
+    /* Re-center section title on smaller screens */
+    #work .section-title {
+        text-align: center;
+    }
+
+    #work .section-title::after {
+        left: 25%; /* Centered underline */
+        width: 50%;
     }
 }
 
