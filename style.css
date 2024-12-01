@@ -312,7 +312,7 @@ body.dark-mode #work {
 
 /* Section Title */
 #work .section-title {
-    text-align: center;
+    text-align: center; /* You can change this to 'left' if you want the text to align left */
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 3rem;
@@ -327,11 +327,11 @@ body.dark-mode #work .section-title {
 
 #work .section-title::after {
     content: '';
-    width: 50%;
+    width: 50%; /* Adjust the width as needed (e.g., 100% for full width) */
     height: 4px;
     background: var(--primary);
     position: absolute;
-    left: 25%;
+    left: 0; /* Changed from 25% to 0 to align with the start of the text */
     bottom: -10px;
     border-radius: 2px;
 }
@@ -415,7 +415,7 @@ body.dark-mode .work-experience-details h3.job-title {
     position: absolute;
     left: 0;
     bottom: -5px;
-    width: 50%;
+    width: 50%; /* Adjust as needed */
     height: 3px;
     background: var(--primary);
     border-radius: 2px;
