@@ -1,218 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document Vault - Theodoros Kourtalis</title>
-
-  <!-- Favicon -->
-  <link id="favicon" rel="icon" type="image/png" href="favicon-light.png" sizes="32x32">
-
-  <!-- Tailwind CSS (Modern Version) -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document Vault - Admin & User Interface</title>
+  
+  <!-- Tailwind CSS -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.2.7/dist/tailwind.min.css" rel="stylesheet">
-
-  <!-- Font Awesome -->
+  <!-- Font Awesome for icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
-  <!-- Custom Styles -->
-  <link rel="stylesheet" href="style.css">
-
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Document Vault for organizing and accessing files within Theodoros Kourtalis' portfolio.">
-  <meta name="keywords" content="Document Vault, Theodoros Kourtalis, Portfolio, Files">
-  <meta name="author" content="Theodoros Kourtalis">
-
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="Document Vault - Theodoros Kourtalis">
-  <meta property="og:description" content="Organizing all my work in one place.">
-  <meta property="og:image" content="your-image-url.jpg">
-  <meta property="og:url" content="https://tkourtalis.netlify.app/">
-  <meta property="og:type" content="website">
-
-  <!-- Breadcrumbs Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [{
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://tkourtalis.netlify.app/"
-    },{
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Document Vault",
-      "item": "https://tkourtalis.netlify.app/document-vault"
-    }]
-  }
-  </script>
-
-  <!-- Inline CSS for transitions -->
   <style>
-    body {
-      transition: background-color 0.3s, color 0.3s;
+    /* Drag & Drop Styles */
+    #drop-zone {
+      border: 2px dashed #ccc;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      transition: background-color 0.3s;
     }
-    .folder-content {
-      transition: max-height 0.3s ease-out;
-      overflow: hidden;
-      max-height: 0;
+    #drop-zone.dragover {
+      background-color: #f0f0f0;
     }
-    .folder-content.open {
-      max-height: 500px; /* Adjust as needed */
+    /* Login Modal Styles */
+    #loginModal {
+      display: none;
+    }
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   </style>
 </head>
-<body class="light-mode">
-  <!-- Header Section -->
-  <header class="p-4 flex justify-between items-center bg-gray-100 dark:bg-gray-800">
-    <a href="https://tkourtalis.netlify.app/" class="text-lg font-bold">Home</a>
-    <div id="theme-toggle" class="flex items-center">
-      <label for="mode-toggle" class="flex items-center cursor-pointer">
-        <span class="mr-2">Toggle Dark Mode</span>
-        <div class="relative">
-          <input type="checkbox" id="mode-toggle" class="sr-only">
-          <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
-          <div class="dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"></div>
-        </div>
-      </label>
-    </div>
-  </header>
+<body class="bg-gray-100">
 
-  <!-- Breadcrumb Navigation -->
-  <nav aria-label="Breadcrumb" class="p-4">
-    <ol class="list-reset flex text-gray-700 dark:text-gray-300">
-      <li><a href="https://tkourtalis.netlify.app/" class="text-blue-600 hover:underline">Home</a></li>
-      <li><span class="mx-2">/</span></li>
-      <li>Document Vault</li>
-    </ol>
-  </nav>
-
-  <!-- Main Content -->
-  <main id="file-hub" class="p-4">
-    <!-- Title and Subtitle -->
-    <div id="file-hub-title" class="text-3xl font-bold mb-2">Document Vault</div>
-    <div id="file-hub-subtitle" class="text-xl text-gray-600 dark:text-gray-300 mb-4">Organizing all my work</div>
-    
-    <!-- Search Functionality -->
-    <div class="mb-6">
-      <input type="text" id="search-input" placeholder="Search documents..." class="w-full p-2 border border-gray-300 rounded">
+  <!-- Login Modal (Shown until admin password is entered correctly) -->
+  <div id="loginModal" class="modal-overlay">
+    <div class="bg-white p-6 rounded shadow-md w-80">
+      <h2 class="text-xl font-bold mb-4">Admin Login</h2>
+      <input id="adminPassword" type="password" placeholder="Enter Admin Password" class="border p-2 w-full mb-4" />
+      <button id="loginBtn" class="px-4 py-2 bg-blue-500 text-white rounded w-full">Login</button>
+      <p id="loginError" class="text-red-500 mt-2 hidden">Incorrect password. Please try again.</p>
     </div>
-    
-    <!-- Folder Items -->
-    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      <!-- Folder Item 1 -->
-      <div class="folder-item bg-white dark:bg-gray-700 p-4 rounded shadow hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500" tabindex="0">
-        <button aria-expanded="false" aria-controls="folder1-content" onclick="toggleFolderContent('folder1-content', this)" class="w-full text-left">
-          <div class="folder-icon text-2xl mb-2">
-            <i class="fas fa-folder"></i>
-          </div>
-          <h3 class="text-xl font-semibold">Project 1: Portfolio Website</h3>
-          <p class="text-sm text-gray-500">A brief overview of my portfolio website project.</p>
-        </button>
-        <div id="folder1-content" class="folder-content mt-2">
-          <ul class="list-disc pl-5">
-            <li><a href="project1.html" class="text-blue-600 hover:underline">Overview of Project 1</a></li>
-          </ul>
-        </div>
-      </div>
-      
-      <!-- Folder Item 2 -->
-      <div class="folder-item bg-white dark:bg-gray-700 p-4 rounded shadow hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500" tabindex="0">
-        <button aria-expanded="false" aria-controls="folder2-content" onclick="toggleFolderContent('folder2-content', this)" class="w-full text-left">
-          <div class="folder-icon text-2xl mb-2">
-            <i class="fas fa-folder"></i>
-          </div>
-          <h3 class="text-xl font-semibold">Project 2: Stock Forecasting Book and Python Script</h3>
-          <p class="text-sm text-gray-500">An overview of my project involving stock forecasting techniques.</p>
-        </button>
-        <div id="folder2-content" class="folder-content mt-2">
-          <ul class="list-disc pl-5">
-            <li><a href="project2.html" class="text-blue-600 hover:underline">Overview of Project 2</a></li>
-          </ul>
-        </div>
-      </div>
-      
-      <!-- Folder Item 3 -->
-      <div class="folder-item bg-white dark:bg-gray-700 p-4 rounded shadow hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500" tabindex="0">
-        <button aria-expanded="false" aria-controls="folder3-content" onclick="toggleFolderContent('folder3-content', this)" class="w-full text-left">
-          <div class="folder-icon text-2xl mb-2">
-            <i class="fas fa-folder"></i>
-          </div>
-          <h3 class="text-xl font-semibold">Other Smaller & Miscellaneous Projects</h3>
-          <p class="text-sm text-gray-500">Various smaller projects and experiments.</p>
-        </button>
-        <div id="folder3-content" class="folder-content mt-2">
-          <ul class="list-disc pl-5">
-            <li><a href="project3.html" class="text-blue-600 hover:underline">Sxolika</a></li>
-            <li><a href="other.html" class="text-blue-600 hover:underline">Other Projects</a></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-  </main>
+  </div>
 
-  <!-- Footer Section -->
-  <footer class="p-4 bg-gray-100 dark:bg-gray-800 text-center">
-    <p>&copy; 2024 Theodoros Kourtalis. All rights reserved.</p>
-    <div class="social-media mt-2">
-      <a href="https://www.linkedin.com/in/theodoros-kourtalis-16a1a0297/" target="_blank" class="social-link text-blue-600 hover:underline">
-        <i class="fab fa-linkedin"></i> LinkedIn
-      </a>
+  <!-- Admin Upload Section (Visible only if logged in as admin) -->
+  <div id="admin-upload" class="p-6" style="display: none;">
+    <h2 class="text-2xl font-bold mb-4">Admin File Upload</h2>
+    <div id="drop-zone" class="mb-4 cursor-pointer">
+      Drag and drop files here or click to select files.
     </div>
-  </footer>
+    <!-- Hidden file input (triggered by clicking the drop zone) -->
+    <input type="file" id="file-input" multiple class="hidden">
+    <button id="upload-btn" class="px-4 py-2 bg-blue-600 text-white rounded mt-2">Upload Files</button>
+  </div>
+
+  <!-- File Listing Area (OS‑Like Interface) -->
+  <div id="file-listing" class="p-6">
+    <h2 class="text-2xl font-bold mb-4">Files</h2>
+    <div id="file-list" class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <!-- File icons will be loaded here dynamically -->
+    </div>
+  </div>
 
   <!-- External Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+  
   <script>
-    // Toggle folder content and update aria-expanded
-    function toggleFolderContent(contentId, btn) {
-      const content = document.getElementById(contentId);
-      const isOpen = content.classList.contains('open');
-      if (isOpen) {
-        content.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
+    // Set your admin password here (for demo purposes only)
+    const ADMIN_PASSWORD = "secret123";
+
+    // Check if admin is logged in (using localStorage)
+    function isAdminLoggedIn() {
+      return localStorage.getItem("isAdmin") === "true";
+    }
+
+    // Show or hide admin sections based on login status
+    function updateAdminView() {
+      if (isAdminLoggedIn()) {
+        document.getElementById("loginModal").style.display = "none";
+        document.getElementById("admin-upload").style.display = "block";
       } else {
-        content.classList.add('open');
-        btn.setAttribute('aria-expanded', 'true');
+        document.getElementById("loginModal").style.display = "flex";
+        document.getElementById("admin-upload").style.display = "none";
       }
     }
 
-    // Dark/Light Mode Toggle
-    document.addEventListener('DOMContentLoaded', () => {
-      const modeToggle = document.getElementById('mode-toggle');
-      const body = document.body;
+    // Login button click event
+    document.getElementById("loginBtn").addEventListener("click", () => {
+      const passwordInput = document.getElementById("adminPassword").value;
+      if (passwordInput === ADMIN_PASSWORD) {
+        localStorage.setItem("isAdmin", "true");
+        updateAdminView();
+      } else {
+        document.getElementById("loginError").classList.remove("hidden");
+      }
+    });
 
-      const applyTheme = (theme) => {
-        if (theme === 'dark') {
-          body.classList.add('dark-mode');
-          body.classList.remove('light-mode');
+    // Initialize admin view on page load
+    document.addEventListener("DOMContentLoaded", () => {
+      updateAdminView();
+      initializeUploader();
+      loadFiles();
+    });
+
+    // Drag & Drop Uploader Setup
+    function initializeUploader() {
+      const dropZone = document.getElementById("drop-zone");
+      const fileInput = document.getElementById("file-input");
+      const uploadBtn = document.getElementById("upload-btn");
+
+      // Open file dialog when drop zone is clicked
+      dropZone.addEventListener('click', () => fileInput.click());
+
+      // Visual feedback for dragging files
+      dropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropZone.classList.add('dragover');
+      });
+      dropZone.addEventListener('dragleave', () => {
+        dropZone.classList.remove('dragover');
+      });
+      dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('dragover');
+        fileInput.files = e.dataTransfer.files;
+      });
+
+      // Handle file uploads (simulate POST request)
+      uploadBtn.addEventListener('click', () => {
+        if (fileInput.files.length > 0) {
+          uploadFiles(fileInput.files);
         } else {
-          body.classList.add('light-mode');
-          body.classList.remove('dark-mode');
+          alert('No files selected.');
         }
-      };
-
-      const currentTheme = localStorage.getItem("theme") || "light";
-      applyTheme(currentTheme);
-      modeToggle.checked = currentTheme === "dark";
-
-      modeToggle.addEventListener('change', () => {
-        const theme = modeToggle.checked ? 'dark' : 'light';
-        applyTheme(theme);
-        localStorage.setItem('theme', theme);
       });
-    });
+    }
 
-    // Search Functionality: Filter folder items
-    document.getElementById('search-input').addEventListener('input', function() {
-      const query = this.value.toLowerCase();
-      const folderItems = document.querySelectorAll('.folder-item');
-      folderItems.forEach(item => {
-        const text = item.textContent.toLowerCase();
-        item.style.display = text.includes(query) ? '' : 'none';
+    // Function to simulate file upload (in a real setup, you'd send these to a server)
+    function uploadFiles(files) {
+      // For demo, we simply log the files and refresh the file listing.
+      console.log('Uploading files:', files);
+      // In a static site, you may want to store file info locally or use a third‑party service.
+      // After uploading, refresh file list (this example just calls loadFiles())
+      loadFiles();
+    }
+
+    // Function to load files (simulate fetching file data)
+    function loadFiles() {
+      // Dummy data – in a real scenario, you might fetch this from an API or local storage.
+      const files = [
+        { name: 'file1.pdf', url: '/files/file1.pdf', icon: 'far fa-file-pdf' },
+        { name: 'file2.docx', url: '/files/file2.docx', icon: 'far fa-file-word' },
+        { name: 'image1.png', url: '/files/image1.png', icon: 'far fa-file-image' }
+      ];
+      const fileList = document.getElementById("file-list");
+      fileList.innerHTML = "";
+      files.forEach(file => {
+        const fileDiv = document.createElement("div");
+        fileDiv.className = "file-item bg-white p-4 rounded shadow hover:shadow-lg text-center cursor-pointer";
+        fileDiv.innerHTML = `
+          <div class="text-4xl mb-2"><i class="${file.icon}"></i></div>
+          <div class="text-sm break-words">${file.name}</div>
+        `;
+        fileDiv.addEventListener("click", () => {
+          window.open(file.url, "_blank");
+        });
+        fileList.appendChild(fileDiv);
       });
-    });
+    }
   </script>
 </body>
 </html>
