@@ -1,179 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document Vault - Admin & User Interface</title>
-  
-  <!-- Tailwind CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.2.7/dist/tailwind.min.css" rel="stylesheet">
-  <!-- Font Awesome for icons -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Vault - Theodoros Kourtalis</title>
 
-  <style>
-    /* Drag & Drop Styles */
-    #drop-zone {
-      border: 2px dashed #ccc;
-      border-radius: 8px;
-      padding: 20px;
-      text-align: center;
-      transition: background-color 0.3s;
-    }
-    #drop-zone.dragover {
-      background-color: #f0f0f0;
-    }
-    /* Login Modal Styles */
-    #loginModal {
-      display: none;
-    }
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.75);
-      z-index: 50;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  </style>
-</head>
-<body class="bg-gray-100">
+    <!-- Favicon -->
+    <link id="favicon" rel="icon" type="image/png" href="favicon-light.png" sizes="32x32">
 
-  <!-- Login Modal (Shown until admin password is entered correctly) -->
-  <div id="loginModal" class="modal-overlay">
-    <div class="bg-white p-6 rounded shadow-md w-80">
-      <h2 class="text-xl font-bold mb-4">Admin Login</h2>
-      <input id="adminPassword" type="password" placeholder="Enter Admin Password" class="border p-2 w-full mb-4" />
-      <button id="loginBtn" class="px-4 py-2 bg-blue-500 text-white rounded w-full">Login</button>
-      <p id="loginError" class="text-red-500 mt-2 hidden">Incorrect password. Please try again.</p>
+    <!-- External Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Meta Information -->
+    <meta name="description" content="Document Vault for organizing and accessing files within Theodoros Kourtalis' portfolio.">
+    <meta name="keywords" content="Document Vault, Theodoros Kourtalis, Portfolio, Files">
+    <meta name="author" content="Theodoros Kourtalis">
+
+ 
+
+   
+
+<body>
+ <!-- Header Section -->
+ <header>
+    <a href="https://tkourtalis.netlify.app/">Home</a>
+    <div id="theme-toggle">
+        <label for="mode-toggle" class="switch">
+            <input type="checkbox" id="mode-toggle">
+            <span class="slider round"></span>
+        </label>
     </div>
-  </div>
+</header>
 
-  <!-- Admin Upload Section (Visible only if logged in as admin) -->
-  <div id="admin-upload" class="p-6" style="display: none;">
-    <h2 class="text-2xl font-bold mb-4">Admin File Upload</h2>
-    <div id="drop-zone" class="mb-4 cursor-pointer">
-      Drag and drop files here or click to select files.
-    </div>
-    <!-- Hidden file input (triggered by clicking the drop zone) -->
-    <input type="file" id="file-input" multiple class="hidden">
-    <button id="upload-btn" class="px-4 py-2 bg-blue-600 text-white rounded mt-2">Upload Files</button>
-  </div>
+<!-- Main Content -->
+<main id="file-hub">
+    <!-- Title and Subtitle -->
+    <div id="file-hub-title">Document Vault</div>
+    <div id="file-hub-subtitle">Organizing all my work</div>
 
-  <!-- File Listing Area (OS‑Like Interface) -->
-  <div id="file-listing" class="p-6">
-    <h2 class="text-2xl font-bold mb-4">Files</h2>
-    <div id="file-list" class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <!-- File icons will be loaded here dynamically -->
-    </div>
-  </div>
+    <section class="grid-container">
+        <!-- Folder Item 1 -->
+        <div class="folder-item" onclick="toggleFolderContent('folder1-content')">
+            <div class="folder-icon">
+                <i class="fas fa-folder"></i>
+            </div>
+            <h3>Project 1: Portfolio Website</h3>
+            <div id="folder1-content" class="folder-content">
+                <ul>
+                    <li><a href="project1.html">Overview of the Project 1</a></li>
+                     
+                </ul>
+            </div>
+        </div>
 
-  <!-- External Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-  
-  <script>
-    // Set your admin password here (for demo purposes only)
-    const ADMIN_PASSWORD = "secret123";
+        <!-- Folder Item 2 -->
+        <div class="folder-item" onclick="toggleFolderContent('folder2-content')">
+            <div class="folder-icon">
+                <i class="fas fa-folder"></i>
+            </div>
+            <h3>Project 2: Stock Forecasting Book and Python Script</h3>
+            <div id="folder2-content" class="folder-content">
+                <ul>
+                    <li><a href="project2.html">Overview of the Project 2</a></li>
+                    
+                </ul>
+            </div>
+        </div>
 
-    // Check if admin is logged in (using localStorage)
-    function isAdminLoggedIn() {
-      return localStorage.getItem("isAdmin") === "true";
-    }
+        <!-- Folder Item 3 (Bottom Centered) -->
+        <div class="folder-item bottom-centered" onclick="toggleFolderContent('folder3-content')">
+            <div class="folder-icon">
+                <i class="fas fa-folder"></i>
+            </div>
+            <h3>Other Smaller & Miscellaneous Projects</h3>
+            <div id="folder3-content" class="folder-content">
+                <ul>
+                    <li><a href="project3.html">Sxolika</a></li>
+                    <li>Other</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </section>
+</main>
 
-    // Show or hide admin sections based on login status
-    function updateAdminView() {
-      if (isAdminLoggedIn()) {
-        document.getElementById("loginModal").style.display = "none";
-        document.getElementById("admin-upload").style.display = "block";
-      } else {
-        document.getElementById("loginModal").style.display = "flex";
-        document.getElementById("admin-upload").style.display = "none";
-      }
-    }
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Theodoros Kourtalis. All rights reserved.</p>
+        <div class="social-media">
+            <a href="https://www.linkedin.com/in/theodoros-kourtalis-16a1a0297/" target="_blank" class="social-link">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+        </div>
+    </footer>
 
-    // Login button click event
-    document.getElementById("loginBtn").addEventListener("click", () => {
-      const passwordInput = document.getElementById("adminPassword").value;
-      if (passwordInput === ADMIN_PASSWORD) {
-        localStorage.setItem("isAdmin", "true");
-        updateAdminView();
-      } else {
-        document.getElementById("loginError").classList.remove("hidden");
-      }
-    });
+    <!-- External Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modeToggle = document.getElementById('mode-toggle');
+            const body = document.body;
 
-    // Initialize admin view on page load
-    document.addEventListener("DOMContentLoaded", () => {
-      updateAdminView();
-      initializeUploader();
-      loadFiles();
-    });
+            const applyTheme = (theme) => {
+                if (theme === 'dark') {
+                    body.classList.add('dark-mode');
+                    body.classList.remove('light-mode');
+                } else {
+                    body.classList.add('light-mode');
+                    body.classList.remove('dark-mode');
+                }
+            };
 
-    // Drag & Drop Uploader Setup
-    function initializeUploader() {
-      const dropZone = document.getElementById("drop-zone");
-      const fileInput = document.getElementById("file-input");
-      const uploadBtn = document.getElementById("upload-btn");
+            const currentTheme = localStorage.getItem("theme") || "light";
+            applyTheme(currentTheme);
 
-      // Open file dialog when drop zone is clicked
-      dropZone.addEventListener('click', () => fileInput.click());
+            modeToggle.checked = currentTheme === "dark";
 
-      // Visual feedback for dragging files
-      dropZone.addEventListener('dragover', (e) => {
-        e.preventDefault();
-        dropZone.classList.add('dragover');
-      });
-      dropZone.addEventListener('dragleave', () => {
-        dropZone.classList.remove('dragover');
-      });
-      dropZone.addEventListener('drop', (e) => {
-        e.preventDefault();
-        dropZone.classList.remove('dragover');
-        fileInput.files = e.dataTransfer.files;
-      });
-
-      // Handle file uploads (simulate POST request)
-      uploadBtn.addEventListener('click', () => {
-        if (fileInput.files.length > 0) {
-          uploadFiles(fileInput.files);
-        } else {
-          alert('No files selected.');
-        }
-      });
-    }
-
-    // Function to simulate file upload (in a real setup, you'd send these to a server)
-    function uploadFiles(files) {
-      // For demo, we simply log the files and refresh the file listing.
-      console.log('Uploading files:', files);
-      // In a static site, you may want to store file info locally or use a third‑party service.
-      // After uploading, refresh file list (this example just calls loadFiles())
-      loadFiles();
-    }
-
-    // Function to load files (simulate fetching file data)
-    function loadFiles() {
-      // Dummy data – in a real scenario, you might fetch this from an API or local storage.
-      const files = [
-        { name: 'file1.pdf', url: '/files/file1.pdf', icon: 'far fa-file-pdf' },
-        { name: 'file2.docx', url: '/files/file2.docx', icon: 'far fa-file-word' },
-        { name: 'image1.png', url: '/files/image1.png', icon: 'far fa-file-image' }
-      ];
-      const fileList = document.getElementById("file-list");
-      fileList.innerHTML = "";
-      files.forEach(file => {
-        const fileDiv = document.createElement("div");
-        fileDiv.className = "file-item bg-white p-4 rounded shadow hover:shadow-lg text-center cursor-pointer";
-        fileDiv.innerHTML = `
-          <div class="text-4xl mb-2"><i class="${file.icon}"></i></div>
-          <div class="text-sm break-words">${file.name}</div>
-        `;
-        fileDiv.addEventListener("click", () => {
-          window.open(file.url, "_blank");
+            modeToggle.addEventListener('change', () => {
+                const theme = modeToggle.checked ? 'dark' : 'light';
+                applyTheme(theme);
+                localStorage.setItem('theme', theme);
+            });
         });
-        fileList.appendChild(fileDiv);
-      });
-    }
-  </script>
+    </script>
 </body>
+
 </html>
