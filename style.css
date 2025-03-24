@@ -711,6 +711,9 @@ nav a {
     transition: border-bottom var(--transition-duration);
 }
 /* Animations */
+#equations-container {
+    overflow: hidden;
+}
 /* Animations */
 .equation {
     position: absolute;
