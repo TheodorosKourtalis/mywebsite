@@ -40,7 +40,7 @@
           position: sticky;
           top: 0;
           z-index: 1000;
-          background-color: rgba(31, 41, 55, 0.85); /* Tailwind's bg-gray-900 with opacity */
+          background-color: rgba(31, 41, 55, 0.85);
           backdrop-filter: blur(10px);
       }
       .fade-in {
@@ -128,7 +128,7 @@
             <button id="hamburger-button" class="md:hidden text-yellow-500">
                 <i class="fas fa-bars text-3xl"></i>
             </button>
-            <!-- Mobile Menu (duplicate removed) -->
+            <!-- Mobile Menu -->
             <ul id="mobile-menu" class="hidden flex-col space-y-5 items-center bg-gray-900 p-5 md:hidden absolute top-16 left-0 w-full">
                 <li><a href="#about" class="hover:text-yellow-500">About</a></li>
                 <li><a href="#education" class="hover:text-yellow-500">Education</a></li>
@@ -147,7 +147,7 @@
         <div class="flex h-full items-center justify-center flex-col text-center px-4 relative z-10">
             <h1 class="text-6xl font-bold fade-in">Welcome to My Portfolio</h1>
             <p class="text-2xl mt-4 fade-in-delay">Showcasing my work and skills</p>
-            <!-- "See My Work" button removed to enhance modernity -->
+            <!-- "See My Work" button removed -->
         </div>
         <!-- Scroll Prompt Arrow -->
         <div class="scroll-prompt">
@@ -217,10 +217,11 @@
             </div>
         </section>
 
-        <section id="work" class="my-16">
-            <h2 class="section-title text-4xl font-bold text-center mb-6">Work Experience</h2>
+       <!-- Work Experience Section with Hover Effect -->
+       <section id="work" class="my-16">
+            <h2 class="text-4xl font-bold text-center mb-6">Work Experience</h2>
             <div class="work-experience-container">
-                <div class="work-experience-card bg-gray-800 p-5 rounded-lg mb-6">
+                <div class="work-experience-card bg-gray-800 p-5 rounded-lg mb-6 transition duration-300 transform hover:bg-gray-700 hover:-translate-y-1 hover:scale-105">
                     <img src="athens_university_of_economics_and_business_logo.jpg" alt="EMOP Logo" class="company-logo w-24 h-24" loading="lazy">
                     <div class="work-experience-details mt-4">
                         <h3 class="job-title text-2xl font-semibold">Data & Text Analyst</h3>
@@ -233,7 +234,7 @@
                         <p class="mt-2">
                             Collaborating closely with 
                             <a href="https://evdioikitopoulos.com/" target="_blank" rel="noopener noreferrer" class="hover:underline">
-                            Dr. Evangelos V. Dioikitopoulos
+                                Dr. Evangelos V. Dioikitopoulos
                             </a>, 
                             I conduct comprehensive data and text analyses. Utilizing advanced statistical tools and methodologies, I interpret complex datasets to support economic research and inform policy development.
                             <span class="skill-badge inline-block bg-yellow-500 text-black px-2 py-1 mt-2 rounded">Data Analysis</span>
