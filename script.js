@@ -180,19 +180,20 @@ document.addEventListener('DOMContentLoaded', () => {
     let intervalId;
 
     function createEquation() {
-        const equation = document.createElement('div');
-        equation.className = 'equation';
-        equation.textContent = equations[Math.floor(Math.random() * equations.length)];
-        equation.style.top = '-10vh'; // Start above the view
-        equation.style.left = Math.random() * 100 + 'vw';
-        equation.style.animationDuration = (Math.random() * 5 + 3) + 's';
-        container.appendChild(equation);
+    const equation = document.createElement('div');
+    equation.className = 'equation';
+    equation.textContent = equations[Math.floor(Math.random() * equations.length)];
+    equation.style.top = '-10vh'; // Start above the view
+    // Position the equation using the container's width rather than 100vw:
+    equation.style.left = Math.random() * container.clientWidth + 'px';
+    equation.style.animationDuration = (Math.random() * 5 + 3) + 's';
+    container.appendChild(equation);
 
-        // Remove equation after animation ends
-        equation.addEventListener('animationend', () => {
-            equation.remove();
-        });
-    }
+    // Remove the equation after its animation ends
+    equation.addEventListener('animationend', () => {
+        equation.remove();
+    });
+}
 
     function startEquationAnimation() {
         intervalId = setInterval(createEquation, 150); // Create a new equation every 0.15 seconds
