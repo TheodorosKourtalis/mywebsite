@@ -5,7 +5,7 @@
   <title>Theodoros Kourtalis</title>
   <link rel="stylesheet" href="./style.css">
   <!-- Favicon -->
-  <link id="favicon" rel="icon" type="image/png" href="favicon-light.png" sizes="32x32">  
+  <link id="favicon" rel="icon" type="image/png" href="favicon-light.png" sizes="32x32">
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-P8K50EM5G6"></script>
   <script>
@@ -14,7 +14,7 @@
     gtag('js', new Date());
     gtag('config', 'G-P8K50EM5G6');
   </script>
-  <!-- Hotjar Tracking Code for https://tkourtalis.netlify.app -->
+  <!-- Hotjar Tracking Code -->
   <script>
       (function(h,o,t,j,a,r){
           h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
@@ -41,7 +41,7 @@
           top: 0;
           z-index: 1000;
           background-color: rgba(31, 41, 55, 0.85); /* Tailwind's bg-gray-900 with opacity */
-          backdrop-filter: blur(10px); /* Optional: Add blur for better readability */
+          backdrop-filter: blur(10px);
       }
       .fade-in {
           opacity: 0;
@@ -49,7 +49,7 @@
       }
       .fade-in-delay {
           opacity: 0;
-          animation: fadeIn 2s 1s ease-in forwards; /* Delay for 1 second */
+          animation: fadeIn 2s 1s ease-in forwards;
       }
       @keyframes fadeIn {
           to { opacity: 1; }
@@ -59,7 +59,7 @@
           transition: background-color 0.3s;
       }
       .accordion-toggle:hover {
-          background-color: rgba(75, 85, 99, 0.5); /* Tailwind's bg-gray-600 with opacity */
+          background-color: rgba(75, 85, 99, 0.5);
       }
       .accordion-content {
           display: none;
@@ -85,17 +85,36 @@
           50% { opacity: 1; }
           100% { transform: translateY(-100vh); opacity: 0; }
       }
+      /* Scroll Prompt Arrow */
+      .scroll-prompt {
+          position: absolute;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          animation: bounce 2s infinite;
+      }
+      @keyframes bounce {
+          0%, 20%, 50%, 80%, 100% {
+              transform: translateX(-50%) translateY(0);
+          }
+          40% {
+              transform: translateX(-50%) translateY(-10px);
+          }
+          60% {
+              transform: translateX(-50%) translateY(-5px);
+          }
+      }
   </style>
 </head>
 <body class="bg-gray-900 text-white transition-colors duration-500">
     <header class="relative bg-cover bg-center h-screen" style="background-image: url('header-bg.jpg');">
-        <div id="equations-container" class="absolute inset-0"></div> <!-- Container for equations -->
+        <div id="equations-container" class="absolute inset-0"></div>
         <nav class="sticky w-full top-0 flex justify-between items-center p-5">
             <div class="text-3xl font-bold">Theodoros Kourtalis</div>
             <ul class="hidden md:flex space-x-5 items-center">
                 <li><a href="#about" class="hover:text-yellow-500">About</a></li>
                 <li><a href="#education" class="hover:text-yellow-500">Education</a></li>
-                <li><a href="#work" class="hover:text-yellow-500">Work</a></li> <!-- New Work Link -->
+                <li><a href="#work" class="hover:text-yellow-500">Work</a></li>
                 <li><a href="#skills" class="hover:text-yellow-500">Skills</a></li>
                 <li><a href="#projects" class="hover:text-yellow-500">Projects</a></li>
                 <li><a href="#contact" class="hover:text-yellow-500">Contact</a></li>
@@ -109,10 +128,11 @@
             <button id="hamburger-button" class="md:hidden text-yellow-500">
                 <i class="fas fa-bars text-3xl"></i>
             </button>
+            <!-- Mobile Menu (duplicate removed) -->
             <ul id="mobile-menu" class="hidden flex-col space-y-5 items-center bg-gray-900 p-5 md:hidden absolute top-16 left-0 w-full">
                 <li><a href="#about" class="hover:text-yellow-500">About</a></li>
                 <li><a href="#education" class="hover:text-yellow-500">Education</a></li>
-                <li><a href="#work" class="hover:text-yellow-500">Work</a></li> <!-- New Work Link -->
+                <li><a href="#work" class="hover:text-yellow-500">Work</a></li>
                 <li><a href="#skills" class="hover:text-yellow-500">Skills</a></li>
                 <li><a href="#projects" class="hover:text-yellow-500">Projects</a></li>
                 <li><a href="#contact" class="hover:text-yellow-500">Contact</a></li>
@@ -124,28 +144,16 @@
                 </li>
             </ul>
         </nav>
-        <!-- Note: The following mobile-menu is duplicated. Consider removing it if unintended. -->
-        <ul id="mobile-menu" class="hidden flex-col space-y-5 items-center bg-gray-900 p-5 md:hidden absolute top-16 left-0 w-full">
-            <li><a href="#about" class="hover:text-yellow-500">About</a></li>
-            <li><a href="#education" class="hover:text-yellow-500">Education</a></li>
-            <li><a href="#work" class="hover:text-yellow-500">Work</a></li> <!-- New Work Link -->
-            <li><a href="#skills" class="hover:text-yellow-500">Skills</a></li>
-            <li><a href="#projects" class="hover:text-yellow-500">Projects</a></li>
-            <li><a href="#contact" class="hover:text-yellow-500">Contact</a></li>
-            <li>
-                <label class="switch">
-                    <input type="checkbox" id="mobile-mode-toggle">
-                    <span class="slider round"></span>
-                </label>
-            </li>
-        </ul>
-
-        
         <div class="flex h-full items-center justify-center flex-col text-center px-4 relative z-10">
             <h1 class="text-6xl font-bold fade-in">Welcome to My Portfolio</h1>
             <p class="text-2xl mt-4 fade-in-delay">Showcasing my work and skills</p>
-            <!-- Updated "See My Work" Button to redirect to #work -->
-            <a href="#work" class="mt-6 px-8 py-4 bg-yellow-500 text-black font-bold rounded hover:bg-yellow-600 transition">See My Work</a>
+            <!-- "See My Work" button removed to enhance modernity -->
+        </div>
+        <!-- Scroll Prompt Arrow -->
+        <div class="scroll-prompt">
+            <a href="#about">
+                <i class="fas fa-chevron-down text-4xl text-yellow-500"></i>
+            </a>
         </div>
         <div class="absolute inset-0 bg-black opacity-50 z-0"></div>
     </header>
@@ -156,7 +164,8 @@
             <div class="flex flex-col md:flex-row items-center text-center md:text-left">
                 <img src="Myprofilephoto.jpg" alt="Profile photo" class="w-24 h-24 md:mr-8" loading="lazy">
                 <p class="text-lg leading-relaxed mt-4 md:mt-0">
-                  I am an economics student at AUEB interested in trade, and interconnected systems. My strong work ethic drives my commitment to continuous learning.           
+                  I am an economics student at AUEB interested in trade, and interconnected systems. My strong work ethic drives my commitment to continuous learning.
+                </p>
             </div>
         </section>
 
@@ -208,44 +217,35 @@
             </div>
         </section>
 
-       <!-- Work Experience Section -->
-       <section id="work" class="my-16">
-        <h2 class="section-title">Work Experience</h2>
-        <div class="work-experience-container">
-            <!-- Work Experience Card -->
-            <div class="work-experience-card">
-                <img src="athens_university_of_economics_and_business_logo.jpg" alt="EMOP Logo" class="company-logo" loading="lazy">
-                <div class="work-experience-details">
-                    <h3 class="job-title">Data & Text Analyst</h3>
-                    <h4 class="company-name">
-                        <a href="https://www.dept.aueb.gr/en/imop" target="_blank" rel="noopener noreferrer" class="hover:underline">
-                            EMOP Center
-                        </a>
-                    </h4>
-                    <div class="job-duration-location">Sept 2024 - Present | Athens, Greece</div>
-                    Collaborating closely with 
-                     <a href="https://evdioikitopoulos.com/" target="_blank" rel="noopener noreferrer" class="hover:underline">
-                     Dr. Evangelos V. Dioikitopoulos
-                       </a>, 
-                         I conduct comprehensive data and text analyses. Utilizing advanced statistical tools and methodologies, I interpret complex datasets to support economic research and inform policy development.
-                        <span class="skill-badge">Data Analysis</span>
-                        <span class="skill-badge">Text Analysis</span>
-                    </p>
+        <section id="work" class="my-16">
+            <h2 class="section-title text-4xl font-bold text-center mb-6">Work Experience</h2>
+            <div class="work-experience-container">
+                <div class="work-experience-card bg-gray-800 p-5 rounded-lg mb-6">
+                    <img src="athens_university_of_economics_and_business_logo.jpg" alt="EMOP Logo" class="company-logo w-24 h-24" loading="lazy">
+                    <div class="work-experience-details mt-4">
+                        <h3 class="job-title text-2xl font-semibold">Data & Text Analyst</h3>
+                        <h4 class="company-name text-xl mt-2">
+                            <a href="https://www.dept.aueb.gr/en/imop" target="_blank" rel="noopener noreferrer" class="hover:underline">
+                                EMOP Center
+                            </a>
+                        </h4>
+                        <div class="job-duration-location mt-2">Sept 2024 - Present | Athens, Greece</div>
+                        <p class="mt-2">
+                            Collaborating closely with 
+                            <a href="https://evdioikitopoulos.com/" target="_blank" rel="noopener noreferrer" class="hover:underline">
+                            Dr. Evangelos V. Dioikitopoulos
+                            </a>, 
+                            I conduct comprehensive data and text analyses. Utilizing advanced statistical tools and methodologies, I interpret complex datasets to support economic research and inform policy development.
+                            <span class="skill-badge inline-block bg-yellow-500 text-black px-2 py-1 mt-2 rounded">Data Analysis</span>
+                            <span class="skill-badge inline-block bg-yellow-500 text-black px-2 py-1 mt-2 rounded">Text Analysis</span>
+                        </p>
+                    </div>
                 </div>
             </div>
-            <!-- Add more work experience cards as needed -->
-        </div>
-    </section>
-    <!-- End of Work Experience Section -->
+        </section>
 
-        
         <section id="projects" class="my-16">
-            <h2 class="text-4xl font-bold mb-6 text-center">
-                Projects
-            </h2>
-        
-            <!-- File Hub Link -->
-
+            <h2 class="text-4xl font-bold mb-6 text-center">Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="bg-gray-700 text-white p-5 rounded-lg transition-transform transform hover:scale-105 hover:bg-gray-600">
                     <h3 class="text-2xl font-semibold">Project 1: Portfolio Website</h3>
@@ -258,8 +258,6 @@
                     <a href="https://auebgr-my.sharepoint.com/:f:/g/personal/o1230087_aueb_gr/EqOwOE7ytUBBhUMbGRlyceQB2zyPjIkCntsZVFCe3dsSuw?e=Lg47M0" class="text-yellow-500 mt-2 block">View on OneDrive</a>
                 </div>
             </div>
-            
-            <!-- Other Smaller Projects -->
             <div class="mt-10 text-center">
                 <h3 class="text-3xl font-bold mb-6">Other Smaller & Miscellaneous Projects</h3>
                 <a href="https://auebgr-my.sharepoint.com/:f:/g/personal/o1230087_aueb_gr/EiZasvv_Yy1Jm0_hq8xOAyoBZjy9-lLh_1XP43M3FwYa4A?e=6BNDQR" class="inline-block px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black text-2xl font-semibold rounded-lg shadow-lg hover:from-yellow-500 hover:to-yellow-700 transition-all transform hover:scale-105">
@@ -288,7 +286,6 @@
             <p>Email: <a href="mailto:thodoriskourtalisp@gmail.com" class="text-yellow-500">thodoriskourtalisp@gmail.com</a></p>
             <p>Location: Athens, Greece</p>
         </div>
-
     </main>
 
     <footer class="bg-gray-900 text-white p-6 text-center">
@@ -300,117 +297,56 @@
 
     <script>
        document.addEventListener('DOMContentLoaded', () => {
-    const modeToggle = document.getElementById('mode-toggle');
-    const mobileModeToggle = document.getElementById('mobile-mode-toggle');
-    const body = document.body;
+          const modeToggle = document.getElementById('mode-toggle');
+          const mobileModeToggle = document.getElementById('mobile-mode-toggle');
+          const body = document.body;
 
-    // Apply initial mode based on localStorage for theme
-    const currentTheme = localStorage.getItem("theme") || "light";
-    if (currentTheme === "dark") {
-        body.classList.add("dark-mode");
-        body.classList.remove("light-mode");
-        if (modeToggle) {
-            modeToggle.checked = true;
-        }
-        if (mobileModeToggle) {
-            mobileModeToggle.checked = true;
-        }
-    } else {
-        body.classList.add("light-mode");
-        body.classList.remove("dark-mode");
-        if (modeToggle) {
-            modeToggle.checked = false;
-        }
-        if (mobileModeToggle) {
-            mobileModeToggle.checked = false;
-        }
-    }
+          // Apply initial theme from localStorage
+          const currentTheme = localStorage.getItem("theme") || "light";
+          if (currentTheme === "dark") {
+              body.classList.add("dark-mode");
+              if (modeToggle) modeToggle.checked = true;
+              if (mobileModeToggle) mobileModeToggle.checked = true;
+          } else {
+              body.classList.add("light-mode");
+              if (modeToggle) modeToggle.checked = false;
+              if (mobileModeToggle) mobileModeToggle.checked = false;
+          }
 
-    // Toggle theme mode
-    const toggleMode = (isLightMode) => {
-        if (isLightMode) {
-            body.classList.add('light-mode');
-            body.classList.remove('dark-mode');
-            localStorage.setItem('theme', 'light');
-        } else {
-            body.classList.add('dark-mode');
-            body.classList.remove('light-mode');
-            localStorage.setItem('theme', 'dark');
-        }
-    };
+          const toggleMode = (isLightMode) => {
+              if (isLightMode) {
+                  body.classList.add('light-mode');
+                  body.classList.remove('dark-mode');
+                  localStorage.setItem('theme', 'light');
+              } else {
+                  body.classList.add('dark-mode');
+                  body.classList.remove('light-mode');
+                  localStorage.setItem('theme', 'dark');
+              }
+          };
 
-    if (modeToggle) {
-        modeToggle.addEventListener('change', () => {
-            toggleMode(modeToggle.checked);
-            if (mobileModeToggle) {
-                mobileModeToggle.checked = modeToggle.checked;
-            }
-        });
-    }
+          if (modeToggle) {
+              modeToggle.addEventListener('change', () => {
+                  toggleMode(modeToggle.checked);
+                  if (mobileModeToggle) mobileModeToggle.checked = modeToggle.checked;
+              });
+          }
 
-    if (mobileModeToggle) {
-        mobileModeToggle.addEventListener('change', () => {
-            toggleMode(mobileModeToggle.checked);
-            if (modeToggle) {
-                modeToggle.checked = mobileModeToggle.checked;
-            }
-        });
-    }
+          if (mobileModeToggle) {
+              mobileModeToggle.addEventListener('change', () => {
+                  toggleMode(mobileModeToggle.checked);
+                  if (modeToggle) modeToggle.checked = mobileModeToggle.checked;
+              });
+          }
 
-    // Lazy loading images
-    const lazyImages = document.querySelectorAll('img.lazy');
-
-    const lazyLoad = (target) => {
-        const io = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    const src = img.getAttribute('data-src');
-
-                    img.setAttribute('src', src);
-                    img.classList.remove('lazy');
-
-                    observer.unobserve(img);
-                }
-            });
-        });
-
-        io.observe(target);
-    };
-
-    lazyImages.forEach(lazyLoad);
-
-    // Fade-in animations
-    const faders = document.querySelectorAll('.animate-fade-in, .animate-fade-in-delay');
-
-    const appearOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-
-            entry.target.classList.add('opacity-100');
-            entry.target.classList.remove('opacity-0');
-            observer.unobserve(entry.target);
-        });
-    }, appearOptions);
-
-    faders.forEach(fader => {
-        appearOnScroll.observe(fader);
-    });
-
-    // Hamburger menu toggle
-    document.getElementById('hamburger-button').addEventListener('click', function() {
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenu.classList.toggle('show');
-    });
-
+          // Hamburger menu toggle for mobile
+          const hamburgerButton = document.getElementById('hamburger-button');
+          const mobileMenu = document.getElementById('mobile-menu');
+          hamburgerButton.addEventListener('click', () => {
+              mobileMenu.classList.toggle('hidden');
+          });
+       });
     </script>
-<!-- partial -->
-  <script  src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
