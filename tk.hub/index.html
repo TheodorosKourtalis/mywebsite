@@ -1,131 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document Vault - Theodoros Kourtalis</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document Vault - Theodoros Kourtalis</title>
 
-    <!-- Favicon -->
-    <link id="favicon" rel="icon" type="image/png" href="favicon-light.png" sizes="32x32">
+  <!-- Favicon -->
+  <link id="favicon" rel="icon" type="image/png" href="favicon-light.png" sizes="32x32">
 
-    <!-- External Stylesheets -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <!-- Tailwind CSS (Modern Version) -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.2.7/dist/tailwind.min.css" rel="stylesheet">
 
-    <!-- Meta Information -->
-    <meta name="description" content="Document Vault for organizing and accessing files within Theodoros Kourtalis' portfolio.">
-    <meta name="keywords" content="Document Vault, Theodoros Kourtalis, Portfolio, Files">
-    <meta name="author" content="Theodoros Kourtalis">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
- 
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
 
-   
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Document Vault for organizing and accessing files within Theodoros Kourtalis' portfolio.">
+  <meta name="keywords" content="Document Vault, Theodoros Kourtalis, Portfolio, Files">
+  <meta name="author" content="Theodoros Kourtalis">
 
-<body>
- <!-- Header Section -->
- <header>
-    <a href="https://tkourtalis.netlify.app/">Home</a>
-    <div id="theme-toggle">
-        <label for="mode-toggle" class="switch">
-            <input type="checkbox" id="mode-toggle">
-            <span class="slider round"></span>
-        </label>
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Document Vault - Theodoros Kourtalis">
+  <meta property="og:description" content="Organizing all my work in one place.">
+  <meta property="og:image" content="your-image-url.jpg">
+  <meta property="og:url" content="https://tkourtalis.netlify.app/">
+  <meta property="og:type" content="website">
+
+  <!-- Breadcrumbs Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://tkourtalis.netlify.app/"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Document Vault",
+      "item": "https://tkourtalis.netlify.app/document-vault"
+    }]
+  }
+  </script>
+
+  <!-- Inline CSS for transitions -->
+  <style>
+    body {
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .folder-content {
+      transition: max-height 0.3s ease-out;
+      overflow: hidden;
+      max-height: 0;
+    }
+    .folder-content.open {
+      max-height: 500px; /* Adjust as needed */
+    }
+  </style>
+</head>
+<body class="light-mode">
+  <!-- Header Section -->
+  <header class="p-4 flex justify-between items-center bg-gray-100 dark:bg-gray-800">
+    <a href="https://tkourtalis.netlify.app/" class="text-lg font-bold">Home</a>
+    <div id="theme-toggle" class="flex items-center">
+      <label for="mode-toggle" class="flex items-center cursor-pointer">
+        <span class="mr-2">Toggle Dark Mode</span>
+        <div class="relative">
+          <input type="checkbox" id="mode-toggle" class="sr-only">
+          <div class="w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
+          <div class="dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition"></div>
+        </div>
+      </label>
     </div>
-</header>
+  </header>
 
-<!-- Main Content -->
-<main id="file-hub">
+  <!-- Breadcrumb Navigation -->
+  <nav aria-label="Breadcrumb" class="p-4">
+    <ol class="list-reset flex text-gray-700 dark:text-gray-300">
+      <li><a href="https://tkourtalis.netlify.app/" class="text-blue-600 hover:underline">Home</a></li>
+      <li><span class="mx-2">/</span></li>
+      <li>Document Vault</li>
+    </ol>
+  </nav>
+
+  <!-- Main Content -->
+  <main id="file-hub" class="p-4">
     <!-- Title and Subtitle -->
-    <div id="file-hub-title">Document Vault</div>
-    <div id="file-hub-subtitle">Organizing all my work</div>
-
-    <section class="grid-container">
-        <!-- Folder Item 1 -->
-        <div class="folder-item" onclick="toggleFolderContent('folder1-content')">
-            <div class="folder-icon">
-                <i class="fas fa-folder"></i>
-            </div>
-            <h3>Project 1: Portfolio Website</h3>
-            <div id="folder1-content" class="folder-content">
-                <ul>
-                    <li><a href="project1.html">Overview of the Project 1</a></li>
-                     
-                </ul>
-            </div>
+    <div id="file-hub-title" class="text-3xl font-bold mb-2">Document Vault</div>
+    <div id="file-hub-subtitle" class="text-xl text-gray-600 dark:text-gray-300 mb-4">Organizing all my work</div>
+    
+    <!-- Search Functionality -->
+    <div class="mb-6">
+      <input type="text" id="search-input" placeholder="Search documents..." class="w-full p-2 border border-gray-300 rounded">
+    </div>
+    
+    <!-- Folder Items -->
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- Folder Item 1 -->
+      <div class="folder-item bg-white dark:bg-gray-700 p-4 rounded shadow hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500" tabindex="0">
+        <button aria-expanded="false" aria-controls="folder1-content" onclick="toggleFolderContent('folder1-content', this)" class="w-full text-left">
+          <div class="folder-icon text-2xl mb-2">
+            <i class="fas fa-folder"></i>
+          </div>
+          <h3 class="text-xl font-semibold">Project 1: Portfolio Website</h3>
+          <p class="text-sm text-gray-500">A brief overview of my portfolio website project.</p>
+        </button>
+        <div id="folder1-content" class="folder-content mt-2">
+          <ul class="list-disc pl-5">
+            <li><a href="project1.html" class="text-blue-600 hover:underline">Overview of Project 1</a></li>
+          </ul>
         </div>
-
-        <!-- Folder Item 2 -->
-        <div class="folder-item" onclick="toggleFolderContent('folder2-content')">
-            <div class="folder-icon">
-                <i class="fas fa-folder"></i>
-            </div>
-            <h3>Project 2: Stock Forecasting Book and Python Script</h3>
-            <div id="folder2-content" class="folder-content">
-                <ul>
-                    <li><a href="project2.html">Overview of the Project 2</a></li>
-                    
-                </ul>
-            </div>
+      </div>
+      
+      <!-- Folder Item 2 -->
+      <div class="folder-item bg-white dark:bg-gray-700 p-4 rounded shadow hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500" tabindex="0">
+        <button aria-expanded="false" aria-controls="folder2-content" onclick="toggleFolderContent('folder2-content', this)" class="w-full text-left">
+          <div class="folder-icon text-2xl mb-2">
+            <i class="fas fa-folder"></i>
+          </div>
+          <h3 class="text-xl font-semibold">Project 2: Stock Forecasting Book and Python Script</h3>
+          <p class="text-sm text-gray-500">An overview of my project involving stock forecasting techniques.</p>
+        </button>
+        <div id="folder2-content" class="folder-content mt-2">
+          <ul class="list-disc pl-5">
+            <li><a href="project2.html" class="text-blue-600 hover:underline">Overview of Project 2</a></li>
+          </ul>
         </div>
-
-        <!-- Folder Item 3 (Bottom Centered) -->
-        <div class="folder-item bottom-centered" onclick="toggleFolderContent('folder3-content')">
-            <div class="folder-icon">
-                <i class="fas fa-folder"></i>
-            </div>
-            <h3>Other Smaller & Miscellaneous Projects</h3>
-            <div id="folder3-content" class="folder-content">
-                <ul>
-                    <li><a href="project3.html">Sxolika</a></li>
-                    <li>Other</a></li>
-                    
-                </ul>
-            </div>
+      </div>
+      
+      <!-- Folder Item 3 -->
+      <div class="folder-item bg-white dark:bg-gray-700 p-4 rounded shadow hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500" tabindex="0">
+        <button aria-expanded="false" aria-controls="folder3-content" onclick="toggleFolderContent('folder3-content', this)" class="w-full text-left">
+          <div class="folder-icon text-2xl mb-2">
+            <i class="fas fa-folder"></i>
+          </div>
+          <h3 class="text-xl font-semibold">Other Smaller & Miscellaneous Projects</h3>
+          <p class="text-sm text-gray-500">Various smaller projects and experiments.</p>
+        </button>
+        <div id="folder3-content" class="folder-content mt-2">
+          <ul class="list-disc pl-5">
+            <li><a href="project3.html" class="text-blue-600 hover:underline">Sxolika</a></li>
+            <li><a href="other.html" class="text-blue-600 hover:underline">Other Projects</a></li>
+          </ul>
         </div>
+      </div>
     </section>
-</main>
+  </main>
 
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2024 Theodoros Kourtalis. All rights reserved.</p>
-        <div class="social-media">
-            <a href="https://www.linkedin.com/in/theodoros-kourtalis-16a1a0297/" target="_blank" class="social-link">
-                <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-        </div>
-    </footer>
+  <!-- Footer Section -->
+  <footer class="p-4 bg-gray-100 dark:bg-gray-800 text-center">
+    <p>&copy; 2024 Theodoros Kourtalis. All rights reserved.</p>
+    <div class="social-media mt-2">
+      <a href="https://www.linkedin.com/in/theodoros-kourtalis-16a1a0297/" target="_blank" class="social-link text-blue-600 hover:underline">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+    </div>
+  </footer>
 
-    <!-- External Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const modeToggle = document.getElementById('mode-toggle');
-            const body = document.body;
+  <!-- External Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+  <script>
+    // Toggle folder content and update aria-expanded
+    function toggleFolderContent(contentId, btn) {
+      const content = document.getElementById(contentId);
+      const isOpen = content.classList.contains('open');
+      if (isOpen) {
+        content.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        content.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    }
 
-            const applyTheme = (theme) => {
-                if (theme === 'dark') {
-                    body.classList.add('dark-mode');
-                    body.classList.remove('light-mode');
-                } else {
-                    body.classList.add('light-mode');
-                    body.classList.remove('dark-mode');
-                }
-            };
+    // Dark/Light Mode Toggle
+    document.addEventListener('DOMContentLoaded', () => {
+      const modeToggle = document.getElementById('mode-toggle');
+      const body = document.body;
 
-            const currentTheme = localStorage.getItem("theme") || "light";
-            applyTheme(currentTheme);
+      const applyTheme = (theme) => {
+        if (theme === 'dark') {
+          body.classList.add('dark-mode');
+          body.classList.remove('light-mode');
+        } else {
+          body.classList.add('light-mode');
+          body.classList.remove('dark-mode');
+        }
+      };
 
-            modeToggle.checked = currentTheme === "dark";
+      const currentTheme = localStorage.getItem("theme") || "light";
+      applyTheme(currentTheme);
+      modeToggle.checked = currentTheme === "dark";
 
-            modeToggle.addEventListener('change', () => {
-                const theme = modeToggle.checked ? 'dark' : 'light';
-                applyTheme(theme);
-                localStorage.setItem('theme', theme);
-            });
-        });
-    </script>
+      modeToggle.addEventListener('change', () => {
+        const theme = modeToggle.checked ? 'dark' : 'light';
+        applyTheme(theme);
+        localStorage.setItem('theme', theme);
+      });
+    });
+
+    // Search Functionality: Filter folder items
+    document.getElementById('search-input').addEventListener('input', function() {
+      const query = this.value.toLowerCase();
+      const folderItems = document.querySelectorAll('.folder-item');
+      folderItems.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(query) ? '' : 'none';
+      });
+    });
+  </script>
 </body>
-
 </html>
