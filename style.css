@@ -1,769 +1,486 @@
-/* Define CSS Variables for Theme Colors */
+/* ===============================
+   CSS Variables & Global Styles
+=============================== */
 :root {
-    --font-family: 'Arial', sans-serif;
-    --transition-duration: 0.5s;
-    --bg-light: #f8f9fa;
-    --bg-dark: #1a202c;
-    --text-light: #fff;
-    --text-dark: #001f3f;
-    --primary: #2196F3;
-    --secondary: #ecc94b;
-    --secondary-hover: #d69e2e;
-    --gray-light: #e2e8f0;
-    --gray-dark: #3b475a;
-    --gray-darker: #2c3e50; /* Darker shade */
+  --font-family: 'Arial', sans-serif;
+  --transition-duration: 0.5s;
+  --bg-light: #f8f9fa;
+  --bg-dark: #1a202c;
+  --text-light: #fff;
+  --text-dark: #001f3f;
+  --primary: #2196F3;
+  --secondary: #ecc94b;
+  --secondary-hover: #d69e2e;
+  --gray-light: #e2e8f0;
+  --gray-dark: #3b475a;
+  --gray-darker: #2c3e50;
 }
 
-/* General Styles */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-    font-family: var(--font-family);
-    transition: background-color var(--transition-duration), color var(--transition-duration);
+  font-family: var(--font-family);
+  transition: background-color var(--transition-duration), color var(--transition-duration);
 }
 
+/* ===============================
+   Theme-Specific Body Styles
+=============================== */
 body.dark-mode {
-    background-color: var(--bg-dark);
-    color: var(--text-light);
+  background-color: var(--bg-dark);
+  color: var(--text-light);
 }
 
 body.light-mode {
-    background-color: var(--bg-light);
-    color: var(--text-dark);
+  background-color: var(--bg-light);
+  color: var(--text-dark);
 }
 
-/* Smooth Scrolling */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Light Switch Toggle */
+/* ===============================
+   Light Switch Toggle
+=============================== */
 .switch {
-    position: relative;
-    display: inline-block;
-    width: 50px;
-    height: 25px;
-    background-color: var(--gray-dark);
-    border-radius: 25px;
-    transition: background-color var(--transition-duration);
-    margin-left: 1rem;
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  background-color: var(--gray-dark);
+  border-radius: 25px;
+  transition: background-color var(--transition-duration);
+  margin-left: 1rem;
 }
-
 .switch input {
-    display: none;
+  display: none;
 }
-
 .slider {
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    background-color: var(--text-light);
-    border-radius: 50%;
-    transition: transform var(--transition-duration);
-    top: 0;
-    left: 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: var(--text-light);
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  transition: transform var(--transition-duration);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
-
 input:checked + .slider {
-    transform: translateX(25px);
-    background-color: var(--secondary);
-}
-/* Animation for equations */
-.portfolio-header-container {
-    position: relative;
-    height: 100vh;
-    background-color: #1a202c; /* Navy or black background */
+  transform: translateX(25px);
+  background-color: var(--secondary);
 }
 
-.equation {
-    position: absolute;
-    font-size: 24px;
-    color: rgba(255, 255, 255, 0.5);
-    animation: move 10s linear infinite;
-}
-
-@keyframes move {
-    0% { transform: translateY(100vh); }
-    100% { transform: translateY(-100vh); }
-}
-
-
-/* Fade-in Animation */
-.opacity-0 {
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.opacity-100 {
-    opacity: 1;
-}
-
-/* Header Styles */
+/* ===============================
+   Header & Navigation
+=============================== */
 header {
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    color: var(--text-light);
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  color: var(--text-light);
 }
-
 header nav {
-    background: rgba(0, 0, 0, 0.5);
-    padding: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
 }
-
-header h1, header p {
-    opacity: 0;
-}
-
 body.light-mode header {
-    color: var(--text-dark);
-    background-color: var(--text-dark);
+  color: var(--text-dark);
+  background-color: var(--text-dark);
 }
-
 body.light-mode header nav {
-    background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.8);
 }
 
-body.light-mode header h1, body.light-mode header p {
-    color: var(--text-light);
+/* Fade-in for header text */
+.fade-in,
+.fade-in-delay {
+  opacity: 0;
+  animation: fadeIn 2s ease-in forwards;
+}
+.fade-in-delay {
+  animation-delay: 1s;
+}
+@keyframes fadeIn {
+  to { opacity: 1; }
 }
 
-/* Section Styles */
+/* ===============================
+   Equations Animation (Header)
+=============================== */
+.equation {
+  position: absolute;
+  font-size: 24px;
+  color: rgba(0, 255, 0, 0.8);
+  animation: move 8s linear infinite, glow 1.5s infinite alternate;
+  transition: transform 0.5s, opacity 0.5s, color 0.5s;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.7),
+               0 0 20px rgba(0, 255, 0, 0.5),
+               0 0 30px rgba(0, 255, 0, 0.3),
+               0 0 40px rgba(0, 255, 0, 0.2),
+               0 0 50px rgba(0, 255, 0, 0.1);
+  font-family: 'Courier New', Courier, monospace;
+}
+@keyframes move {
+  0% { transform: translateY(-100vh); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+@keyframes glow {
+  0% { text-shadow: 0 0 10px rgba(0, 255, 0, 0.7), 0 0 20px rgba(0, 255, 0, 0.5); }
+  100% { text-shadow: 0 0 30px rgba(0, 255, 0, 1), 0 0 50px rgba(0, 255, 0, 0.7); }
+}
+
+/* ===============================
+   Section & General Component Styles
+=============================== */
 section {
-    margin: 4rem 0;
-    padding: 1rem;
+  margin: 4rem 0;
+  padding: 1rem;
 }
 
-#languages {
-    padding: 2rem;
-    border-radius: 1rem;
-    background: var(--bg-light); /* Ensure section background matches the theme */
-    transition: background-color var(--transition-duration), color var(--transition-duration);
-}
-
-/* Heading Styles */
-#languages h2 {
-    color: var(--text-dark); /* Adaptable to light/dark mode */
-    margin-bottom: 2rem;
-    font-size: 2.5rem;
-    text-align: center;
-    letter-spacing: 0.1rem;
-}
-
-body.dark-mode #languages h2 {
-    color: var(--text-light); /* Ensure readability in dark mode */
-}
-
-/* Language Card Styles */
-.language-card {
-    background: linear-gradient(135deg, #e2e8f0, #cbd5e0); /* Gradient background */
-    color: #2d3748; /* Tailwind's gray-800 */
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: left; /* Align text to the left */
-    margin-bottom: 2rem;
-}
-
-.language-card:hover {
-    transform: translateY(-0.5rem);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.language-card img {
-    border-radius: 0.5rem;
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 1rem;
-}
-
-.language-card h3 {
-    margin-bottom: 0.5rem;
-    font-size: 1.75rem; /* Slightly larger font size for heading */
-    position: relative;
-    display: inline-block;
-    padding-bottom: 0.25rem; /* Ensure space for the gradient line */
-}
-
-.language-card h3.english {
-    position: relative;
-    display: inline-block;
-}
-
-.language-card h3.english::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -0.25rem; /* Align the gradient line with the bottom of the heading */
-    width: 100%;
-    height: 0.25rem; /* Adjust the height for better visibility */
-    background: 
-        repeating-linear-gradient(
-            45deg,
-            #5a5caa 0,      /* Adjusted blue */
-            #5a5caa 2px,
-            #e6e6e6 2px,    /* Washed-out white */
-            #e6e6e6 4px,
-            #cc4444 4px,    /* Washed-out red */
-            #cc4444 6px
-        ), /* Diagonal stripes in one direction */
-        repeating-linear-gradient(
-            -45deg,
-            #5a5caa 0,      /* Adjusted blue */
-            #5a5caa 2px,
-            #e6e6e6 2px,    /* Washed-out white */
-            #e6e6e6 4px,
-            #cc4444 4px,    /* Washed-out red */
-            #cc4444 6px
-        ); /* Diagonal stripes in the opposite direction */
-    background-size: 12px 12px; /* Create X patterns */
-    background-blend-mode: multiply; /* Blend the gradients to create X shapes */
-    border-radius: 0.125rem; /* Smooth the edges for a cleaner look */
-}
-
-
-
-.language-card h3.greek::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -0.25rem; /* Align the gradient line with the bottom of the heading */
-    width: 100%;
-    height: 0.125rem; /* Similar size to the line in skills section */
-    background: linear-gradient(90deg, #0000ff, #ffffff); /* Gradient underline (Greece flag colors) */
-}
-
-.language-card p {
-    font-size: 1.125rem; /* Larger font size for better readability */
-    line-height: 1.5;
-}
-
-/* Light Mode Styles */
-body.light-mode #languages {
-    background: var(--bg-light);
-    color: var(--text-dark);
-}
-
-body.light-mode .language-card {
-    background: linear-gradient(135deg, #e2e8f0, #cbd5e0); /* Same gradient background */
-    color: #2d3748; /* Tailwind's gray-800 */
-}
-
-body.light-mode .language-card:hover {
-    background-color: #cbd5e0; /* Tailwind's gray-400 */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* Dark Mode Styles */
-body.dark-mode #languages {
-    background: var(--bg-dark);
-    color: var(--text-light);
-}
-
-body.dark-mode .language-card {
-    background: linear-gradient(135deg, #1a202c, #2d3748); /* Dark gradient background */
-    color: #e2e8f0; /* Tailwind's gray-200 */
-}
-
-body.dark-mode .language-card:hover {
-    background-color: #2d3748; /* Tailwind's gray-800 */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-}
-
-
-/* General Styles for Light Mode */
-body.light-mode section {
-    background-color: var(--bg-light);
-    color: var(--text-dark);
-}
-
-/* Image Styles */
-#about img, #education img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 50%;
-}
-
-#education .bg-gray-800 {
-    background-color: #2d3748;
-}
-
-body.light-mode #education .bg-gray-800 {
-    background-color: var(--bg-light);
-    color: var(--text-dark);
-}
-
-/* ==============================
-   Work Experience Section Styles
-   ============================== */
-
-/* Container for Work Experience Section */
+/* ===============================
+   Work Experience Section
+=============================== */
 #work {
-    padding: 3rem 2rem;
-    background-color: var(--bg-light);
-    transition: background-color var(--transition-duration), color var(--transition-duration);
+  padding: 3rem 2rem;
+  background-color: var(--bg-light);
+  transition: background-color var(--transition-duration), color var(--transition-duration);
 }
-
 body.dark-mode #work {
-    background-color: var(--bg-dark);
-    color: var(--text-light);
+  background-color: var(--bg-dark);
+  color: var(--text-light);
 }
 
 /* Section Title */
 #work .section-title {
-    text-align: center; /* Default to center for mobile */
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 3rem;
-    position: relative;
-    display: inline-block;
-    color: var(--text-dark);
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-block;
+  color: var(--text-dark);
 }
-
 body.dark-mode #work .section-title {
-    color: var(--text-light);
+  color: var(--text-light);
 }
-
 #work .section-title::after {
-    content: '';
-    width: 50%; /* Adjust as needed */
-    height: 4px;
-    background: var(--primary);
-    position: absolute;
-    left: 25%; /* Centered underline */
-    bottom: -10px;
-    border-radius: 2px;
+  content: '';
+  width: 50%;
+  height: 4px;
+  background: var(--primary);
+  position: absolute;
+  left: 25%;
+  bottom: -10px;
+  border-radius: 2px;
 }
-
 body.dark-mode #work .section-title::after {
-    background: var(--secondary);
-}
-
-/* Media Query for Larger Screens */
-@media (min-width: 769px) {
-    /* Align text to the left */
-    #work .section-title {
-        text-align: left;
-        display: block; /* Ensure it takes full width */
-    }
-
-    /* Align underline to the left */
-    #work .section-title::after {
-        left: 0; /* Start underline from the left */
-        width: 50%; /* Adjust width as needed */
-    }
+  background: var(--secondary);
 }
 
 /* Work Experience Cards Container */
 .work-experience-container {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-/* Individual Work Experience Card */
+/* Work Experience Card */
 .work-experience-card {
-    background: var(--bg-light);
-    border: 1px solid var(--gray-light);
-    border-radius: 1rem;
-    padding: 2rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    transition: transform var(--transition-duration), box-shadow var(--transition-duration), background-color var(--transition-duration);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: var(--bg-light);
+  border: 1px solid var(--gray-light);
+  border-radius: 1rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  transition: background-color var(--transition-duration),
+              transform var(--transition-duration),
+              box-shadow var(--transition-duration);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
 body.dark-mode .work-experience-card {
-    background: var(--bg-dark);
-    border: 1px solid var(--gray-darker);
-    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+  background-color: var(--bg-dark);
+  border: 1px solid var(--gray-darker);
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
 }
-
-/* Hover Effects */
 .work-experience-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
-
 body.dark-mode .work-experience-card:hover {
-    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
 }
 
 /* Company Logo */
 .work-experience-card img.company-logo {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-right: 2rem;
-    border: 3px solid var(--primary);
-    transition: border-color var(--transition-duration), transform var(--transition-duration);
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 2rem;
+  border: 3px solid var(--primary);
+  transition: border-color var(--transition-duration), transform var(--transition-duration);
 }
-
 .work-experience-card img.company-logo:hover {
-    border-color: var(--secondary);
-    transform: scale(1.05);
+  border-color: var(--secondary);
+  transform: scale(1.05);
 }
 
 /* Work Details */
 .work-experience-details {
-    flex: 1;
+  flex: 1;
 }
-
-/* Job Title */
 .work-experience-details h3.job-title {
-    font-size: 1.75rem;
-    margin-bottom: 0.5rem;
-    position: relative;
-    display: inline-block;
-    color: var(--text-dark);
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
+  color: var(--text-dark);
 }
-
 body.dark-mode .work-experience-details h3.job-title {
-    color: var(--text-light);
+  color: var(--text-light);
 }
-
 .work-experience-details h3.job-title::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    width: 50%; /* Adjust as needed */
-    height: 3px;
-    background: var(--primary);
-    border-radius: 2px;
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 50%;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 2px;
 }
-
 body.dark-mode .work-experience-details h3.job-title::after {
-    background: var(--secondary);
+  background: var(--secondary);
 }
-
-/* Company Name */
 .work-experience-details h4.company-name {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-    color: var(--secondary);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--secondary);
 }
-
 body.dark-mode .work-experience-details h4.company-name {
-    color: var(--secondary-hover);
+  color: var(--secondary-hover);
 }
-
-/* Duration and Location */
 .work-experience-details .job-duration-location {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    color: var(--gray-dark);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: var(--gray-dark);
 }
-
 body.dark-mode .work-experience-details .job-duration-location {
-    color: var(--gray-light);
+  color: var(--gray-light);
+}
+.work-experience-details p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
 }
 
-/* Job Description */
-.work-experience-details p.job-description {
-    font-size: 1.125rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-}
-
-/* Skill Badges within Job Description */
+/* Skill Badges */
 .work-experience-details .skill-badge {
-    display: inline-block;
-    background-color: var(--secondary);
-    color: #000;
-    padding: 0.3rem 0.6rem;
-    border-radius: 0.25rem;
-    font-size: 0.875rem;
-    margin-right: 0.5rem;
-    margin-top: 0.5rem;
-    transition: background-color var(--transition-duration), transform var(--transition-duration);
-    text-decoration: none;
+  display: inline-block;
+  background-color: var(--secondary);
+  color: #000;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  transition: background-color var(--transition-duration), transform var(--transition-duration);
+  text-decoration: none;
 }
-
 .work-experience-details .skill-badge:hover {
-    background-color: var(--secondary-hover);
-    transform: scale(1.05);
-    cursor: pointer;
+  background-color: var(--secondary-hover);
+  transform: scale(1.05);
+  cursor: pointer;
 }
-
 body.dark-mode .work-experience-details .skill-badge {
-    background-color: #cc4444; /* Dark mode adjustment */
-    color: #fff;
+  background-color: #cc4444;
+  color: #fff;
 }
-
 body.dark-mode .work-experience-details .skill-badge:hover {
-    background-color: #e6b800; /* Dark mode hover adjustment */
+  background-color: #e6b800;
 }
 
-/* Responsive Design */
+/* ===============================
+   Responsive Adjustments
+=============================== */
 @media (max-width: 768px) {
-    .work-experience-card {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .work-experience-card img.company-logo {
-        margin-right: 0;
-        margin-bottom: 1rem;
-    }
-
-    /* Re-center section title on smaller screens */
-    #work .section-title {
-        text-align: center;
-    }
-
-    #work .section-title::after {
-        left: 25%; /* Centered underline */
-        width: 50%;
-    }
+  .work-experience-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .work-experience-card img.company-logo {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  #work .section-title {
+    text-align: center;
+  }
+  #work .section-title::after {
+    left: 25%;
+    width: 50%;
+  }
 }
 
+/* ===============================
+   Additional Component Styles
+   (Skills, Projects, Contact, Footer, etc.)
+=============================== */
 
+/* Example Skill Card (adjust as needed) */
 .skill-card {
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .skill-card:hover {
-    background-color: #4a5568; /* Tailwind's bg-gray-700 */
-    transform: translateY(-0.25rem) scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  background-color: #4a5568;
+  transform: translateY(-0.25rem) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
-
 .skill-card h3 {
-    border-bottom: 2px solid #ecc94b; /* Tailwind's yellow-400 */
-    padding-bottom: 0.5rem;
+  border-bottom: 2px solid #ecc94b;
+  padding-bottom: 0.5rem;
 }
-
 body.light-mode #skills .bg-gray-800 {
-    background-color: var(--gray-light);
-    color: var(--text-dark);
+  background-color: var(--gray-light);
+  color: var(--text-dark);
 }
 
-#skills ul {
-    list-style-type: disc;
-}
-#work .bg-gray-700 {
-    background-color: var(--gray-darker); /* Darker background */
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
+/* Projects Section Example */
 #projects .bg-gray-700 {
-    background-color: var(--gray-darker); /* Darker background */
-    transition: background-color 0.3s ease, transform 0.3s ease;
+  background-color: var(--gray-darker);
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
-
 body.light-mode #projects .bg-gray-700 {
-    background-color: #b0bec5; /* Slightly darker shade for light mode */
-    color: var(--text-dark);
+  background-color: #b0bec5;
+  color: var(--text-dark);
 }
-
 #projects .bg-gray-700:hover {
-    background-color: var(--gray-darker); /* Keep darker shade on hover */
-    transform: scale(1.05);
-    box-shadow: 0 0 10px var(--text-light);
+  background-color: var(--gray-darker);
+  transform: scale(1.05);
+  box-shadow: 0 0 10px var(--text-light);
 }
-
 body.light-mode #projects .bg-gray-700:hover {
-    background-color: #90a4ae; /* Slightly darker shade on hover */
-    transform: scale(1.05);
-    box-shadow: 0 0 10px var(--text-dark);
+  background-color: #90a4ae;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px var(--text-dark);
 }
 
 /* Contact Form */
 form {
-    background-color: #2d3748;
-    padding: 1rem;
-    border-radius: 0.5rem;
+  background-color: #2d3748;
+  padding: 1rem;
+  border-radius: 0.5rem;
 }
-
 body.light-mode form {
-    background-color: var(--bg-light);
-    color: var(--text-dark);
+  background-color: var(--bg-light);
+  color: var(--text-dark);
 }
-
 form label {
-    display: block;
-    margin-top: 1rem;
+  display: block;
+  margin-top: 1rem;
 }
-
 form input, form textarea {
-    width: 100%;
-    padding: 0.5rem;
-    margin-top: 0.5rem;
-    border: 1px solid var(--gray-darker);
-    border-radius: 0.25rem;
-    background-color: var(--gray-darker);
-    color: var(--text-light);
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border: 1px solid var(--gray-darker);
+  border-radius: 0.25rem;
+  background-color: var(--gray-darker);
+  color: var(--text-light);
 }
-
-body.light-mode form input, body.light-mode form textarea {
-    background-color: var(--text-light);
-    color: var(--text-dark);
-    border: 1px solid #ccc;
+body.light-mode form input, 
+body.light-mode form textarea {
+  background-color: var(--text-light);
+  color: var(--text-dark);
+  border: 1px solid #ccc;
 }
-
 form button {
-    background-color: var(--secondary);
-    color: #000;
-    padding: 0.75rem;
-    margin-top: 1rem;
-    width: 100%;
-    border: none;
-    border-radius: 0.25rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  background-color: var(--secondary);
+  color: #000;
+  padding: 0.75rem;
+  margin-top: 1rem;
+  width: 100%;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
-
 form button:hover {
-    background-color: var(--secondary-hover);
+  background-color: var(--secondary-hover);
 }
 
 /* Footer */
 footer {
+  background-color: var(--bg-dark);
+  padding: 1rem;
+  text-align: center;
+}
+body.light-mode footer {
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+}
+footer .social-media a {
+  margin: 0 0.5rem;
+  color: var(--secondary);
+  transition: color 0.3s ease;
+}
+footer .social-media a:hover {
+  color: var(--secondary-hover);
+}
+body.light-mode footer .social-media a {
+  color: var(--text-dark);
+}
+body.light-mode footer .social-media a:hover {
+  color: #004080;
+}
+
+/* ===============================
+   Hamburger & Mobile Menu
+=============================== */
+#hamburger-button {
+  display: none;
+  cursor: pointer;
+}
+#hamburger-button .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: var(--text-light);
+  transition: all 0.3s ease;
+}
+@media (max-width: 768px) {
+  #hamburger-button {
+    display: block;
+  }
+  #mobile-menu {
+    display: none;
+    flex-direction: column;
     background-color: var(--bg-dark);
     padding: 1rem;
-    text-align: center;
-}
-
-body.light-mode footer {
+    border-radius: 0.5rem;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+  }
+  #mobile-menu.show {
+    display: flex;
+  }
+  body.light-mode #mobile-menu {
     background-color: var(--bg-light);
     color: var(--text-dark);
+  }
 }
 
-footer .social-media a {
-    margin: 0 0.5rem;
-    color: var(--secondary);
-    transition: color 0.3s ease;
-}
-
-footer .social-media a:hover {
-    color: var(--secondary-hover);
-}
-
-body.light-mode footer .social-media a {
-    color: var(--text-dark);
-}
-
-body.light-mode footer .social-media a:hover {
-    color: #004080;
-}
-
-/* Utility Classes for Animations */
-.animate-fade-in {
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.animate-fade-in-delay {
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    transition-delay: 0.5s;
-}
-
-/* Style for the hamburger button */
-#hamburger-button {
-    display: none;
-    cursor: pointer;
-}
-
-#hamburger-button .bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    background-color: var(--text-light);
-    transition: all 0.3s ease;
-}
-
-@media (max-width: 768px) {
-    #hamburger-button {
-        display: block;
-    }
-    #mobile-menu {
-        display: none;
-        flex-direction: column;
-        background-color: var(--bg-dark);
-        padding: 1rem;
-        border-radius: 0.5rem;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 100%;
-    }
-    #mobile-menu.show {
-        display: flex;
-    }
-    body.light-mode #mobile-menu {
-        background-color: var(--bg-light);
-        color: var(--text-dark);
-    }
-}
-
-/* Scroll Spy */
+/* ===============================
+   Navigation Active State (Scroll Spy)
+=============================== */
 nav a.active {
-    border-bottom: 2px solid var(--secondary);
+  border-bottom: 2px solid var(--secondary);
 }
-
 nav a {
-    transition: border-bottom var(--transition-duration);
-}
-/* Animations */
-/* Animations */
-.equation {
-    position: absolute;
-    font-size: 24px;
-    color: rgba(0, 255, 0, 0.8);
-    animation: move 8s linear infinite, glow 1.5s infinite alternate;
-    transition: transform 0.5s, opacity 0.5s, color 0.5s;
-    text-shadow: 
-        0 0 10px rgba(0, 255, 0, 0.7), 
-        0 0 20px rgba(0, 255, 0, 0.5), 
-        0 0 30px rgba(0, 255, 0, 0.3),
-        0 0 40px rgba(0, 255, 0, 0.2),
-        0 0 50px rgba(0, 255, 0, 0.1);
-    font-family: 'Courier New', Courier, monospace;
-}
-/* Custom Styles for the File Hub Link */
-.file-hub-link {
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 0.5rem 1rem;
-    background-color: var(--secondary);
-    color: var(--text-light);
-    border-radius: var(--border-radius);
-    font-size: 1rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: background-color var(--transition-duration), color var(--transition-duration);
-}
-
-.file-hub-link:hover {
-    background-color: var(--secondary-hover);
-    color: var(--text-light);
-}
-
-/* Light Mode Adjustments */
-body.light-mode .file-hub-link {
-    background-color: var(--cool-glow); /* Cool blue for light mode */
-    color: var(--text-dark);
-}
-
-body.light-mode .file-hub-link:hover {
-    background-color: var(--secondary);
-    color: var(--text-light);
-}
-@keyframes move {
-    0% { transform: translateY(-100vh) rotate(0deg); opacity: 0; }
-    50% { opacity: 1; }
-    100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-}
-
-@keyframes glow {
-    0% { text-shadow: 0 0 10px rgba(0, 255, 0, 0.7), 0 0 20px rgba(0, 255, 0, 0.5); }
-    100% { text-shadow: 0 0 30px rgba(0, 255, 0, 1), 0 0 50px rgba(0, 255, 0, 0.7); }
+  transition: border-bottom var(--transition-duration);
 }
