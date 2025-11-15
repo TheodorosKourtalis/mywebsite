@@ -790,25 +790,11 @@ body.light-mode #projects,
 body.light-mode #research,
 body.light-mode #certifications,
 body.light-mode #interests {
-    border-radius: 1.5rem;
-    padding: 3rem 2.5rem;
-    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.25);
-}
-
-body.light-mode #projects {
-    background: radial-gradient(circle at top left, #faf5ff, #e9d8fd);
-}
-
-body.light-mode #research {
-    background: radial-gradient(circle at top left, #fff5f5, #fed7e2);
-}
-
-body.light-mode #certifications {
-    background: radial-gradient(circle at top left, #edf2f7, #e2e8f0);
-}
-
-body.light-mode #interests {
-    background: radial-gradient(circle at top left, #f7fafc, #e2e8f0);
+    border-radius: 1.25rem;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+    background-color: var(--bg-light);
+    border: 1px solid var(--gray-light);
 }
 
 /* Dark mode shells */
@@ -816,25 +802,11 @@ body.dark-mode #projects,
 body.dark-mode #research,
 body.dark-mode #certifications,
 body.dark-mode #interests {
-    border-radius: 1.5rem;
-    padding: 3rem 2.5rem;
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
-}
-
-body.dark-mode #projects {
-    background: radial-gradient(circle at top left, #2d1b4c, #1a102b);
-}
-
-body.dark-mode #research {
-    background: radial-gradient(circle at top left, #4a1022, #1a0a12);
-}
-
-body.dark-mode #certifications {
-    background: radial-gradient(circle at top left, #1f2933, #0b1120);
-}
-
-body.dark-mode #interests {
-    background: radial-gradient(circle at top left, #111827, #020617);
+    border-radius: 1.25rem;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7);
+    background-color: var(--bg-dark);
+    border: 1px solid var(--gray-darker);
 }
 
 /* Accent bars to give each new section its own identity */
@@ -852,20 +824,17 @@ body.dark-mode #interests {
     opacity: 0.95;
 }
 
-#projects::before {
-    background: linear-gradient(90deg, #9f7aea, #805ad5);
-}
-
+#projects::before,
 #research::before {
-    background: linear-gradient(90deg, #f56565, #e53e3e);
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
 }
 
 #certifications::before {
-    background: linear-gradient(90deg, #4fd1c5, #319795);
+    background: linear-gradient(90deg, var(--secondary), var(--secondary-hover));
 }
 
 #interests::before {
-    background: linear-gradient(90deg, #a0aec0, #718096);
+    background: linear-gradient(90deg, var(--gray-dark), var(--gray-darker));
 }
 
 /* Section heading styling for new sections */
@@ -907,15 +876,15 @@ body.dark-mode #interests > h2 {
 body.dark-mode #projects .bg-gray-700,
 body.dark-mode #research .bg-gray-700,
 body.dark-mode #certifications .bg-gray-800 {
-    background: linear-gradient(135deg, #111827, #2d3748);
+    background-color: var(--gray-darker);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65);
 }
 
 body.light-mode #projects .bg-gray-700,
 body.light-mode #research .bg-gray-700,
 body.light-mode #certifications .bg-gray-800 {
-    background: linear-gradient(135deg, #e2e8f0, #cbd5e0);
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.25);
+    background-color: var(--gray-light);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
     color: var(--text-dark);
 }
 
