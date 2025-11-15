@@ -842,6 +842,7 @@ body.dark-mode #interests {
 }
 
 @media (min-width: 769px) {
+    #projects > h2,
     #research > h2,
     #certifications > h2 {
         text-align: left;
