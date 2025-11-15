@@ -836,9 +836,17 @@ body.dark-mode #interests {
 #interests > h2 {
     font-size: 2.4rem;
     letter-spacing: 0.08em;
-    text-transform: uppercase;
+    text-transform: none; /* Keep natural casing: Projects, Research Groups, Certifications */
     margin-bottom: 1.75rem;
     text-align: center;
+}
+
+@media (min-width: 769px) {
+    #research > h2,
+    #certifications > h2 {
+        text-align: left;
+        display: block; /* Make sure they behave like full-width titles */
+    }
 }
 
 body.light-mode #projects > h2,
