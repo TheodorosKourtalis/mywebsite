@@ -801,10 +801,7 @@ body.dark-mode #interests {
     padding: 2rem 1.5rem;
 }
 
-/* Accent bars to give each new section its own identity */
-#projects::before,
-#research::before,
-#certifications::before,
+/* Accent bar only for Interests (removed from Projects, Research, Certifications) */
 #interests::before {
     content: '';
     position: absolute;
@@ -814,18 +811,6 @@ body.dark-mode #interests {
     height: 4px;
     border-radius: 999px;
     opacity: 0.95;
-}
-
-#projects::before,
-#research::before {
-    background: linear-gradient(90deg, var(--primary), var(--secondary));
-}
-
-#certifications::before {
-    background: linear-gradient(90deg, var(--secondary), var(--secondary-hover));
-}
-
-#interests::before {
     background: linear-gradient(90deg, var(--gray-dark), var(--gray-darker));
 }
 
