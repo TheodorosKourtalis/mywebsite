@@ -770,3 +770,164 @@ body.light-mode .file-hub-link:hover {
     0% { text-shadow: 0 0 10px rgba(0, 255, 0, 0.7), 0 0 20px rgba(0, 255, 0, 0.5); }
     100% { text-shadow: 0 0 30px rgba(0, 255, 0, 1), 0 0 50px rgba(0, 255, 0, 0.7); }
 }
+
+/* ===============================
+   Section Layout & Visual Identity
+   =============================== */
+
+/* Constrain all sections and give them consistent spacing */
+section {
+    max-width: 1100px;
+    margin: 4rem auto;
+}
+
+/* Make key sections feel like elevated "cards" */
+#about,
+#education,
+#languages,
+#skills,
+#projects,
+#research,
+#work,
+#contact {
+    position: relative;
+    border-radius: 1.25rem;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+}
+
+/* Light / dark background handling for the section shells */
+body.light-mode #about,
+body.light-mode #education,
+body.light-mode #skills,
+body.light-mode #projects,
+body.light-mode #research,
+body.light-mode #work,
+body.light-mode #contact {
+    background: linear-gradient(145deg, #ffffff, #edf2f7);
+}
+
+body.dark-mode #about,
+body.dark-mode #education,
+body.dark-mode #skills,
+body.dark-mode #projects,
+body.dark-mode #research,
+body.dark-mode #work,
+body.dark-mode #contact {
+    background: radial-gradient(circle at top left, #1a202c, #0b1120);
+}
+
+/* Keep the special language section background logic intact but still elevated */
+body.light-mode #languages {
+    background: linear-gradient(145deg, #f7fafc, #e2e8f0);
+}
+
+body.dark-mode #languages {
+    background: radial-gradient(circle at top right, #111827, #1f2933);
+}
+
+/* Decorative accent bars per section for distinct identity */
+#about::before,
+#education::before,
+#languages::before,
+#skills::before,
+#projects::before,
+#research::before,
+#work::before,
+#contact::before {
+    content: '';
+    position: absolute;
+    top: 0.75rem;
+    left: 1.75rem;
+    width: 60px;
+    height: 4px;
+    border-radius: 999px;
+    opacity: 0.9;
+}
+
+#about::before {
+    background: linear-gradient(90deg, var(--primary), #63b3ed);
+}
+
+#education::before {
+    background: linear-gradient(90deg, #ecc94b, #d69e2e);
+}
+
+#languages::before {
+    background: linear-gradient(90deg, #0000ff, #ffffff, #cc4444);
+}
+
+#skills::before {
+    background: linear-gradient(90deg, #48bb78, #38a169);
+}
+
+#projects::before {
+    background: linear-gradient(90deg, #9f7aea, #805ad5);
+}
+
+#research::before {
+    background: linear-gradient(90deg, #f56565, #e53e3e);
+}
+
+#work::before {
+    background: linear-gradient(90deg, #ed8936, #dd6b20);
+}
+
+#contact::before {
+    background: linear-gradient(90deg, #2b6cb0, #2c5282);
+}
+
+/* Section headings: unify style while keeping existing specific rules */
+section > h2 {
+    font-size: 2.4rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1.75rem;
+}
+
+body.light-mode section > h2 {
+    color: var(--text-dark);
+}
+
+body.dark-mode section > h2 {
+    color: var(--text-light);
+}
+
+/* Inner content spacing */
+section > p,
+section > div,
+section > ul {
+    margin-top: 0.75rem;
+}
+
+/* Make lists inside sections breathe a bit more */
+section ul li {
+    margin-bottom: 0.35rem;
+}
+
+/* Extra polish for projects / research cards that use .bg-gray-700 in HTML */
+#projects .bg-gray-700,
+#research .bg-gray-700 {
+    border-radius: 1rem;
+    padding: 1.75rem 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+body.dark-mode #projects .bg-gray-700,
+body.dark-mode #research .bg-gray-700 {
+    background: linear-gradient(135deg, #111827, #2d3748);
+}
+
+body.light-mode #projects .bg-gray-700,
+body.light-mode #research .bg-gray-700 {
+    background: linear-gradient(135deg, #e2e8f0, #cbd5e0);
+}
+
+/* Slight hover lift for project / research cards */
+#projects .bg-gray-700:hover,
+#research .bg-gray-700:hover {
+    transform: translateY(-6px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+}
