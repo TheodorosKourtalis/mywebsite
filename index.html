@@ -114,10 +114,10 @@
             <ul class="hidden md:flex space-x-5 items-center">
                 <li><a href="#about" class="hover:text-yellow-500">About</a></li>
                 <li><a href="#education" class="hover:text-yellow-500">Education</a></li>
+                <li><a href="#skills" class="hover:text-yellow-500">Skills</a></li>
                 <li><a href="#work" class="hover:text-yellow-500">Work</a></li>
                 <li><a href="#projects" class="hover:text-yellow-500">Projects</a></li>
                 <li><a href="#research" class="hover:text-yellow-500">Research</a></li>
-                <li><a href="#skills" class="hover:text-yellow-500">Skills</a></li>
                 <li><a href="#contact" class="hover:text-yellow-500">Contact</a></li>
                 <li>
                     <label class="switch">
@@ -133,10 +133,10 @@
             <ul id="mobile-menu" class="hidden flex-col space-y-5 items-center bg-gray-900 p-5 md:hidden absolute top-16 left-0 w-full">
                 <li><a href="#about" class="hover:text-yellow-500">About</a></li>
                 <li><a href="#education" class="hover:text-yellow-500">Education</a></li>
+                <li><a href="#skills" class="hover:text-yellow-500">Skills</a></li>
                 <li><a href="#work" class="hover:text-yellow-500">Work</a></li>
                 <li><a href="#projects" class="hover:text-yellow-500">Projects</a></li>
                 <li><a href="#research" class="hover:text-yellow-500">Research</a></li>
-                <li><a href="#skills" class="hover:text-yellow-500">Skills</a></li>
                 <li><a href="#contact" class="hover:text-yellow-500">Contact</a></li>
                 <li>
                     <label class="switch">
@@ -165,9 +165,14 @@
             <h2 class="text-4xl font-bold mb-6 text-center">About Me</h2>
             <div class="flex flex-col md:flex-row items-center text-center md:text-left">
                 <img src="Myprofilephoto.jpg" alt="Profile photo" class="w-40 h-40 md:mr-8 rounded-full" loading="lazy">
-                <p class="text-lg leading-relaxed mt-4 md:mt-0">
-                  I am an undergraduate economics student at the Athens University of Economics and Business with a strong interest in trade, cultural economics, and complex economic systems. I work as a Data &amp; Text Analyst at the EMOP Center and lead a student-driven project, Asymmetria, focused on algorithmic analysis of insider trading signals. My academic excellence and research experience reflect a deep commitment to analytical work and continuous learning.
-                </p>
+                <div>
+                    <p class="text-lg leading-relaxed mt-4 md:mt-0">
+                      I am an undergraduate economics student at the Athens University of Economics and Business with a strong interest in trade, cultural economics, and complex economic systems. I work as a Data &amp; Text Analyst at the EMOP Center and lead a student-driven project, Asymmetria, focused on algorithmic analysis of insider trading signals. My academic excellence and research experience reflect a deep commitment to analytical work and continuous learning.
+                    </p>
+                    <p class="text-lg leading-relaxed mt-4">
+                      Beyond academics, my personal interests include literature (e.g., Cormac McCarthy, Albert Camus), philosophy and logic (e.g., Epictetus, Ludwig Wittgenstein), music ranging from rebetika and jazz to hip-hop and post-rock, and hiking and nature exploration.
+                    </p>
+                </div>
             </div>
         </section>
 
@@ -184,6 +189,7 @@
                 </div>
                 <div class="mt-6">
                     <h3 class="text-2xl font-semibold">3rd General High School of Keratsini</h3>
+                    <hr class="my-2 border-gray-600">
                     <p class="mt-2">Graduated 2023 &mdash; Top Graduate (19.9/20, Ranked First in School)</p>
                 </div>
             </div>
@@ -323,6 +329,23 @@
     </div>
   </div>
 </section>
+
+        <section id="certifications" class="my-16">
+            <h2 class="text-4xl font-bold mb-6 text-center">Certifications</h2>
+            <div class="bg-gray-800 text-white p-5 rounded-lg space-y-4">
+                <div>
+                    <h3 class="text-2xl font-semibold">Advanced Learning Algorithms</h3>
+                    <p class="mt-1 text-sm text-gray-400">DeepLearning.AI &mdash; Stanford University &middot; Issued Sep 2024</p>
+                    <p class="mt-1 text-sm text-gray-400">Credential ID: 0VBO30MD43SW</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold">Supervised Machine Learning: Regression and Classification</h3>
+                    <p class="mt-1 text-sm text-gray-400">DeepLearning.AI &mdash; Stanford University &middot; Issued Sep 2024</p>
+                    <p class="mt-1 text-sm text-gray-400">Credential ID: K0LUN9P0CDMV</p>
+                </div>
+            </div>
+        </section>
+
        <section id="languages" class="my-16">
             <h2 class="text-4xl font-bold mb-10 text-center">Languages</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -409,21 +432,6 @@
     </section>
 
 
-        <section id="certifications" class="my-16">
-            <h2 class="text-4xl font-bold mb-6 text-center">Certifications</h2>
-            <div class="bg-gray-800 text-white p-5 rounded-lg space-y-4">
-                <div>
-                    <h3 class="text-2xl font-semibold">Advanced Learning Algorithms</h3>
-                    <p class="mt-1 text-sm text-gray-400">DeepLearning.AI &mdash; Stanford University &middot; Issued Sep 2024</p>
-                    <p class="mt-1 text-sm text-gray-400">Credential ID: 0VBO30MD43SW</p>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-semibold">Supervised Machine Learning: Regression and Classification</h3>
-                    <p class="mt-1 text-sm text-gray-400">DeepLearning.AI &mdash; Stanford University &middot; Issued Sep 2024</p>
-                    <p class="mt-1 text-sm text-gray-400">Credential ID: K0LUN9P0CDMV</p>
-                </div>
-            </div>
-        </section>
 
         <section id="contact" class="my-16">
             <h2 class="text-4xl font-bold mb-6 text-center">Contact</h2>
@@ -441,17 +449,6 @@
             </form>
         </section>
 
-        <section id="interests" class="my-16">
-            <h2 class="text-4xl font-bold mb-6 text-center">Personal Interests</h2>
-            <div class="bg-gray-800 text-white p-5 rounded-lg">
-                <ul class="list-disc list-inside text-lg leading-relaxed">
-                    <li>Literature (e.g., Cormac McCarthy, Albert Camus)</li>
-                    <li>Philosophy and Logic (e.g., Epictetus, Ludwig Wittgenstein)</li>
-                    <li>Music (Rebetika, Jazz, Hip-Hop, Post-Rock)</li>
-                    <li>Hiking and Nature Exploration</li>
-                </ul>
-            </div>
-        </section>
 
         <div class="mt-8 text-center">
             <p>Email: <a href="mailto:kourtalistheodoros@gmail.com" class="text-yellow-500">kourtalistheodoros@gmail.com</a></p>
