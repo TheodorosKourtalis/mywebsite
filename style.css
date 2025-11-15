@@ -1,524 +1,888 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Theodoros Kourtalis &mdash; Economics Student &amp; Data Analyst</title>
-  <link rel="stylesheet" href="./style.css">
-  <!-- Favicon -->
-  <link id="favicon" rel="icon" type="image/png" href="favicon-light.png" sizes="32x32">
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P8K50EM5G6"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-P8K50EM5G6');
-  </script>
-  <!-- Hotjar Tracking Code -->
-  <script>
-      (function(h,o,t,j,a,r){
-          h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-          h._hjSettings={hjid:5042130,hjsv:6};
-          a=o.getElementsByTagName('head')[0];
-          r=o.createElement('script');r.async=1;
-          r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-          a.appendChild(r);
-      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-  </script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <meta name="description" content="A personal portfolio website showcasing my projects and skills.">
-  <meta name="keywords" content="portfolio, web developer, projects, skills">
-  <meta name="author" content="Theodoros Kourtalis">
-  <style>
-      html {
-          scroll-behavior: smooth;
-      }
-      .sticky {
-          position: sticky;
-          top: 0;
-          z-index: 1000;
-          background-color: rgba(31, 41, 55, 0.85);
-          backdrop-filter: blur(10px);
-      }
-      .fade-in {
-          opacity: 0;
-          animation: fadeIn 2s ease-in forwards;
-      }
-      .fade-in-delay {
-          opacity: 0;
-          animation: fadeIn 2s 1s ease-in forwards;
-      }
-      @keyframes fadeIn {
-          to { opacity: 1; }
-      }
-      .accordion-toggle {
-          cursor: pointer;
-          transition: background-color 0.3s;
-      }
-      .accordion-toggle:hover {
-          background-color: rgba(75, 85, 99, 0.5);
-      }
-      .accordion-content {
-          display: none;
-          transition: max-height 0.3s ease;
-          overflow: hidden;
-      }
-      .accordion-toggle.active + .accordion-content {
-          display: block;
-      }
-      .equation {
-          position: absolute;
-          font-size: 24px;
-          color: rgba(255, 255, 255, 0.7);
-          animation: move 10s linear;
-          transition: transform 0.5s, opacity 0.5s;
-      }
-      .equation:hover {
-          transform: scale(1.2);
-          opacity: 1;
-      }
-      @keyframes move {
-          0% { transform: translateY(100vh); opacity: 0; }
-          50% { opacity: 1; }
-          100% { transform: translateY(-100vh); opacity: 0; }
-      }
-      /* Scroll Prompt Arrow */
-      .scroll-prompt {
-          position: absolute;
-          bottom: 20px;
-          left: 50%;
-          transform: translateX(-50%);
-          animation: bounce 2s infinite;
-      }
-      @keyframes bounce {
-          0%, 20%, 50%, 80%, 100% {
-              transform: translateX(-50%) translateY(0);
-          }
-          40% {
-              transform: translateX(-50%) translateY(-10px);
-          }
-          60% {
-              transform: translateX(-50%) translateY(-5px);
-          }
-      }
-  </style>
-</head>
-<body class="bg-gray-900 text-white transition-colors duration-500">
-    <header class="relative bg-cover bg-center h-screen" style="background-image: url('header-bg.jpg');">
-        <div id="equations-container" class="absolute inset-0"></div>
-        <nav class="sticky w-full top-0 flex justify-between items-center p-5">
-            <div class="text-3xl font-bold">Theodoros Kourtalis</div>
-            <ul class="hidden md:flex space-x-5 items-center">
-                <li><a href="#about" class="hover:text-yellow-500">About</a></li>
-                <li><a href="#education" class="hover:text-yellow-500">Education</a></li>
-                <li><a href="#skills" class="hover:text-yellow-500">Skills</a></li>
-                <li><a href="#work" class="hover:text-yellow-500">Work</a></li>
-                <li><a href="#projects" class="hover:text-yellow-500">Projects</a></li>
-                <li><a href="#research" class="hover:text-yellow-500">Research</a></li>
-                <li><a href="#contact" class="hover:text-yellow-500">Contact</a></li>
-                <li>
-                    <label class="switch">
-                        <input type="checkbox" id="mode-toggle">
-                        <span class="slider round"></span>
-                    </label>
-                </li>
-            </ul>
-            <button id="hamburger-button" class="md:hidden text-yellow-500">
-                <i class="fas fa-bars text-3xl"></i>
-            </button>
-            <!-- Mobile Menu -->
-            <ul id="mobile-menu" class="hidden flex-col space-y-5 items-center bg-gray-900 p-5 md:hidden absolute top-16 left-0 w-full">
-                <li><a href="#about" class="hover:text-yellow-500">About</a></li>
-                <li><a href="#education" class="hover:text-yellow-500">Education</a></li>
-                <li><a href="#skills" class="hover:text-yellow-500">Skills</a></li>
-                <li><a href="#work" class="hover:text-yellow-500">Work</a></li>
-                <li><a href="#projects" class="hover:text-yellow-500">Projects</a></li>
-                <li><a href="#research" class="hover:text-yellow-500">Research</a></li>
-                <li><a href="#contact" class="hover:text-yellow-500">Contact</a></li>
-                <li>
-                    <label class="switch">
-                        <input type="checkbox" id="mobile-mode-toggle">
-                        <span class="slider round"></span>
-                    </label>
-                </li>
-            </ul>
-        </nav>
-        <div class="flex h-full items-center justify-center flex-col text-center px-4 relative z-10">
-            <h1 class="text-6xl font-bold fade-in">Welcome to My Website</h1>
-            <p class="text-2xl mt-4 fade-in-delay">Showcasing my work and skills</p>
-            <!-- "See My Work" button removed -->
-        </div>
-        <!-- Scroll Prompt Arrow -->
-        <div class="scroll-prompt">
-            <a href="#about">
-                <i class="fas fa-chevron-down text-4xl text-yellow-500"></i>
-            </a>
-        </div>
-        <div class="absolute inset-0 bg-black opacity-50 z-0"></div>
-    </header>
+/* Define CSS Variables for Theme Colors */
+:root {
+    --font-family: 'Arial', sans-serif;
+    --transition-duration: 0.5s;
+    --bg-light: #f8f9fa;
+    --bg-dark: #1a202c;
+    --text-light: #fff;
+    --text-dark: #001f3f;
+    --primary: #2196F3;
+    --secondary: #ecc94b;
+    --secondary-hover: #d69e2e;
+    --gray-light: #e2e8f0;
+    --gray-dark: #3b475a;
+    --gray-darker: #2c3e50; /* Darker shade */
+}
 
-    <main class="container mx-auto p-6">
-        <section id="about" class="my-16">
-            <h2 class="text-4xl font-bold mb-6 text-center">About Me</h2>
-            <div class="flex flex-col md:flex-row items-center text-center md:text-left">
-                <img src="Myprofilephoto.jpg" alt="Profile photo" class="w-40 h-40 md:mr-8 rounded-full" loading="lazy">
-                <p class="text-lg leading-relaxed mt-4 md:mt-0">
-                  I am an undergraduate economics student at the Athens University of Economics and Business with a strong interest in trade, cultural economics, and complex economic systems. I work as a Data &amp; Text Analyst at the EMOP Center and lead a student-driven project, Asymmetria, focused on algorithmic analysis of insider trading signals. My academic excellence and research experience reflect a deep commitment to analytical work and continuous learning.
-                </p>
-            </div>
-        </section>
+/* General Styles */
+body {
+    font-family: var(--font-family);
+    transition: background-color var(--transition-duration), color var(--transition-duration);
+}
 
-        <section id="education" class="my-16">
-            <h2 class="text-4xl font-bold mb-6 text-center">Education</h2>
-            <div class="bg-gray-800 text-white p-5 rounded-lg">
-                <div class="flex flex-col md:flex-row items-center text-center md:text-left">
-                    <img src="Athens_University_of_Economics_and_Business_Logo.jpg" alt="Athens University of Economics and Business" class="w-24 h-24 md:mr-8" loading="lazy">
-                    <div>
-                        <h3 class="text-2xl font-semibold">Athens University of Economics and Business</h3>
-                        <p class="mt-2">Oct 2023 - Jul 2027</p>
-                        <p class="mt-2">GPA: 9.09/10 (First in Cohort)</p>
-                    </div>
-                </div>
-                <div class="mt-6">
-                    <h3 class="text-2xl font-semibold">3rd General High School of Keratsini</h3>
-                    <hr class="my-2 border-gray-600">
-                    <p class="mt-2">Graduated 2023 &mdash; Top Graduate (19.9/20, Ranked First in School)</p>
-                </div>
-            </div>
-        </section>
-<section id="skills" class="my-16">
-  <h2 class="text-4xl font-bold mb-6 text-center">Skills</h2>
-  
-  <!-- Data Analysis & Statistical Tools -->
-  <div class="mb-10">
-    <h3 class="text-3xl font-semibold mb-4">Data Analysis &amp; Statistical Tools</h3>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <!-- Microsoft Excel -->
-      <div class="group relative p-1 dark:bg-gradient-to-r dark:from-yellow-500 dark:to-yellow-600 rounded-lg shadow-lg transform hover:-translate-y-1 hover:scale-105 transition duration-300">
-        <div class="bg-gray-800 p-5 rounded-lg">
-          <div class="flex items-center">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Microsoft_Office_Excel_%282019%E2%80%932025%29.svg"
-                 alt="Excel Logo" class="w-6 h-6 mr-3 object-contain" loading="lazy">
-            <h4 class="text-2xl font-semibold group-hover:text-yellow-300">
-              <a href="https://en.wikipedia.org/wiki/Microsoft_Excel" target="_blank" rel="noopener noreferrer">
-                Microsoft Excel
-              </a>
-            </h4>
-          </div>
-          <p class="mt-2 text-sm text-gray-400">Learnt at Athens University of Economics and Business</p>
-        </div>
-      </div>
-      
-      <!-- Stata -->
-      <div class="group relative p-1 dark:bg-gradient-to-r dark:from-yellow-500 dark:to-yellow-600 rounded-lg shadow-lg transform hover:-translate-y-1 hover:scale-105 transition duration-300">
-        <div class="bg-gray-800 p-5 rounded-lg">
-          <div class="flex items-center">
-            <img src="https://www.svgrepo.com/show/374098/stata.svg" 
-                 alt="Stata Logo" class="w-6 h-6 mr-3 object-contain" loading="lazy">
-            <h4 class="text-2xl font-semibold group-hover:text-yellow-300">
-              <a href="https://en.wikipedia.org/wiki/Stata" target="_blank" rel="noopener noreferrer">
-                Stata
-              </a>
-            </h4>
-          </div>
-          <p class="mt-2 text-sm text-gray-400">Learnt at Athens University of Economics and Business</p>
-        </div>
-      </div>
-      
-      <!-- R -->
-      <div class="group relative p-1 dark:bg-gradient-to-r dark:from-yellow-500 dark:to-yellow-600 rounded-lg shadow-lg transform hover:-translate-y-1 hover:scale-105 transition duration-300">
-        <div class="bg-gray-800 p-5 rounded-lg">
-          <div class="flex items-center">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/R_logo.svg" 
-                 alt="R Logo" class="w-6 h-6 mr-3 object-contain" loading="lazy" crossorigin="anonymous"
-                 onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/200px-R_logo.svg.png';">
-            <h4 class="text-2xl font-semibold group-hover:text-yellow-300">
-              <a href="https://en.wikipedia.org/wiki/R_(programming_language)" target="_blank" rel="noopener noreferrer">
-                R
-              </a>
-            </h4>
-          </div>
-          <p class="mt-2 text-sm text-gray-400">Learnt at Athens University of Economics and Business</p>
-        </div>
-      </div>
-      
-      <!-- Python -->
-      <div class="group relative p-1 dark:bg-gradient-to-r dark:from-yellow-500 dark:to-yellow-600 rounded-lg shadow-lg transform hover:-translate-y-1 hover:scale-105 transition duration-300">
-        <div class="bg-gray-800 p-5 rounded-lg">
-          <div class="flex items-center">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" 
-                 alt="Python Logo" class="w-6 h-6 mr-3 object-contain" loading="lazy" crossorigin="anonymous"
-                 onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/200px-Python-logo-notext.svg.png';">
-            <h4 class="text-2xl font-semibold group-hover:text-yellow-300">
-              <a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank" rel="noopener noreferrer">
-                Python
-              </a>
-            </h4>
-          </div>
-          <p class="mt-2 text-sm text-gray-400">Learnt at Athens University of Economics and Business</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Web Development -->
-  <div class="mb-10">
-    <h3 class="text-3xl font-semibold mb-4">Web Development</h3>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <!-- HTML, CSS, JavaScript -->
-      <div class="group relative p-1 dark:bg-gradient-to-r dark:from-yellow-500 dark:to-yellow-600 rounded-lg shadow-lg transform hover:-translate-y-1 hover:scale-105 transition duration-300">
-        <div class="bg-gray-800 p-5 rounded-lg">
-          <div class="flex items-center">
-            <img src="https://img.icons8.com/color/48/000000/web-design.png" 
-                 alt="Web Development Logo" class="w-6 h-6 mr-3 object-contain" loading="lazy">
-            <h4 class="text-2xl font-semibold group-hover:text-yellow-300">
-              <a href="https://en.wikipedia.org/wiki/HTML" target="_blank" rel="noopener noreferrer">
-                HTML, CSS, JavaScript
-              </a>
-            </h4>
-          </div>
-          <p class="mt-2 text-sm text-gray-400">Self taught</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Other Programming & Tools -->
-  <div>
-    <h3 class="text-3xl font-semibold mb-4">Other Programming &amp; Tools</h3>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <!-- TeX (Using the TeXShop icon PNG as provided) -->
-      <div class="group relative p-1 dark:bg-gradient-to-r dark:from-yellow-500 dark:to-yellow-600 rounded-lg shadow-lg transform hover:-translate-y-1 hover:scale-105 transition duration-300">
-        <div class="bg-gray-800 p-5 rounded-lg">
-          <div class="flex items-center">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/TeXShop_icon.png" 
-                 alt="TeX Logo" class="w-6 h-6 mr-3 object-contain" loading="lazy">
-            <h4 class="text-2xl font-semibold group-hover:text-yellow-300">
-              <a href="https://en.wikipedia.org/wiki/TeX" target="_blank" rel="noopener noreferrer">
-                TeX
-              </a>
-            </h4>
-          </div>
-          <p class="mt-2 text-sm text-gray-400">Self taught</p>
-        </div>
-      </div>
-      
-      <!-- Pascal/ΓΛΩΣΣΑ -->
-      <div class="group relative p-1 dark:bg-gradient-to-r dark:from-yellow-500 dark:to-yellow-600 rounded-lg shadow-lg transform hover:-translate-y-1 hover:scale-105 transition duration-300">
-        <div class="bg-gray-800 p-5 rounded-lg">
-          <div class="flex items-center">
-            <!-- Fallback icon for Pascal -->
-            <i class="fas fa-code text-2xl text-yellow-500 mr-3"></i>
-            <h4 class="text-2xl font-semibold group-hover:text-yellow-300">
-              <a href="https://en.wikipedia.org/wiki/Pascal_(programming_language)" target="_blank" rel="noopener noreferrer">
-                Pascal/ΓΛΩΣΣΑ
-              </a>
-            </h4>
-          </div>
-          <p class="mt-2 text-sm text-gray-400">Learnt in high school</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-       <section id="languages" class="my-16">
-            <h2 class="text-4xl font-bold mb-10 text-center">Languages</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Greek Language Card -->
-                <div class="language-card">
-                    <div class="flex items-center mb-4">
-                        <img src="https://img.icons8.com/color/48/000000/greece.png" alt="Greek" class="mr-4" />
-                        <h3 class="text-2xl font-semibold greek">Greek</h3>
-                    </div>
-                    <p class="text-lg">Native Speaker</p>
-                </div>
-                <!-- English Language Card -->
-                <div class="language-card">
-                    <div class="flex items-center mb-4">
-                        <img src="https://img.icons8.com/color/48/000000/great-britain.png" alt="English" class="mr-4" />
-                        <h3 class="text-2xl font-semibold english">English (C2)</h3>
-                    </div>
-                    <p class="text-lg">Grade: Pass with Distinction</p>
-                </div>
-            </div>
-        </section>
-              
-       <!-- Work Experience Section -->
-       <section id="work" class="my-16">
-        <h2 class="section-title">Work Experience</h2>
-        <div class="work-experience-container">
-            <!-- Work Experience Card -->
-            <div class="work-experience-card">
-                <img src="athens_university_of_economics_and_business_logo.jpg" alt="EMOP Logo" class="company-logo" loading="lazy">
-                <div class="work-experience-details">
-                    <h3 class="job-title">Data & Text Analyst</h3>
-                    <h4 class="company-name">
-                        <a href="https://www.dept.aueb.gr/en/imop" target="_blank" rel="noopener noreferrer" class="hover:underline">
-                            EMOP Center
-                        </a>
-                    </h4>
-                    <div class="job-duration-location">Sept 2024 - Present | Athens, Greece</div>
-                    <p>
-                    Employed part-time from September 2024 to June 2025, full-time from July to September 2025, and again part-time from October 2025 onward. Collaborating closely with 
-                     <a href="https://evdioikitopoulos.com/" target="_blank" rel="noopener noreferrer" class="hover:underline">
-                     Dr. Evangelos V. Dioikitopoulos
-                       </a>, I work on large-scale data mining and structuring projects crucial to economics research. I design and implement Python-based pipelines to scrape, clean, and transform unstructured legal and administrative texts into structured datasets (50,000+ rows, 10+ variables) suitable for quantitative and econometric analysis.                        <span class="skill-badge">Data Engineering</span>
-                        <span class="skill-badge">Text Processing</span>
-                        <span class="skill-badge">Web Scraping</span>
-                    </p>
-                </div>
-            </div>
-            <!-- Add more work experience cards as needed -->
-        </div>
-    </section>
-    <!-- End of Work Experience Section -->
+body.dark-mode {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
 
-    <!-- Projects Section -->
-    <section id="projects" class="my-16">
-        <h2 class="text-4xl font-bold mb-6 text-center">Projects</h2>
-        <div class="bg-gray-700 text-white p-5 rounded-lg">
-            <h3 class="text-2xl font-semibold">Asymmetria</h3>
-            <p class="mt-2 text-sm text-gray-400">Oct 2025 &mdash; Present</p>
-            <p class="mt-4 text-lg leading-relaxed">
-                Founder and Chief Technology Officer (CTO) of a four-member student initiative building a Python-based system that automates the detection and algorithmic replication of insider trading signals. The platform ingests insider filings, prices, and volumes, then applies ranking algorithms to identify the most reliable signals and simulate dynamic strategies with stop-loss and profit-taker rules calibrated through econometric models. I designed and implemented the core data-collection architecture and backtesting framework.
-            </p>
-        </div>
-    </section>
+body.light-mode {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
 
-    <!-- Research Groups Section -->
-    <section id="research" class="my-16">
-        <h2 class="text-4xl font-bold mb-6 text-center">Research Groups</h2>
-        <div class="space-y-6">
-            <div class="bg-gray-700 text-white p-5 rounded-lg">
-                <h3 class="text-2xl font-semibold">Dynamic Macro Group, AUEB</h3>
-                <p class="mt-2 text-sm text-gray-400">Oct 2025 &mdash; Present</p>
-                <p class="mt-4 text-lg leading-relaxed">
-                    Member of the second student macroeconomics research group formed by the Macroeconomic Theory II instructors, composed of top-performing students. I focus on dynamic macroeconomic modeling and the analysis of Greek public debt and fiscal sustainability.
-                </p>
-            </div>
-            <div class="bg-gray-700 text-white p-5 rounded-lg">
-                <h3 class="text-2xl font-semibold">EMOP Student Research Team, AUEB</h3>
-                <p class="mt-2 text-sm text-gray-400">Apr 2025 &mdash; Present</p>
-                <p class="mt-4 text-lg leading-relaxed">
-                    Collaborate with <a href="https://evdioikitopoulos.com/" target="_blank" rel="noopener noreferrer" class="hover:underline">Dr. Evangelos V. Dioikitopoulos</a> on university-level projects in macroeconomics and cultural economics. I led a three-week web scraping project with a team of ten top students, most of them more senior, after delivering a three-hour introductory lecture on web scraping. I coordinated the team, merged and cleaned contributions, and produced a research-grade dataset of university instructors across Greece.
-                </p>
-            </div>
-        </div>
-    </section>
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Light Switch Toggle */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+    background-color: var(--gray-dark);
+    border-radius: 25px;
+    transition: background-color var(--transition-duration);
+    margin-left: 1rem;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: var(--text-light);
+    border-radius: 50%;
+    transition: transform var(--transition-duration);
+    top: 0;
+    left: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input:checked + .slider {
+    transform: translateX(25px);
+    background-color: var(--secondary);
+}
+/* Animation for equations */
+.portfolio-header-container {
+    position: relative;
+    height: 100vh;
+    background-color: #1a202c; /* Navy or black background */
+}
+
+.equation {
+    position: absolute;
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.5);
+    animation: move 10s linear infinite;
+}
+
+@keyframes move {
+    0% { transform: translateY(100vh); }
+    100% { transform: translateY(-100vh); }
+}
 
 
-        <section id="certifications" class="my-16">
-            <h2 class="text-4xl font-bold mb-6 text-center">Certifications</h2>
-            <div class="bg-gray-800 text-white p-5 rounded-lg space-y-4">
-                <div>
-                    <h3 class="text-2xl font-semibold">Advanced Learning Algorithms</h3>
-                    <p class="mt-1 text-sm text-gray-400">DeepLearning.AI &mdash; Stanford University &middot; Issued Sep 2024</p>
-                    <p class="mt-1 text-sm text-gray-400">Credential ID: 0VBO30MD43SW</p>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-semibold">Supervised Machine Learning: Regression and Classification</h3>
-                    <p class="mt-1 text-sm text-gray-400">DeepLearning.AI &mdash; Stanford University &middot; Issued Sep 2024</p>
-                    <p class="mt-1 text-sm text-gray-400">Credential ID: K0LUN9P0CDMV</p>
-                </div>
-            </div>
-        </section>
+/* Fade-in Animation */
+.opacity-0 {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
 
-        <section id="contact" class="my-16">
-            <h2 class="text-4xl font-bold mb-6 text-center">Contact</h2>
-            <form id="contact-form" action="https://formspree.io/f/mdknnlvp" method="POST" class="bg-gray-800 text-white p-5 rounded-lg">
-                <label for="name" class="block mt-4">Name</label>
-                <input type="text" id="name" name="name" required class="w-full p-2 mt-2 bg-gray-700 border border-gray-600 rounded">
+.opacity-100 {
+    opacity: 1;
+}
 
-                <label for="email" class="block mt-4">Email</label>
-                <input type="email" id="email" name="email" required class="w-full p-2 mt-2 bg-gray-700 border border-gray-600 rounded">
+/* Header Styles */
+header {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: var(--text-light);
+}
 
-                <label for="message" class="block mt-4">Message</label>
-                <textarea id="message" name="message" rows="5" required class="w-full p-2 mt-2 bg-gray-700 border border-gray-600 rounded"></textarea>
+header nav {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+}
 
-                <button type="submit" class="mt-6 w-full p-3 bg-yellow-500 text-black font-bold rounded hover:bg-yellow-600 transition">Send</button>
-            </form>
-        </section>
+header h1, header p {
+    opacity: 0;
+}
 
-        <section id="interests" class="my-16">
-            <h2 class="text-4xl font-bold mb-6 text-center">Personal Interests</h2>
-            <div class="bg-gray-800 text-white p-5 rounded-lg">
-                <ul class="list-disc list-inside text-lg leading-relaxed">
-                    <li>Literature (e.g., Cormac McCarthy, Albert Camus)</li>
-                    <li>Philosophy and Logic (e.g., Epictetus, Ludwig Wittgenstein)</li>
-                    <li>Music (Rebetika, Jazz, Hip-Hop, Post-Rock)</li>
-                    <li>Hiking and Nature Exploration</li>
-                </ul>
-            </div>
-        </section>
+body.light-mode header {
+    color: var(--text-dark);
+    background-color: var(--text-dark);
+}
 
-        <div class="mt-8 text-center">
-            <p>Email: <a href="mailto:kourtalistheodoros@gmail.com" class="text-yellow-500">kourtalistheodoros@gmail.com</a></p>
-            <p>Location: Athens, Greece</p>
-        </div>
-    </main>
+body.light-mode header nav {
+    background: rgba(255, 255, 255, 0.8);
+}
 
-    <footer class="bg-gray-900 text-white p-6 text-center">
-        <p>&copy; 2025 Theodoros Kourtalis. All rights reserved.</p>
-        <div class="social-media mt-4">
-            <a href="https://www.linkedin.com/in/theodoros-kourtalis-16a1a0297/" target="_blank" class="text-yellow-500 mx-2"><i class="fab fa-linkedin"></i></a>
-        </div>
-    </footer>
+body.light-mode header h1, body.light-mode header p {
+    color: var(--text-light);
+}
 
-    <script>
-       document.addEventListener('DOMContentLoaded', () => {
-          const modeToggle = document.getElementById('mode-toggle');
-          const mobileModeToggle = document.getElementById('mobile-mode-toggle');
-          const body = document.body;
+/* Section Styles */
+section {
+    margin: 4rem 0;
+    padding: 1rem;
+}
 
-          // Apply initial theme from localStorage
-          const currentTheme = localStorage.getItem("theme") || "light";
-          if (currentTheme === "dark") {
-              body.classList.add("dark-mode");
-              if (modeToggle) modeToggle.checked = true;
-              if (mobileModeToggle) mobileModeToggle.checked = true;
-          } else {
-              body.classList.add("light-mode");
-              if (modeToggle) modeToggle.checked = false;
-              if (mobileModeToggle) mobileModeToggle.checked = false;
-          }
+#languages {
+    padding: 2rem;
+    border-radius: 1rem;
+    background: var(--bg-light); /* Ensure section background matches the theme */
+    transition: background-color var(--transition-duration), color var(--transition-duration);
+}
 
-          const toggleMode = (isLightMode) => {
-              if (isLightMode) {
-                  body.classList.add('light-mode');
-                  body.classList.remove('dark-mode');
-                  localStorage.setItem('theme', 'light');
-              } else {
-                  body.classList.add('dark-mode');
-                  body.classList.remove('light-mode');
-                  localStorage.setItem('theme', 'dark');
-              }
-          };
+/* Heading Styles */
+#languages h2 {
+    color: var(--text-dark); /* Adaptable to light/dark mode */
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    text-align: center;
+    letter-spacing: 0.1rem;
+}
 
-          if (modeToggle) {
-              modeToggle.addEventListener('change', () => {
-                  toggleMode(modeToggle.checked);
-                  if (mobileModeToggle) mobileModeToggle.checked = modeToggle.checked;
-              });
-          }
+body.dark-mode #languages h2 {
+    color: var(--text-light); /* Ensure readability in dark mode */
+}
 
-          if (mobileModeToggle) {
-              mobileModeToggle.addEventListener('change', () => {
-                  toggleMode(mobileModeToggle.checked);
-                  if (modeToggle) modeToggle.checked = mobileModeToggle.checked;
-              });
-          }
+/* Language Card Styles */
+.language-card {
+    background: linear-gradient(135deg, #e2e8f0, #cbd5e0); /* Gradient background */
+    color: #2d3748; /* Tailwind's gray-800 */
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left; /* Align text to the left */
+    margin-bottom: 2rem;
+}
 
-          // Hamburger menu toggle for mobile
-          const hamburgerButton = document.getElementById('hamburger-button');
-          const mobileMenu = document.getElementById('mobile-menu');
-          hamburgerButton.addEventListener('click', () => {
-              mobileMenu.classList.toggle('hidden');
-          });
-       });
-    </script>
-    <script src="script.js"></script>
-</body>
-</html>
+.language-card:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.language-card img {
+    border-radius: 0.5rem;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.language-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.75rem; /* Slightly larger font size for heading */
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.25rem; /* Ensure space for the gradient line */
+}
+
+.language-card h3.english {
+    position: relative;
+    display: inline-block;
+}
+
+.language-card h3.english::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -0.25rem; /* Align the gradient line with the bottom of the heading */
+    width: 100%;
+    height: 0.25rem; /* Adjust the height for better visibility */
+    background: 
+        repeating-linear-gradient(
+            45deg,
+            #5a5caa 0,      /* Adjusted blue */
+            #5a5caa 2px,
+            #e6e6e6 2px,    /* Washed-out white */
+            #e6e6e6 4px,
+            #cc4444 4px,    /* Washed-out red */
+            #cc4444 6px
+        ), /* Diagonal stripes in one direction */
+        repeating-linear-gradient(
+            -45deg,
+            #5a5caa 0,      /* Adjusted blue */
+            #5a5caa 2px,
+            #e6e6e6 2px,    /* Washed-out white */
+            #e6e6e6 4px,
+            #cc4444 4px,    /* Washed-out red */
+            #cc4444 6px
+        ); /* Diagonal stripes in the opposite direction */
+    background-size: 12px 12px; /* Create X patterns */
+    background-blend-mode: multiply; /* Blend the gradients to create X shapes */
+    border-radius: 0.125rem; /* Smooth the edges for a cleaner look */
+}
+
+
+
+.language-card h3.greek::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -0.25rem; /* Align the gradient line with the bottom of the heading */
+    width: 100%;
+    height: 0.125rem; /* Similar size to the line in skills section */
+    background: linear-gradient(90deg, #0000ff, #ffffff); /* Gradient underline (Greece flag colors) */
+}
+
+.language-card p {
+    font-size: 1.125rem; /* Larger font size for better readability */
+    line-height: 1.5;
+}
+
+/* Light Mode Styles */
+body.light-mode #languages {
+    background: var(--bg-light);
+    color: var(--text-dark);
+}
+
+body.light-mode .language-card {
+    background: linear-gradient(135deg, #e2e8f0, #cbd5e0); /* Same gradient background */
+    color: #2d3748; /* Tailwind's gray-800 */
+}
+
+body.light-mode .language-card:hover {
+    background-color: #cbd5e0; /* Tailwind's gray-400 */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark Mode Styles */
+body.dark-mode #languages {
+    background: var(--bg-dark);
+    color: var(--text-light);
+}
+
+body.dark-mode .language-card {
+    background: linear-gradient(135deg, #1a202c, #2d3748); /* Dark gradient background */
+    color: #e2e8f0; /* Tailwind's gray-200 */
+}
+
+body.dark-mode .language-card:hover {
+    background-color: #2d3748; /* Tailwind's gray-800 */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+
+/* General Styles for Light Mode */
+body.light-mode section {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+/* Image Styles */
+#about img, #education img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+#education .bg-gray-800 {
+    background-color: #2d3748;
+}
+
+body.light-mode #education .bg-gray-800 {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+/* ==============================
+   Work Experience Section Styles
+   ============================== */
+
+/* Container for Work Experience Section */
+#work {
+    padding: 3rem 2rem;
+    background-color: var(--bg-light);
+    transition: background-color var(--transition-duration), color var(--transition-duration);
+}
+
+body.dark-mode #work {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+
+/* Section Title */
+#work .section-title {
+    text-align: center; /* Default to center for mobile */
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+    color: var(--text-dark);
+}
+
+body.dark-mode #work .section-title {
+    color: var(--text-light);
+}
+
+#work .section-title::after {
+    content: '';
+    width: 50%; /* Adjust as needed */
+    height: 4px;
+    background: var(--primary);
+    position: absolute;
+    left: 25%; /* Centered underline */
+    bottom: -10px;
+    border-radius: 2px;
+}
+
+body.dark-mode #work .section-title::after {
+    background: var(--secondary);
+}
+
+/* Media Query for Larger Screens */
+@media (min-width: 769px) {
+    /* Align text to the left */
+    #work .section-title {
+        text-align: left;
+        display: block; /* Ensure it takes full width */
+    }
+
+    /* Align underline to the left */
+    #work .section-title::after {
+        left: 0; /* Start underline from the left */
+        width: 50%; /* Adjust width as needed */
+    }
+}
+
+/* Work Experience Cards Container */
+.work-experience-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Individual Work Experience Card */
+.work-experience-card {
+    background: var(--bg-light);
+    border: 1px solid var(--gray-light);
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: transform var(--transition-duration), box-shadow var(--transition-duration), background-color var(--transition-duration);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .work-experience-card {
+    background: var(--bg-dark);
+    border: 1px solid var(--gray-darker);
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+/* Hover Effects */
+.work-experience-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .work-experience-card:hover {
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Company Logo */
+.work-experience-card img.company-logo {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 2rem;
+    border: 3px solid var(--primary);
+    transition: border-color var(--transition-duration), transform var(--transition-duration);
+}
+
+.work-experience-card img.company-logo:hover {
+    border-color: var(--secondary);
+    transform: scale(1.05);
+}
+
+/* Work Details */
+.work-experience-details {
+    flex: 1;
+}
+
+/* Job Title */
+.work-experience-details h3.job-title {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: inline-block;
+    color: var(--text-dark);
+}
+
+body.dark-mode .work-experience-details h3.job-title {
+    color: var(--text-light);
+}
+
+.work-experience-details h3.job-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 50%; /* Adjust as needed */
+    height: 3px;
+    background: var(--primary);
+    border-radius: 2px;
+}
+
+body.dark-mode .work-experience-details h3.job-title::after {
+    background: var(--secondary);
+}
+
+/* Company Name */
+.work-experience-details h4.company-name {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--secondary);
+}
+
+body.dark-mode .work-experience-details h4.company-name {
+    color: var(--secondary-hover);
+}
+
+/* Duration and Location */
+.work-experience-details .job-duration-location {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: var(--gray-dark);
+}
+
+body.dark-mode .work-experience-details .job-duration-location {
+    color: var(--gray-light);
+}
+
+/* Job Description */
+.work-experience-details p.job-description {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Skill Badges within Job Description */
+.work-experience-details .skill-badge {
+    display: inline-block;
+    background-color: var(--secondary);
+    color: #000;
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+    transition: background-color var(--transition-duration), transform var(--transition-duration);
+    text-decoration: none;
+}
+
+.work-experience-details .skill-badge:hover {
+    background-color: var(--secondary-hover);
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+body.dark-mode .work-experience-details .skill-badge {
+    background-color: #cc4444; /* Dark mode adjustment */
+    color: #fff;
+}
+
+body.dark-mode .work-experience-details .skill-badge:hover {
+    background-color: #e6b800; /* Dark mode hover adjustment */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .work-experience-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .work-experience-card img.company-logo {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+
+    /* Re-center section title on smaller screens */
+    #work .section-title {
+        text-align: center;
+    }
+
+    #work .section-title::after {
+        left: 25%; /* Centered underline */
+        width: 50%;
+    }
+}
+
+
+.skill-card {
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+    background-color: #4a5568; /* Tailwind's bg-gray-700 */
+    transform: translateY(-0.25rem) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.skill-card h3 {
+    border-bottom: 2px solid #ecc94b; /* Tailwind's yellow-400 */
+    padding-bottom: 0.5rem;
+}
+
+body.light-mode #skills .bg-gray-800 {
+    background-color: var(--gray-light);
+    color: var(--text-dark);
+}
+
+#skills ul {
+    list-style-type: disc;
+}
+#work .bg-gray-700 {
+    background-color: var(--gray-darker); /* Darker background */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#projects .bg-gray-700 {
+    background-color: var(--gray-darker); /* Darker background */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+body.light-mode #projects .bg-gray-700 {
+    background-color: #b0bec5; /* Slightly darker shade for light mode */
+    color: var(--text-dark);
+}
+
+#projects .bg-gray-700:hover {
+    background-color: var(--gray-darker); /* Keep darker shade on hover */
+    transform: scale(1.05);
+    box-shadow: 0 0 10px var(--text-light);
+}
+
+body.light-mode #projects .bg-gray-700:hover {
+    background-color: #90a4ae; /* Slightly darker shade on hover */
+    transform: scale(1.05);
+    box-shadow: 0 0 10px var(--text-dark);
+}
+
+/* Contact Form */
+form {
+    background-color: #2d3748;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+body.light-mode form {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+form label {
+    display: block;
+    margin-top: 1rem;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid var(--gray-darker);
+    border-radius: 0.25rem;
+    background-color: var(--gray-darker);
+    color: var(--text-light);
+}
+
+body.light-mode form input, body.light-mode form textarea {
+    background-color: var(--text-light);
+    color: var(--text-dark);
+    border: 1px solid #ccc;
+}
+
+form button {
+    background-color: var(--secondary);
+    color: #000;
+    padding: 0.75rem;
+    margin-top: 1rem;
+    width: 100%;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: var(--secondary-hover);
+}
+
+/* Footer */
+footer {
+    background-color: var(--bg-dark);
+    padding: 1rem;
+    text-align: center;
+}
+
+body.light-mode footer {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+footer .social-media a {
+    margin: 0 0.5rem;
+    color: var(--secondary);
+    transition: color 0.3s ease;
+}
+
+footer .social-media a:hover {
+    color: var(--secondary-hover);
+}
+
+body.light-mode footer .social-media a {
+    color: var(--text-dark);
+}
+
+body.light-mode footer .social-media a:hover {
+    color: #004080;
+}
+
+/* Utility Classes for Animations */
+.animate-fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.animate-fade-in-delay {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    transition-delay: 0.5s;
+}
+
+/* Style for the hamburger button */
+#hamburger-button {
+    display: none;
+    cursor: pointer;
+}
+
+#hamburger-button .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--text-light);
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    #hamburger-button {
+        display: block;
+    }
+    #mobile-menu {
+        display: none;
+        flex-direction: column;
+        background-color: var(--bg-dark);
+        padding: 1rem;
+        border-radius: 0.5rem;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+    }
+    #mobile-menu.show {
+        display: flex;
+    }
+    body.light-mode #mobile-menu {
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+    }
+}
+
+/* Scroll Spy */
+nav a.active {
+    border-bottom: 2px solid var(--secondary);
+}
+
+nav a {
+    transition: border-bottom var(--transition-duration);
+}
+/* Animations */
+#equations-container {
+    overflow: hidden;
+}
+/* Animations */
+.equation {
+    position: absolute;
+    font-size: 24px;
+    color: rgba(0, 255, 0, 0.8);
+    animation: move 8s linear infinite, glow 1.5s infinite alternate;
+    transition: transform 0.5s, opacity 0.5s, color 0.5s;
+    text-shadow: 
+        0 0 10px rgba(0, 255, 0, 0.7), 
+        0 0 20px rgba(0, 255, 0, 0.5), 
+        0 0 30px rgba(0, 255, 0, 0.3),
+        0 0 40px rgba(0, 255, 0, 0.2),
+        0 0 50px rgba(0, 255, 0, 0.1);
+    font-family: 'Courier New', Courier, monospace;
+}
+/* Custom Styles for the File Hub Link */
+.file-hub-link {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.5rem 1rem;
+    background-color: var(--secondary);
+    color: var(--text-light);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color var(--transition-duration), color var(--transition-duration);
+}
+
+.file-hub-link:hover {
+    background-color: var(--secondary-hover);
+    color: var(--text-light);
+}
+
+/* Light Mode Adjustments */
+body.light-mode .file-hub-link {
+    background-color: var(--cool-glow); /* Cool blue for light mode */
+    color: var(--text-dark);
+}
+
+body.light-mode .file-hub-link:hover {
+    background-color: var(--secondary);
+    color: var(--text-light);
+}
+@keyframes move {
+    0% { transform: translateY(-100vh) rotate(0deg); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 10px rgba(0, 255, 0, 0.7), 0 0 20px rgba(0, 255, 0, 0.5); }
+    100% { text-shadow: 0 0 30px rgba(0, 255, 0, 1), 0 0 50px rgba(0, 255, 0, 0.7); }
+}
+
+/* =============================================
+   Section Shells for New Content (Projects etc.)
+   ============================================= */
+
+/* Layout container for new sections */
+#projects,
+#research,
+#certifications,
+#interests {
+    max-width: 1100px;
+    margin: 4rem auto;
+    position: relative;
+}
+
+/* Light mode shells */
+body.light-mode #projects,
+body.light-mode #research,
+body.light-mode #certifications,
+body.light-mode #interests {
+    padding: 2rem 1.5rem; /* slightly more padding than base sections */
+}
+
+/* Dark mode shells */
+body.dark-mode #projects,
+body.dark-mode #research,
+body.dark-mode #certifications,
+body.dark-mode #interests {
+    padding: 2rem 1.5rem;
+}
+
+/* Accent bars to give each new section its own identity */
+#projects::before,
+#research::before,
+#certifications::before,
+#interests::before {
+    content: '';
+    position: absolute;
+    top: 1.2rem;
+    left: 2.2rem;
+    width: 70px;
+    height: 4px;
+    border-radius: 999px;
+    opacity: 0.95;
+}
+
+#projects::before,
+#research::before {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+#certifications::before {
+    background: linear-gradient(90deg, var(--secondary), var(--secondary-hover));
+}
+
+#interests::before {
+    background: linear-gradient(90deg, var(--gray-dark), var(--gray-darker));
+}
+
+/* Section heading styling for new sections */
+#projects > h2,
+#research > h2,
+#certifications > h2,
+#interests > h2 {
+    font-size: 2.4rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1.75rem;
+    text-align: center;
+}
+
+body.light-mode #projects > h2,
+body.light-mode #research > h2,
+body.light-mode #certifications > h2,
+body.light-mode #interests > h2 {
+    color: var(--text-dark);
+}
+
+body.dark-mode #projects > h2,
+body.dark-mode #research > h2,
+body.dark-mode #certifications > h2,
+body.dark-mode #interests > h2 {
+    color: var(--text-light);
+}
+
+/* Inner card polish for the Tailwind bg-gray-700 / bg-gray-800 wrappers
+   (used inside the new sections) */
+#projects .bg-gray-700,
+#research .bg-gray-700,
+#certifications .bg-gray-800 {
+    border-radius: 1.25rem;
+    padding: 1.75rem 1.5rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+body.dark-mode #projects .bg-gray-700,
+body.dark-mode #research .bg-gray-700,
+body.dark-mode #certifications .bg-gray-800 {
+    background-color: var(--gray-darker);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65);
+}
+
+body.light-mode #projects .bg-gray-700,
+body.light-mode #research .bg-gray-700,
+body.light-mode #certifications .bg-gray-800 {
+    background-color: var(--gray-light);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+    color: var(--text-dark);
+}
+
+#projects .bg-gray-700:hover,
+#research .bg-gray-700:hover,
+#certifications .bg-gray-800:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+}
