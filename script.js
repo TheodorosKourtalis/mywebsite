@@ -2,32 +2,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const modeToggle = document.getElementById('mode-toggle');
     const mobileModeToggle = document.getElementById('mobile-mode-toggle');
     const body = document.body;
-    const favicon = document.getElementById('favicon'); // Make sure your favicon link element has this ID
+    const favicon = document.getElementById('favicon');
 
-    // Function to apply the theme
+    // ========================
+    // THEME
+    // ========================
     const applyTheme = (theme) => {
         if (theme === 'dark') {
             body.classList.add('dark-mode');
             body.classList.remove('light-mode');
-            // Switch to dark favicon
-            favicon.href = 'favicon-dark.png'; // Replace with the path to your dark mode favicon
+            if (favicon) favicon.href = 'favicon-dark.png';
         } else {
             body.classList.add('light-mode');
             body.classList.remove('dark-mode');
-            // Switch to light favicon
-            favicon.href = 'favicon-light.png'; // Replace with the path to your light mode favicon
+            if (favicon) favicon.href = 'favicon-light.png';
         }
     };
 
-    // Get the current theme from localStorage or default to 'light'
-    const currentTheme = localStorage.getItem("theme") || "light";
+    const currentTheme = localStorage.getItem("theme") || "dark";
     applyTheme(currentTheme);
 
-    // Set the initial state of the toggles
     if (modeToggle) modeToggle.checked = currentTheme === "dark";
     if (mobileModeToggle) mobileModeToggle.checked = currentTheme === "dark";
 
-    // Toggle theme and update localStorage
     const toggleMode = (isDarkMode) => {
         const theme = isDarkMode ? 'dark' : 'light';
         applyTheme(theme);
@@ -40,178 +37,170 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Event listeners for the toggles
     if (modeToggle) {
         modeToggle.addEventListener('change', () => {
             toggleMode(modeToggle.checked);
-            if (mobileModeToggle) {
-                mobileModeToggle.checked = modeToggle.checked;
-            }
+            if (mobileModeToggle) mobileModeToggle.checked = modeToggle.checked;
         });
     }
 
     if (mobileModeToggle) {
         mobileModeToggle.addEventListener('change', () => {
             toggleMode(mobileModeToggle.checked);
-            if (modeToggle) {
-                modeToggle.checked = mobileModeToggle.checked;
-            }
+            if (modeToggle) modeToggle.checked = mobileModeToggle.checked;
         });
     }
 
-    // Lazy loading images
-    const lazyImages = document.querySelectorAll('img.lazy');
+    // ========================
+    // HAMBURGER MENU
+    // ========================
+    const hamburgerButton = document.getElementById('hamburger-button');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-    const lazyLoad = (target) => {
-        const io = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    const src = img.getAttribute('data-src');
+    if (hamburgerButton && mobileMenu) {
+        hamburgerButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('show');
+            mobileMenu.classList.toggle('hidden');
+            const icon = hamburgerButton.querySelector('i');
+            if (mobileMenu.classList.contains('show')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
 
-                    img.setAttribute('src', src);
-                    img.classList.remove('lazy');
-
-                    observer.unobserve(img);
-                }
+        // Close menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('show');
+                const icon = hamburgerButton.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
             });
         });
+    }
 
-        io.observe(target);
-    };
+    // ========================
+    // SCROLL REVEAL
+    // ========================
+    const revealElements = document.querySelectorAll('.section-block, .glass-card, .skill-tile, .timeline-item');
+    revealElements.forEach(el => el.classList.add('reveal'));
 
-    lazyImages.forEach(lazyLoad);
-
-    // Fade-in animations
-    const faders = document.querySelectorAll('.animate-fade-in, .animate-fade-in-delay');
-
-    const appearOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-
-            entry.target.classList.add('opacity-100');
-            entry.target.classList.remove('opacity-0');
-            observer.unobserve(entry.target);
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
+            }
         });
-    }, appearOptions);
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    faders.forEach(fader => {
-        appearOnScroll.observe(fader);
-    });
+    revealElements.forEach(el => revealObserver.observe(el));
 
-    // Hamburger menu toggle
-    document.getElementById('hamburger-button').addEventListener('click', function() {
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenu.classList.toggle('show');
-    });
+    // ========================
+    // ACTIVE NAV HIGHLIGHT
+    // ========================
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
 
-    // JavaScript for Animating Equations
+    const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${entry.target.id}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, { threshold: 0.3 });
+
+    sections.forEach(section => navObserver.observe(section));
+
+    // ========================
+    // EQUATIONS ANIMATION
+    // ========================
     const equations = [
-    // Microeconomics (6 Equations)
-    'P_x X + P_y Y = I', // Budget Constraint
-    'Q = A L^α K^β', // Cobb-Douglas Production Function
-    'π = P Q - C(Q)', // Profit Maximization
-    'MR = dTR/dQ', // Marginal Revenue
-    'Q_d = a - bP', // Demand Curve
-    'Q_s = c + dP', // Supply Curve
+        'P_x X + P_y Y = I',
+        'Q = A L^α K^β',
+        'π = P Q - C(Q)',
+        'MR = dTR/dQ',
+        'Q_d = a - bP',
+        'Q_s = c + dP',
+        'Y = C + I + G + (X - M)',
+        'C = a + bY_d',
+        'I = I_0 - b r',
+        'Y = C(Y - T) + I(r) + G',
+        'M/P = L(Y, r)',
+        'π = π_e - β(u - u_n)',
+        'F = G (M_1 M_2)/D^2',
+        'LQ = (E_i/E) / (E\'_i/E\')',
+        'T_{ij} = k (P_i P_j)/D_{ij}^θ',
+        'R_i = R_0 - c_i x_i',
+        'X_i = Σ a_{ij} X_j + Y_i',
+        'C_B(v) = Σ (σ_{st}(v)/σ_{st})',
+        'Y = β_0 + β_1X + ε',
+        'E(Y|X) = β_0 + β_1X',
+        'P(Y=1|X) = 1/(1+e^{-Xβ})',
+        'Cov(X,Y) = E[(X-μ_X)(Y-μ_Y)]',
+        'R² = 1 - SS_res/SS_tot',
+        'NPV = Σ C_t/(1+r)^t',
+        'E(R) = R_f + β(R_m - R_f)',
+        'F = S e^{rT}',
+        'dx_i/dt = f(x_i, x_j, ...)',
+        'S = Σ A_{ij} x_i x_j',
+        'Sharpe = (E(R_p)-R_f)/σ_p'
+    ];
 
-    // Macroeconomics (6 Equations)
-    'Y = C + I + G + (X - M)', // GDP Identity
-    'C = a + bY_d', // Keynesian Consumption Function
-    'I = I_0 - b r', // Investment Function
-    'Y = C(Y - T) + I(r) + G', // IS Curve
-    'M/P = L(Y, r)', // LM Curve
-    'π = π_e - β(u - u_n)', // Phillips Curve
-
-    // Economic Geography (5 Equations)
-    'F = G (M_1 M_2)/D^2', // Gravity Model
-    'LQ = (E_i/E) / (E\'_i/E\')', // Location Quotient
-    'N = (3/√3)(A/B)^2', // Central Place Theory
-    'T_{ij} = k (P_i P_j)/D_{ij}^θ', // Spatial Interaction Model
-    'R_i = R_0 - c_i x_i', // Bid-Rent Function
-
-    // Network Theory in Economics (4 Equations)
-    'X_i = Σ a_{ij} X_j + Y_i', // Input-Output Model
-    'p_i + t_{ij} = p_j', // Network Equilibrium
-    'C_B(v) = Σ (σ_{st}(v)/σ_{st})', // Betweenness Centrality
-    'C_E(i) = (1/λ) Σ A_{ij} C_E(j)', // Eigenvector Centrality
-
-    // Econometrics (15 Equations)
-    'Y = β_0 + β_1X + ε', // Simple Linear Regression
-    'E(Y|X) = β_0 + β_1X', // Conditional Expectation
-    'ΔY = α + βΔX + γΔZ', // Difference Equation
-    'Y = α + Σβ_i X_i + ε', // Multiple Linear Regression
-    'log(Y) = β_0 + β_1X + ε', // Log-Linear Model
-    'P(Y=1|X) = 1 / (1 + exp(-(β_0 + β_1X)))', // Logistic Regression
-    'Cov(X, Y) = E[(X - μ_X)(Y - μ_Y)]', // Covariance
-    'Var(X) = E[X^2] - (E[X])^2', // Variance
-    'Corr(X, Y) = Cov(X, Y) / (σ_X σ_Y)', // Correlation
-    'Y = α + βX + γX^2 + ε', // Quadratic Regression
-    'ln(Y) = α + β ln(X) + ε', // Log-Log Model
-    'ε ~ N(0, σ^2)', // Error Term Assumption
-    'R^2 = 1 - (SS_{res}/SS_{tot})', // Coefficient of Determination
-    'DW = Σ(e_t - e_{t-1})^2 / Σe_t^2', // Durbin-Watson Statistic
-    'Heteroskedasticity: Var(ε|X) = σ^2(X)', // Heteroskedasticity Condition
-
-    // Complexity Economics (4 Equations)
-    'dx_i/dt = f(x_i, x_j, ...)', // Agent-Based Dynamics
-    'Y(t+1) = Y(t) + α Y(t)(1 - Y(t)/K)', // Logistic Growth (Non-linear Dynamics)
-    'A_{ij}(t+1) = A_{ij}(t) + η (x_i x_j - A_{ij}(t))', // Adaptive Network Formation
-    'S = Σ_{i,j} A_{ij} x_i x_j', // Network Spillover Effects
-
-    // Financial Economics (6 Equations)
-    'NPV = Σ (C_t / (1 + r)^t)', // Net Present Value
-    'Σ (C_t / (1 + IRR)^t) = 0', // Internal Rate of Return
-    'F = S e^{rT}', // Future Value
-    'C = S_0 Φ(d_1) - K e^{-rT} Φ(d_2)', // Call Option Price (Black-Scholes)
-    'P = K e^{-rT} Φ(-d_2) - S_0 Φ(-d_1)', // Put Option Price (Black-Scholes)
-    'E(R) = R_f + β (R_m - R_f)', // CAPM
-
-    // Additional Financial Economics (Optional, if needed)
-    'Sharpe Ratio = (E(R_p) - R_f) / σ_p', // Sharpe Ratio
-    'P = Σ (C / (1 + r)^t) + F / (1 + r)^T' // Bond Price
-];
     const container = document.getElementById('equations-container');
     let intervalId;
 
     function createEquation() {
-    const equation = document.createElement('div');
-    equation.className = 'equation';
-    equation.textContent = equations[Math.floor(Math.random() * equations.length)];
-    equation.style.top = '-10vh'; // Start above the view
-    // Position the equation using the container's width rather than 100vw:
-    equation.style.left = Math.random() * container.clientWidth + 'px';
-    equation.style.animationDuration = (Math.random() * 5 + 3) + 's';
-    container.appendChild(equation);
+        if (!container) return;
+        const eq = document.createElement('div');
+        eq.className = 'equation';
+        eq.textContent = equations[Math.floor(Math.random() * equations.length)];
+        eq.style.left = Math.random() * (container.clientWidth - 200) + 'px';
+        eq.style.animationDuration = (Math.random() * 6 + 5) + 's';
+        eq.style.fontSize = (Math.random() * 6 + 14) + 'px';
+        eq.style.opacity = Math.random() * 0.4 + 0.2;
+        container.appendChild(eq);
 
-    // Remove the equation after its animation ends
-    equation.addEventListener('animationend', () => {
-        equation.remove();
-    });
-}
+        eq.addEventListener('animationend', () => eq.remove());
+    }
 
     function startEquationAnimation() {
-        intervalId = setInterval(createEquation, 150); // Create a new equation every 0.15 seconds
-
-        // Stop creating equations after 8 seconds
-        setTimeout(() => {
-            clearInterval(intervalId);
-        }, 8000);
+        if (!container) return;
+        intervalId = setInterval(createEquation, 200);
+        setTimeout(() => clearInterval(intervalId), 10000);
     }
 
     function stopEquationAnimation() {
         clearInterval(intervalId);
-        const equations = document.querySelectorAll('.equation');
-        equations.forEach(equation => equation.remove());
+        if (container) {
+            container.querySelectorAll('.equation').forEach(eq => eq.remove());
+        }
     }
 
-    // Initialize the animation if the current theme is dark
     if (currentTheme === 'dark') {
         startEquationAnimation();
+    }
+
+    // ========================
+    // NAV SHRINK ON SCROLL
+    // ========================
+    const nav = document.querySelector('nav.sticky');
+    if (nav) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.style.padding = '0.5rem 1.5rem';
+            } else {
+                nav.style.padding = '1rem 1.5rem';
+            }
+        });
     }
 });
