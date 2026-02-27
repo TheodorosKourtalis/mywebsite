@@ -2,624 +2,865 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Theodoros Kourtalis — Economics Student &amp; Data Analyst</title>
+  <title>Theodoros Kourtalis — Economics &amp; Data</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Theodoros Kourtalis — Economics student, research assistant, data analyst.">
   <link id="favicon" rel="icon" type="image/png" href="favicon-light.png" sizes="32x32">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-P8K50EM5G6"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-P8K50EM5G6');
+    gtag('js', new Date()); gtag('config', 'G-P8K50EM5G6');
   </script>
-  <script>
-      (function(h,o,t,j,a,r){
-          h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-          h._hjSettings={hjid:5042130,hjsv:6};
-          a=o.getElementsByTagName('head')[0];
-          r=o.createElement('script');r.async=1;
-          r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-          a.appendChild(r);
-      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-  </script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <meta name="description" content="Personal portfolio of Theodoros Kourtalis — Economics student, data analyst, and researcher at AUEB.">
-  <meta name="keywords" content="portfolio, economics, data analyst, AUEB, research, Theodoros Kourtalis">
-  <meta name="author" content="Theodoros Kourtalis">
+
+<style>
+/* ============ RESET & VARIABLES ============ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --font:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  --mono:'JetBrains Mono','Courier New',monospace;
+  --t:0.35s;
+  --bg-d:#0f172a;--card-d:#1e293b;--card-d-h:#334155;--bdr-d:#334155;
+  --h-d:#f1f5f9;--p-d:#cbd5e1;--m-d:#94a3b8;
+  --bg-l:#f8fafc;--bg-l2:#f1f5f9;--card-l:#fff;
+  --bdr-l:#e2e8f0;--bdr-l2:#cbd5e1;
+  --h-l:#0f172a;--p-l:#334155;--m-l:#64748b;
+  --acc:#eab308;--acc-h:#ca8a04;--acc-dk:#a16207;
+  --acc-g:rgba(234,179,8,.15);
+  --r:1rem;--rs:.5rem;
+  --sh-d:0 25px 50px -12px rgba(0,0,0,.5);
+  --sh-l:0 4px 6px -1px rgba(0,0,0,.07);
+  --sh-l2:0 20px 40px -12px rgba(0,0,0,.12);
+}
+
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+
+body{
+  font-family:var(--font);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  transition:background var(--t),color var(--t);
+}
+body.dark{background:var(--bg-d);color:var(--p-d)}
+body.light{background:var(--bg-l);color:var(--p-l)}
+
+::selection{background:var(--acc);color:#000}
+a{color:inherit}
+img{max-width:100%;display:block}
+ul{list-style:none;padding:0}
+
+/* ============ NAV ============ */
+.nav{
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 1.5rem;
+  transition:all var(--t);
+}
+body.dark .nav{
+  background:rgba(15,23,42,.85);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+body.light .nav{
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--bdr-l);
+  box-shadow:0 1px 3px rgba(0,0,0,.04);
+}
+
+.nav-brand{font-size:1.5rem;font-weight:800;text-decoration:none}
+body.dark .nav-brand{color:#fff}
+body.light .nav-brand{color:var(--h-l)}
+.nav-brand span{color:var(--acc)}
+
+.nav-links{display:flex;gap:1.5rem;align-items:center;font-size:.82rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.nav-links a{text-decoration:none;position:relative;transition:color .3s}
+body.dark .nav-links a{color:var(--m-d)}
+body.light .nav-links a{color:var(--m-l)}
+.nav-links a:hover,.nav-links a.active{color:var(--acc-h)}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--acc);transition:width .3s}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+
+.cv-btn{
+  display:inline-flex;align-items:center;gap:.35rem;
+  padding:.4rem 1rem;background:var(--acc);color:#000 !important;
+  border-radius:999px;font-weight:700;font-size:.78rem;
+  text-decoration:none;transition:all .3s;
+}
+.cv-btn:hover{background:var(--acc-h);transform:translateY(-2px);box-shadow:0 4px 15px rgba(234,179,8,.4)}
+
+/* Toggle */
+.toggle{position:relative;width:46px;height:24px;border-radius:24px;cursor:pointer;transition:background var(--t)}
+body.dark .toggle{background:#334155}
+body.light .toggle{background:#cbd5e1}
+.toggle input{display:none}
+.toggle-dot{position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;transition:transform var(--t),background var(--t);box-shadow:0 1px 3px rgba(0,0,0,.2)}
+body.dark .toggle-dot{background:#f1f5f9}
+body.light .toggle-dot{background:#fff}
+.toggle input:checked+.toggle-dot{transform:translateX(22px);background:var(--acc)}
+
+/* Hamburger */
+.ham{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--acc)}
+body.light .ham{color:var(--h-l)}
+
+.mobile-menu{
+  display:none;flex-direction:column;align-items:center;gap:1.25rem;
+  position:absolute;top:60px;left:0;width:100%;padding:2rem;
+  border-radius:0 0 1rem 1rem;z-index:99;
+}
+body.dark .mobile-menu{background:rgba(15,23,42,.97)}
+body.light .mobile-menu{background:rgba(255,255,255,.97);border-bottom:1px solid var(--bdr-l)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:1.05rem;font-weight:500;text-decoration:none;transition:color .3s}
+body.dark .mobile-menu a{color:var(--m-d)}
+body.light .mobile-menu a{color:var(--p-l)}
+.mobile-menu a:hover{color:var(--acc)}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .ham{display:block}
+}
+
+/* ============ HERO ============ */
+.hero{
+  position:relative;min-height:100vh;
+  display:flex;flex-direction:column;
+  background:url('header-bg.jpg') center/cover no-repeat;
+  color:#fff;overflow:hidden;
+}
+.hero-overlay{position:absolute;inset:0;z-index:0}
+body.dark .hero-overlay{background:linear-gradient(180deg,rgba(0,0,0,.72),rgba(15,23,42,1))}
+body.light .hero-overlay{background:linear-gradient(180deg,rgba(0,0,0,.62),rgba(15,23,42,.82) 85%,var(--bg-l) 100%)}
+
+.hero-content{
+  flex:1;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;padding:2rem;
+  position:relative;z-index:2;
+}
+.hero-label{color:var(--acc);font-size:.82rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:1rem}
+.hero h1{font-size:clamp(2.5rem,7vw,5rem);font-weight:900;line-height:1.1}
+.hero h1 span{color:var(--acc)}
+.hero-sub{font-size:clamp(1rem,2.5vw,1.2rem);max-width:640px;margin-top:1.25rem;color:rgba(255,255,255,.7);line-height:1.6}
+
+.hero-btns{display:flex;gap:1rem;margin-top:2.5rem;flex-wrap:wrap;justify-content:center}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.85rem 2rem;background:var(--acc);color:#000;
+  border-radius:999px;font-weight:700;font-size:1rem;
+  text-decoration:none;transition:all .3s;
+  box-shadow:0 0 30px rgba(234,179,8,.3);
+}
+.btn-primary:hover{background:var(--acc-h);transform:translateY(-3px);box-shadow:0 0 50px rgba(234,179,8,.5)}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.85rem 2rem;background:transparent;color:#fff;
+  border:2px solid rgba(255,255,255,.3);
+  border-radius:999px;font-weight:600;font-size:1rem;
+  text-decoration:none;transition:all .3s;
+}
+.btn-ghost:hover{border-color:var(--acc);color:var(--acc);transform:translateY(-3px)}
+
+.scroll-hint{
+  position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;
+}
+.scroll-mouse{width:26px;height:42px;border:2px solid rgba(255,255,255,.3);border-radius:13px;position:relative}
+.scroll-mouse::before{
+  content:'';position:absolute;top:7px;left:50%;transform:translateX(-50%);
+  width:4px;height:7px;background:var(--acc);border-radius:4px;
+  animation:sd 2s infinite;
+}
+@keyframes sd{0%{transform:translateX(-50%) translateY(0);opacity:1}100%{transform:translateX(-50%) translateY(16px);opacity:0}}
+
+#eq-box{position:absolute;inset:0;overflow:hidden;z-index:1}
+.eq{
+  position:absolute;font-family:var(--mono);white-space:nowrap;
+  pointer-events:none;animation:eqm 8s linear forwards;
+}
+body.dark .eq{color:rgba(0,255,100,.55);text-shadow:0 0 8px rgba(0,255,100,.35)}
+body.light .eq{color:rgba(255,255,255,.45);text-shadow:0 0 6px rgba(255,255,255,.25)}
+@keyframes eqm{0%{transform:translateY(-10vh);opacity:0}20%{opacity:.7}80%{opacity:.7}100%{transform:translateY(110vh);opacity:0}}
+
+.fade-in{opacity:0;animation:fi 1s ease-out forwards}
+.fade-d{opacity:0;animation:fi 1s .5s ease-out forwards}
+@keyframes fi{to{opacity:1}}
+
+/* ============ LAYOUT ============ */
+.wrap{max-width:1100px;margin:0 auto;padding:0 1.5rem}
+
+.section{padding:5rem 0;position:relative}
+body.dark .section+.section{border-top:1px solid var(--bdr-d)}
+body.light .section+.section{border-top:1px solid var(--bdr-l)}
+
+.sec-title{
+  font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;
+  text-align:center;margin-bottom:3rem;letter-spacing:-.02em;
+}
+body.dark .sec-title{color:var(--h-d)}
+body.light .sec-title{color:var(--h-l)}
+.sec-title::after{content:'';display:block;width:56px;height:4px;background:var(--acc);margin:.7rem auto 0;border-radius:999px}
+
+/* ============ CARDS ============ */
+.card{border-radius:var(--r);padding:1.5rem;transition:all .3s}
+body.dark .card{background:var(--card-d);border:1px solid var(--bdr-d)}
+body.dark .card:hover{transform:translateY(-4px);box-shadow:var(--sh-d);border-color:rgba(234,179,8,.2)}
+body.light .card{background:var(--card-l);border:1px solid var(--bdr-l);box-shadow:var(--sh-l)}
+body.light .card:hover{transform:translateY(-4px);box-shadow:var(--sh-l2);border-color:var(--acc)}
+
+/* ============ UTILITIES ============ */
+.flex{display:flex}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}
+.items-c{align-items:center}.items-s{align-items:flex-start}
+.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}
+.grid{display:grid}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:900px){.g3,.g4{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.g2,.g3,.g4{grid-template-columns:1fr}.md-row{flex-direction:column !important}}
+.md-row{display:flex;flex-direction:row}
+.shrink-0{flex-shrink:0}
+.flex-1{flex:1}
+.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}
+.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mb-10{margin-bottom:2.5rem}
+.text-sm{font-size:.875rem}.text-xs{font-size:.75rem}.text-lg{font-size:1.125rem}
+.text-center{text-align:center}
+.font-bold{font-weight:700}.font-semi{font-weight:600}.font-medium{font-weight:500}
+.rounded-full{border-radius:50%}.rounded-xl{border-radius:1rem}
+.w-full{width:100%}
+.leading-relaxed{line-height:1.75}
+
+/* ============ TEXT COLORS ============ */
+body.dark .t-head{color:var(--h-d)}  body.light .t-head{color:var(--h-l)}
+body.dark .t-body{color:var(--p-d)}  body.light .t-body{color:var(--p-l)}
+body.dark .t-mute{color:var(--m-d)}  body.light .t-mute{color:var(--m-l)}
+body.dark .t-acc{color:var(--acc)}   body.light .t-acc{color:var(--acc-dk)}
+body.dark .t-acc2{color:var(--acc);font-weight:600}
+body.light .t-acc2{color:var(--acc-dk);font-weight:700}
+.t-white{color:#fff !important}
+
+.link-acc{text-decoration:none;transition:color .3s}
+body.dark .link-acc{color:var(--acc)}
+body.light .link-acc{color:var(--acc-dk);font-weight:600}
+.link-acc:hover{text-decoration:underline}
+
+/* ============ PROFILE ============ */
+.profile-ring{
+  padding:4px;border-radius:50%;
+  background:linear-gradient(135deg,var(--acc),#f97316,var(--acc));
+  background-size:200% 200%;animation:gr 4s ease infinite;
+}
+.profile-ring img{width:176px;height:176px;border-radius:50%;object-fit:cover;display:block}
+@keyframes gr{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
+
+/* ============ BADGES ============ */
+.badge{display:inline-flex;align-items:center;gap:.3rem;padding:.2rem .7rem;border-radius:999px;font-size:.78rem;font-weight:600}
+body.dark .badge-gold{background:var(--acc-g);color:var(--acc);border:1px solid rgba(234,179,8,.3)}
+body.light .badge-gold{background:rgba(234,179,8,.1);color:var(--acc-dk);border:1px solid rgba(234,179,8,.3)}
+body.dark .badge-out{border:1px solid var(--bdr-d);color:var(--m-d)}
+body.light .badge-out{border:1px solid var(--bdr-l2);color:var(--m-l);background:var(--bg-l2)}
+
+/* ============ EDUCATION LOGO ============ */
+.edu-logo{width:72px;height:72px;border-radius:.75rem;object-fit:contain;padding:.4rem}
+body.dark .edu-logo{background:#fff}
+body.light .edu-logo{background:var(--bg-l2);border:1px solid var(--bdr-l)}
+.edu-emoji{width:72px;height:72px;border-radius:.75rem;display:flex;align-items:center;justify-content:center;font-size:2rem}
+body.dark .edu-emoji{background:var(--card-d-h)}
+body.light .edu-emoji{background:var(--bg-l2);border:1px solid var(--bdr-l)}
+
+/* ============ SKILL TILES ============ */
+.skill-tile{display:flex;align-items:center;gap:.75rem;padding:1rem 1.1rem;border-radius:var(--rs);transition:all .3s}
+body.dark .skill-tile{background:var(--card-d);border:1px solid var(--bdr-d)}
+body.dark .skill-tile:hover{background:var(--card-d-h);border-color:var(--acc);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.3)}
+body.light .skill-tile{background:var(--card-l);border:1px solid var(--bdr-l);box-shadow:0 1px 2px rgba(0,0,0,.03)}
+body.light .skill-tile:hover{border-color:var(--acc);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.08);background:#fffbeb}
+.skill-tile img{width:30px;height:30px;object-fit:contain;flex-shrink:0}
+.skill-tile .sn{font-weight:600;font-size:.9rem;text-decoration:none;transition:color .3s}
+body.dark .skill-tile .sn{color:var(--h-d)} body.light .skill-tile .sn{color:var(--h-l)}
+.skill-tile .sn:hover{color:var(--acc-h)}
+.skill-tile .ss{font-size:.72rem;line-height:1.4}
+body.dark .skill-tile .ss{color:var(--m-d)} body.light .skill-tile .ss{color:var(--m-l)}
+
+/* ============ CERT ============ */
+.cert-icon{
+  flex-shrink:0;width:46px;height:46px;display:flex;align-items:center;justify-content:center;
+  border-radius:12px;font-size:1.3rem;
+}
+body.dark .cert-icon{background:var(--acc-g);color:var(--acc);border:1px solid rgba(234,179,8,.2)}
+body.light .cert-icon{background:rgba(234,179,8,.08);color:var(--acc-dk);border:1px solid rgba(234,179,8,.2)}
+
+/* ============ TIMELINE ============ */
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:7px;top:0;bottom:0;width:2px}
+body.dark .timeline::before{background:linear-gradient(180deg,var(--acc),var(--bdr-d))}
+body.light .timeline::before{background:linear-gradient(180deg,var(--acc),var(--bdr-l))}
+
+.tl-item{position:relative;padding-bottom:2rem}
+.tl-item:last-child{padding-bottom:0}
+.tl-dot{
+  position:absolute;left:-2rem;top:1.5rem;width:16px;height:16px;
+  background:var(--acc);border-radius:50%;z-index:1;
+  box-shadow:0 0 0 4px var(--acc-g);
+}
+body.dark .tl-dot{border:3px solid var(--bg-d)}
+body.light .tl-dot{border:3px solid var(--bg-l)}
+.tl-card{margin-left:.5rem}
+
+.work-logo{width:56px;height:56px;border-radius:.75rem;object-fit:contain;padding:.35rem;flex-shrink:0}
+body.dark .work-logo{background:#fff}
+body.light .work-logo{background:var(--bg-l2);border:1px solid var(--bdr-l)}
+.work-icon{width:56px;height:56px;border-radius:.75rem;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
+body.dark .work-icon{background:var(--acc-g);color:var(--acc);border:1px solid rgba(234,179,8,.2)}
+body.light .work-icon{background:rgba(234,179,8,.08);color:var(--acc-dk);border:1px solid rgba(234,179,8,.2)}
+
+/* Bullet list */
+.blist{padding:0}
+.blist li{position:relative;padding-left:1.2rem;margin-bottom:.4rem}
+.blist li::before{content:'';position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--acc)}
+
+/* Skill badges */
+.sb{
+  display:inline-block;padding:.2rem .6rem;border-radius:999px;
+  font-size:.72rem;font-weight:600;transition:all .3s;
+}
+body.dark .sb{background:rgba(234,179,8,.1);color:var(--acc);border:1px solid rgba(234,179,8,.25)}
+body.light .sb{background:rgba(234,179,8,.08);color:var(--acc-dk);border:1px solid rgba(234,179,8,.25)}
+.sb:hover{background:var(--acc);color:#000;transform:translateY(-1px)}
+
+/* ============ LEADERSHIP CARDS ============ */
+.ldr-card{position:relative;overflow:hidden}
+.ldr-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--acc);border-radius:999px}
+.ldr-card.purple::before{background:#818cf8}
+.ldr-card.green::before{background:#10b981}
+.ldr-card.blue::before{background:#3b82f6}
+
+.ldr-icon{
+  flex-shrink:0;width:48px;height:48px;display:flex;align-items:center;justify-content:center;
+  border-radius:14px;font-size:1.3rem;
+}
+body.dark .ldr-icon{background:var(--acc-g);color:var(--acc);border:1px solid rgba(234,179,8,.2)}
+body.light .ldr-icon{background:rgba(234,179,8,.08);color:var(--acc-dk);border:1px solid rgba(234,179,8,.2)}
+.ldr-icon.purple{background:rgba(99,102,241,.1) !important;color:#818cf8 !important;border-color:rgba(99,102,241,.2) !important}
+body.light .ldr-icon.purple{background:rgba(99,102,241,.06) !important;color:#6366f1 !important}
+.ldr-icon.green{background:rgba(16,185,129,.1) !important;color:#10b981 !important;border-color:rgba(16,185,129,.2) !important}
+body.light .ldr-icon.green{background:rgba(16,185,129,.06) !important;color:#059669 !important}
+.ldr-icon.blue{background:rgba(59,130,246,.1) !important;color:#3b82f6 !important;border-color:rgba(59,130,246,.2) !important}
+body.light .ldr-icon.blue{background:rgba(59,130,246,.06) !important;color:#2563eb !important}
+
+/* ============ CONTACT ============ */
+.contact-grid{display:grid;grid-template-columns:2fr 3fr;gap:2rem}
+@media(max-width:768px){.contact-grid{grid-template-columns:1fr}}
+
+.c-icon{
+  width:38px;height:38px;display:flex;align-items:center;justify-content:center;
+  border-radius:10px;font-size:.85rem;flex-shrink:0;
+}
+body.dark .c-icon{background:var(--card-d);border:1px solid var(--bdr-d);color:var(--acc)}
+body.light .c-icon{background:var(--bg-l2);border:1px solid var(--bdr-l);color:var(--acc-dk)}
+
+.social-btn{
+  width:42px;height:42px;display:flex;align-items:center;justify-content:center;
+  border-radius:12px;font-size:1rem;text-decoration:none;transition:all .3s;
+}
+body.dark .social-btn{background:var(--card-d);border:1px solid var(--bdr-d);color:var(--m-d)}
+body.light .social-btn{background:var(--card-l);border:1px solid var(--bdr-l);color:var(--m-l)}
+.social-btn:hover{color:var(--acc);border-color:var(--acc);transform:translateY(-2px)}
+
+.form-label{display:block;font-size:.8rem;font-weight:600;margin-bottom:.35rem;text-transform:uppercase;letter-spacing:.05em}
+body.dark .form-label{color:var(--m-d)} body.light .form-label{color:var(--m-l)}
+
+.form-input{
+  width:100%;padding:.7rem 1rem;border-radius:var(--rs);
+  font-family:var(--font);font-size:.92rem;
+  transition:border-color .3s,box-shadow .3s;outline:none;
+}
+body.dark .form-input{background:var(--bg-d);border:1px solid var(--bdr-d);color:var(--h-d)}
+body.light .form-input{background:var(--bg-l2);border:1px solid var(--bdr-l);color:var(--h-l)}
+.form-input:focus{border-color:var(--acc);box-shadow:0 0 0 3px var(--acc-g)}
+body.dark .form-input::placeholder{color:#475569}
+body.light .form-input::placeholder{color:#94a3b8}
+
+.submit-btn{
+  width:100%;padding:.8rem;background:var(--acc);color:#000;border:none;
+  border-radius:var(--rs);font-weight:700;font-size:1rem;cursor:pointer;
+  font-family:var(--font);transition:all .3s;
+}
+.submit-btn:hover{background:var(--acc-h);transform:translateY(-2px);box-shadow:0 8px 24px rgba(234,179,8,.35)}
+
+/* ============ FOOTER ============ */
+.footer{padding:2.5rem 1.5rem;text-align:center;transition:all var(--t)}
+body.dark .footer{background:var(--bg-d);border-top:1px solid var(--bdr-d)}
+body.light .footer{background:var(--bg-l);border-top:1px solid var(--bdr-l)}
+.footer p{font-size:.85rem}
+body.dark .footer p{color:#475569} body.light .footer p{color:#94a3b8}
+.footer a{text-decoration:none;transition:color .3s;margin:0 .4rem}
+body.dark .footer a{color:#475569} body.light .footer a{color:#94a3b8}
+.footer a:hover{color:var(--acc) !important}
+
+/* ============ FLOATING CV ============ */
+.float-cv{
+  position:fixed;bottom:1.5rem;right:1.5rem;
+  width:54px;height:54px;display:flex;align-items:center;justify-content:center;
+  background:var(--acc);color:#000;border-radius:50%;font-size:1.2rem;
+  box-shadow:0 8px 28px rgba(234,179,8,.4);z-index:99;
+  text-decoration:none;animation:fp 3s ease-in-out infinite;
+}
+.float-cv:hover{transform:scale(1.1);box-shadow:0 12px 36px rgba(234,179,8,.6)}
+@keyframes fp{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@media(min-width:769px){.float-cv{display:none}}
+
+/* ============ REVEAL ============ */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.vis{opacity:1;transform:translateY(0)}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:600px){
+  .hero h1{font-size:2.3rem !important}
+  .btn-primary,.btn-ghost{width:100%;justify-content:center}
+  .timeline{padding-left:1.4rem}
+  .tl-dot{left:-1.4rem}
+  .ldr-card{padding-left:1.5rem !important}
+}
+</style>
 </head>
-<body class="transition-colors duration-500">
 
-    <!-- ==================== HEADER ==================== -->
-    <header class="relative bg-cover bg-center h-screen overflow-hidden" style="background-image: url('header-bg.jpg');">
-        <div id="equations-container" class="absolute inset-0" style="z-index:1;"></div>
-        <div class="hero-overlay"></div>
+<body class="dark">
 
-        <!-- Navigation -->
-        <nav class="sticky w-full top-0 flex justify-between items-center px-6 py-4" style="z-index:50;">
-            <div class="text-2xl font-bold tracking-tight nav-brand">
-                <span style="color:var(--accent);">T</span>K
+<!-- ====== HERO ====== -->
+<header class="hero">
+  <div id="eq-box"></div>
+  <div class="hero-overlay"></div>
+
+  <nav class="nav">
+    <a href="#" class="nav-brand"><span>T</span>K</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <a href="https://drive.google.com/file/d/15x3xAGLD4806E1IUCCWQbtj0rcDuMhwJ/view?usp=sharing" target="_blank" rel="noopener" class="cv-btn"><i class="fas fa-file-alt"></i> CV</a>
+      <label class="toggle"><input type="checkbox" id="mode-toggle" checked><span class="toggle-dot"></span></label>
+    </div>
+    <button class="ham" id="ham-btn"><i class="fas fa-bars"></i></button>
+    <div class="mobile-menu" id="mob-menu">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <a href="https://drive.google.com/file/d/15x3xAGLD4806E1IUCCWQbtj0rcDuMhwJ/view?usp=sharing" target="_blank" rel="noopener" class="cv-btn"><i class="fas fa-file-alt"></i> CV</a>
+      <label class="toggle"><input type="checkbox" id="mob-toggle" checked><span class="toggle-dot"></span></label>
+    </div>
+  </nav>
+
+  <div class="hero-content">
+    <p class="hero-label fade-in">Economics · Data Science · Research</p>
+    <h1 class="fade-in">Theodoros<br><span>Kourtalis</span></h1>
+    <p class="hero-sub fade-d">Economics student &amp; research assistant building data pipelines, algorithmic systems, and structured datasets for econometrics, policy, and finance.</p>
+    <div class="hero-btns fade-d">
+      <a href="https://drive.google.com/file/d/15x3xAGLD4806E1IUCCWQbtj0rcDuMhwJ/view?usp=sharing" target="_blank" rel="noopener" class="btn-primary"><i class="fas fa-file-alt"></i> View My CV</a>
+      <a href="#contact" class="btn-ghost"><i class="fas fa-envelope"></i> Get in Touch</a>
+    </div>
+  </div>
+
+  <div class="scroll-hint"><a href="#about"><div class="scroll-mouse"></div></a></div>
+</header>
+
+<!-- ====== MAIN ====== -->
+<main class="wrap">
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <h2 class="sec-title">About Me</h2>
+    <div class="md-row items-c gap-8">
+      <div class="shrink-0">
+        <div class="profile-ring"><img src="Myprofilephoto.jpg" alt="Theodoros Kourtalis" loading="lazy"></div>
+      </div>
+      <div>
+        <p class="text-lg leading-relaxed t-body">
+          I am a second-year economics undergraduate at the
+          <strong class="t-head">Athens University of Economics and Business</strong>,
+          ranked <strong class="t-acc2">1st in my cohort</strong> (GPA 9.09/10).
+          I work as a Research Assistant at AUEB's
+          <strong class="t-head">EMOP Economic Policy Laboratory</strong> and have collaborated with researchers from
+          <strong class="t-head">Monash University</strong>.
+          I also founded <strong class="t-acc2">Asymmetria</strong>, a student-driven algorithmic trading project focused on insider-signal detection.
+        </p>
+        <p class="text-lg leading-relaxed t-mute mt-4">
+          My research interests span trade, cultural economics, complex economic systems, and quantitative policy analysis.
+          Beyond academics I enjoy literature (McCarthy, Camus), philosophy &amp; logic (Epictetus, Wittgenstein),
+          cinema (Kubrick, Lynch, Edward Yang), music from rebetika and jazz to hip-hop and post-rock, and hiking.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="section">
+    <h2 class="sec-title">Education</h2>
+    <div class="flex flex-col gap-6">
+      <div class="card md-row items-c gap-6">
+        <img src="Athens_University_of_Economics_and_Business_Logo.jpg" alt="AUEB" class="edu-logo" loading="lazy">
+        <div>
+          <h3 class="font-bold t-head" style="font-size:1.15rem"><a href="https://www.aueb.gr/en" target="_blank" class="link-acc" style="color:inherit">Athens University of Economics and Business</a></h3>
+          <p class="t-body text-sm font-medium">Bachelor of Science in Economics</p>
+          <p class="t-mute text-sm mt-1">Oct 2023 – Jul 2027</p>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span class="badge badge-gold"><i class="fas fa-trophy"></i> GPA: 9.09/10</span>
+            <span class="badge badge-out">Ranked 1st in Cohort</span>
+          </div>
+        </div>
+      </div>
+      <div class="card md-row items-c gap-6">
+        <div class="edu-emoji">🎓</div>
+        <div>
+          <h3 class="font-bold t-head" style="font-size:1.15rem">3rd General High School of Keratsini</h3>
+          <p class="t-body text-sm font-medium">Valedictorian</p>
+          <p class="t-mute text-sm mt-1">Graduated 2023</p>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span class="badge badge-gold"><i class="fas fa-star"></i> 19.9/20</span>
+            <span class="badge badge-out">Ranked 1st in School</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFESSIONAL EXPERIENCE -->
+  <section id="experience" class="section">
+    <h2 class="sec-title">Professional Experience</h2>
+    <div class="timeline">
+
+      <!-- Monash -->
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card card">
+          <div class="md-row items-s gap-4">
+            <div class="work-icon"><i class="fas fa-flask"></i></div>
+            <div class="flex-1">
+              <h3 class="font-bold t-head" style="font-size:1.15rem">Research Assistant</h3>
+              <p class="t-acc font-medium mt-1">
+                <a href="https://www.monash.edu/business/economics" target="_blank" class="link-acc">Monash University</a> &amp;
+                <a href="https://www.aueb.gr/en" target="_blank" class="link-acc">AUEB</a>
+              </p>
+              <p class="text-sm t-mute mt-1"><i class="fas fa-calendar-alt"></i> Nov 2025 · <i class="fas fa-file-contract"></i> Monash PO #20683891</p>
+              <ul class="blist mt-3 t-body leading-relaxed">
+                <li>Collaborated with <a href="https://www.aueb.gr/en/faculty_page/dioikitopoulos-evangelos" target="_blank" class="link-acc">Prof. E. Dioikitopoulos</a>, <a href="https://research.monash.edu/en/persons/rigissa-megalokonomou" target="_blank" class="link-acc">Prof. R. Megalokonomou</a>, and <a href="https://research.monash.edu/en/persons/yves-zenou" target="_blank" class="link-acc">Yves Zenou</a> on <em>"Beyond the Facts: Who Changes Minds?"</em></li>
+                <li>Managed sessions &amp; logistics for paid research to deliver clean datasets.</li>
+                <li>Built Google Apps Script for automated scheduling + Python scripts for no-show detection &amp; SMS notifications.</li>
+              </ul>
+              <div class="flex flex-wrap gap-2 mt-3">
+                <span class="sb">Behavioral Econ</span><span class="sb">Experiments</span><span class="sb">Python</span><span class="sb">Apps Script</span>
+              </div>
             </div>
-            <ul class="hidden md:flex space-x-6 items-center text-sm font-medium uppercase tracking-wider">
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#education" class="nav-link">Education</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#leadership" class="nav-link">Leadership</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-                <li>
-                    <a href="https://drive.google.com/file/d/15x3xAGLD4806E1IUCCWQbtj0rcDuMhwJ/view?usp=sharing"
-                       target="_blank" rel="noopener noreferrer"
-                       class="cv-nav-btn">
-                        <i class="fas fa-file-alt mr-1"></i> CV
-                    </a>
-                </li>
-                <li>
-                    <label class="switch">
-                        <input type="checkbox" id="mode-toggle">
-                        <span class="slider round"></span>
-                    </label>
-                </li>
+          </div>
+        </div>
+      </div>
+
+      <!-- EMOP -->
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card card">
+          <div class="md-row items-s gap-4">
+            <img src="athens_university_of_economics_and_business_logo.jpg" alt="EMOP" class="work-logo" loading="lazy">
+            <div class="flex-1">
+              <h3 class="font-bold t-head" style="font-size:1.15rem">Research Assistant (Data Science &amp; Policy)</h3>
+              <p class="t-acc font-medium mt-1"><a href="https://www.dept.aueb.gr/en/imop" target="_blank" class="link-acc">AUEB Economic Policy Laboratory (EMOP)</a></p>
+              <p class="text-sm t-mute mt-1"><i class="fas fa-calendar-alt"></i> Sep 2024 – Present · <i class="fas fa-map-marker-alt"></i> Athens · <i class="fas fa-file-contract"></i> ELKE-AUEB Contracts</p>
+              <ul class="blist mt-3 t-body leading-relaxed">
+                <li>Built a Python parsing pipeline for <a href="http://www.areiospagos.gr/en/" target="_blank" class="link-acc">Areios Pagos</a> judicial decisions (Contract #50126) — extracted judges, attorneys, expenses, parties.</li>
+                <li>Generalized rules across decisions to scale the pipeline consistently.</li>
+                <li>Automated macroeconomic data collection (Selenium/Pandas) — scraped, cleaned, and structured <strong class="t-head">50,000+ observations</strong>.</li>
+                <li>Verified dataset accuracy; supported macroeconomic modeling (Contract #45122).</li>
+              </ul>
+              <div class="flex flex-wrap gap-2 mt-3">
+                <span class="sb">Data Engineering</span><span class="sb">NLP</span><span class="sb">Web Scraping</span><span class="sb">Selenium</span><span class="sb">Pandas</span><span class="sb">Python</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LEADERSHIP -->
+  <section id="leadership" class="section">
+    <h2 class="sec-title">Leadership, Entrepreneurship &amp; Volunteering</h2>
+    <div class="flex flex-col gap-6">
+
+      <!-- Asymmetria -->
+      <div class="card ldr-card">
+        <div class="flex items-s gap-4">
+          <div class="ldr-icon"><i class="fas fa-chart-line"></i></div>
+          <div class="flex-1">
+            <div class="md-row items-c" style="justify-content:space-between">
+              <h3 class="font-bold t-head" style="font-size:1.1rem">Founder &amp; Technical Lead — Asymmetria</h3>
+              <span class="text-sm t-acc font-medium"><i class="fas fa-clock"></i> Oct 2025 – Present</span>
+            </div>
+            <ul class="blist mt-3 t-body leading-relaxed">
+              <li>Co-founded a 4-person student project building an algorithmic system for insider trading detection.</li>
+              <li>Programmed the Python backend to ingest filings, prices, volumes and rank signals by reliability.</li>
+              <li>Set up dynamic stop-loss / profit-taking rules tested through econometric backtesting.</li>
             </ul>
-            <button id="hamburger-button" class="md:hidden" style="z-index:50;">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
-            <ul id="mobile-menu" class="hidden flex-col space-y-4 items-center p-8 md:hidden absolute top-16 left-0 w-full rounded-b-2xl shadow-2xl" style="z-index:40;">
-                <li><a href="#about" class="nav-link-mobile">About</a></li>
-                <li><a href="#education" class="nav-link-mobile">Education</a></li>
-                <li><a href="#experience" class="nav-link-mobile">Experience</a></li>
-                <li><a href="#leadership" class="nav-link-mobile">Leadership</a></li>
-                <li><a href="#skills" class="nav-link-mobile">Skills</a></li>
-                <li><a href="#contact" class="nav-link-mobile">Contact</a></li>
-                <li>
-                    <a href="https://drive.google.com/file/d/15x3xAGLD4806E1IUCCWQbtj0rcDuMhwJ/view?usp=sharing"
-                       target="_blank" rel="noopener noreferrer"
-                       class="cv-nav-btn">
-                        <i class="fas fa-file-alt mr-1"></i> View CV
-                    </a>
-                </li>
-                <li>
-                    <label class="switch">
-                        <input type="checkbox" id="mobile-mode-toggle">
-                        <span class="slider round"></span>
-                    </label>
-                </li>
+            <div class="flex flex-wrap gap-2 mt-3"><span class="sb">Python</span><span class="sb">Algo Trading</span><span class="sb">Econometrics</span><span class="sb">Backtesting</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EMOP Research Team -->
+      <div class="card ldr-card purple">
+        <div class="flex items-s gap-4">
+          <div class="ldr-icon purple"><i class="fas fa-users"></i></div>
+          <div class="flex-1">
+            <div class="md-row items-c" style="justify-content:space-between">
+              <h3 class="font-bold t-head" style="font-size:1.1rem">Project Lead — <a href="https://www.dept.aueb.gr/en/emop" target="_blank" class="link-acc">EMOP</a> Student Research Team</h3>
+              <span class="text-sm t-acc font-medium"><i class="fas fa-clock"></i> Apr 2025 – Present</span>
+            </div>
+            <ul class="blist mt-3 t-body leading-relaxed">
+              <li>Managed a team of 10 students to construct a dataset of Greek university faculty.</li>
+              <li>Delivered a 3-hour workshop on web scraping fundamentals.</li>
+              <li>Merged &amp; refined contributions into a single research-ready dataset.</li>
             </ul>
-        </nav>
-
-        <!-- Hero Content -->
-        <div class="flex h-full items-center justify-center flex-col text-center px-4 relative" style="z-index:10; margin-top:-4rem;">
-            <p class="hero-label text-sm font-semibold uppercase tracking-widest mb-4 fade-in">Economics · Data Science · Research</p>
-            <h1 class="text-5xl md:text-7xl font-black fade-in leading-tight" style="color:#fff;">
-                Theodoros<br><span style="color:var(--accent);">Kourtalis</span>
-            </h1>
-            <p class="text-lg md:text-xl mt-6 max-w-2xl fade-in-delay hero-tagline-muted">
-                Economics student &amp; research assistant building data pipelines, algorithmic systems, and structured datasets at the intersection of econometrics, policy, and finance.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 mt-10 fade-in-delay">
-                <a href="https://drive.google.com/file/d/15x3xAGLD4806E1IUCCWQbtj0rcDuMhwJ/view?usp=sharing"
-                   target="_blank" rel="noopener noreferrer"
-                   class="cv-hero-btn-primary">
-                    <i class="fas fa-file-alt mr-2"></i> View My CV
-                </a>
-                <a href="#contact" class="cv-hero-btn-secondary">
-                    <i class="fas fa-envelope mr-2"></i> Get in Touch
-                </a>
-            </div>
+            <div class="flex flex-wrap gap-2 mt-3"><span class="sb">Team Lead</span><span class="sb">Web Scraping</span><span class="sb">Teaching</span></div>
+          </div>
         </div>
+      </div>
 
-        <!-- Scroll Prompt -->
-        <div class="scroll-prompt" style="z-index:10;">
-            <a href="#about">
-                <div class="scroll-indicator">
-                    <div class="scroll-dot"></div>
-                </div>
-            </a>
+      <!-- Socioeconomics Lab -->
+      <div class="card ldr-card green">
+        <div class="flex items-s gap-4">
+          <div class="ldr-icon green"><i class="fas fa-globe-europe"></i></div>
+          <div class="flex-1">
+            <div class="md-row items-c" style="justify-content:space-between">
+              <h3 class="font-bold t-head" style="font-size:1.1rem">Junior Researcher (Volunteer) — Socioeconomics Lab</h3>
+              <span class="text-sm t-acc font-medium"><i class="fas fa-clock"></i> Present</span>
+            </div>
+            <p class="text-sm t-mute mt-1"><a href="https://www.elidek.gr/en/homepage/" target="_blank" class="link-acc">H.F.R.I.</a> Project 16017 · <a href="https://next-generation-eu.europa.eu/index_en" target="_blank" class="link-acc">EU NextGenerationEU</a></p>
+            <ul class="blist mt-3 t-body leading-relaxed">
+              <li>Helped build a regional behavioral dataset for Greece to inform socio-economic policies.</li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mt-3"><span class="sb">Behavioral Data</span><span class="sb">Regional Econ</span><span class="sb">EU Policy</span></div>
+          </div>
         </div>
-    </header>
+      </div>
 
-    <!-- ==================== MAIN ==================== -->
-    <main class="max-w-6xl mx-auto px-6">
-
-        <!-- ========== ABOUT ========== -->
-        <section id="about" class="section-block">
-            <h2 class="section-heading">About Me</h2>
-            <div class="flex flex-col md:flex-row items-center gap-8">
-                <div class="relative flex-shrink-0">
-                    <div class="profile-ring">
-                        <img src="Myprofilephoto.jpg" alt="Theodoros Kourtalis" class="w-44 h-44 rounded-full object-cover" loading="lazy">
-                    </div>
-                </div>
-                <div class="space-y-4">
-                    <p class="text-lg leading-relaxed about-text">
-                        I am a second-year economics undergraduate at the
-                        <strong class="about-highlight">Athens University of Economics and Business</strong>,
-                        ranked <strong class="about-accent">1st in my cohort</strong> (GPA 9.09/10).
-                        I work as a Research Assistant at AUEB's
-                        <strong class="about-highlight">EMOP Economic Policy Laboratory</strong> and have collaborated with researchers from
-                        <strong class="about-highlight">Monash University</strong>.
-                        I also founded <strong class="about-accent">Asymmetria</strong>, a student-driven algorithmic trading project focused on insider-signal detection.
-                    </p>
-                    <p class="text-lg leading-relaxed about-text-muted">
-                        My research interests span trade, cultural economics, complex economic systems, and quantitative policy analysis.
-                        Beyond academics I enjoy literature (McCarthy, Camus), philosophy &amp; logic (Epictetus, Wittgenstein),
-                        cinema (Kubrick, Lynch, Edward Yang), music from rebetika and jazz to hip-hop and post-rock, and hiking in nature.
-                    </p>
-                </div>
+      <!-- SIFC -->
+      <div class="card ldr-card blue">
+        <div class="flex items-s gap-4">
+          <div class="ldr-icon blue"><i class="fas fa-hand-holding-usd"></i></div>
+          <div class="flex-1">
+            <div class="md-row items-c" style="justify-content:space-between">
+              <h3 class="font-bold t-head" style="font-size:1.1rem">Commodities Analyst (Vol.) — <a href="https://auebsifc.com/" target="_blank" class="link-acc">AUEB SIFC</a></h3>
+              <span class="text-sm t-acc font-medium"><i class="fas fa-clock"></i> Present</span>
             </div>
-        </section>
-
-        <!-- ========== EDUCATION ========== -->
-        <section id="education" class="section-block">
-            <h2 class="section-heading">Education</h2>
-            <div class="space-y-6">
-                <!-- AUEB -->
-                <div class="glass-card flex flex-col md:flex-row items-center gap-6">
-                    <img src="Athens_University_of_Economics_and_Business_Logo.jpg" alt="AUEB" class="w-20 h-20 rounded-xl object-contain edu-logo-bg p-2" loading="lazy">
-                    <div>
-                        <h3 class="text-xl font-bold edu-title">
-                            <a href="https://www.aueb.gr/en" target="_blank" rel="noopener noreferrer" class="hover:underline">
-                                Athens University of Economics and Business
-                            </a>
-                        </h3>
-                        <p class="edu-subtitle">Bachelor of Science in Economics</p>
-                        <p class="edu-date mt-1">Oct 2023 – Jul 2027</p>
-                        <div class="mt-2 inline-flex items-center gap-2 flex-wrap">
-                            <span class="badge-gold"><i class="fas fa-trophy mr-1"></i> GPA: 9.09/10</span>
-                            <span class="badge-outline">Ranked 1st in Cohort</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- High School -->
-                <div class="glass-card flex flex-col md:flex-row items-center gap-6">
-                    <div class="w-20 h-20 rounded-xl flex items-center justify-center text-3xl edu-logo-bg">
-                        🎓
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold edu-title">3rd General High School of Keratsini</h3>
-                        <p class="edu-subtitle">Valedictorian</p>
-                        <p class="edu-date mt-1">Graduated 2023</p>
-                        <div class="mt-2 inline-flex items-center gap-2 flex-wrap">
-                            <span class="badge-gold"><i class="fas fa-star mr-1"></i> 19.9/20</span>
-                            <span class="badge-outline">Ranked 1st in School</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== PROFESSIONAL EXPERIENCE ========== -->
-        <section id="experience" class="section-block">
-            <h2 class="section-heading">Professional Experience</h2>
-            <div class="timeline">
-
-                <!-- Monash / AUEB Research Assistant -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-card">
-                        <div class="flex flex-col md:flex-row items-start gap-4">
-                            <div class="w-16 h-16 rounded-xl flex items-center justify-center work-logo-bg p-2 flex-shrink-0">
-                                <i class="fas fa-flask text-2xl" style="color:var(--accent);"></i>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-xl font-bold work-title">Research Assistant</h3>
-                                <h4 class="work-company font-medium mt-1">
-                                    <a href="https://www.monash.edu/business/economics" target="_blank" rel="noopener noreferrer" class="hover:underline">Monash University</a>
-                                    &amp;
-                                    <a href="https://www.aueb.gr/en" target="_blank" rel="noopener noreferrer" class="hover:underline">AUEB</a>
-                                </h4>
-                                <p class="text-sm work-meta mt-1">
-                                    <i class="fas fa-calendar-alt mr-1"></i> Nov 2025
-                                    <span class="mx-2">·</span>
-                                    <i class="fas fa-file-contract mr-1"></i> Monash Purchase Order #20683891
-                                </p>
-                                <p class="mt-3 work-desc leading-relaxed">
-                                    Collaborated with
-                                    <a href="https://www.aueb.gr/en/faculty_page/dioikitopoulos-evangelos" target="_blank" rel="noopener noreferrer" class="accent-link">Prof. Evangelos Dioikitopoulos</a>,
-                                    <a href="https://research.monash.edu/en/persons/rigissa-megalokonomou" target="_blank" rel="noopener noreferrer" class="accent-link">Prof. R. Megalokonomou</a>, and
-                                    <a href="https://research.monash.edu/en/persons/yves-zenou" target="_blank" rel="noopener noreferrer" class="accent-link">Yves Zenou</a>
-                                    on the behavioral experiment <em>"Beyond the Facts: Who Changes Minds?"</em>.
-                                    Managed sessions and logistics for paid research to deliver clean datasets.
-                                    Built a Google Apps Script to automate scheduling and track availability, alongside custom Python scripts to identify no-shows and send SMS notifications.
-                                </p>
-                                <div class="flex flex-wrap gap-2 mt-4">
-                                    <span class="skill-badge">Behavioral Economics</span>
-                                    <span class="skill-badge">Experiment Design</span>
-                                    <span class="skill-badge">Python</span>
-                                    <span class="skill-badge">Google Apps Script</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- EMOP Research Assistant -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-card">
-                        <div class="flex flex-col md:flex-row items-start gap-4">
-                            <img src="athens_university_of_economics_and_business_logo.jpg" alt="EMOP" class="w-16 h-16 rounded-xl object-contain work-logo-bg p-2 flex-shrink-0" loading="lazy">
-                            <div class="flex-1">
-                                <h3 class="text-xl font-bold work-title">Research Assistant (Data Science &amp; Policy)</h3>
-                                <h4 class="work-company font-medium mt-1">
-                                    <a href="https://www.dept.aueb.gr/en/imop" target="_blank" rel="noopener noreferrer" class="hover:underline">
-                                        AUEB Economic Policy Laboratory (EMOP)
-                                    </a>
-                                </h4>
-                                <p class="text-sm work-meta mt-1">
-                                    <i class="fas fa-calendar-alt mr-1"></i> Sep 2024 – Present
-                                    <span class="mx-2">·</span>
-                                    <i class="fas fa-map-marker-alt mr-1"></i> Athens, Greece
-                                    <span class="mx-2">·</span>
-                                    <i class="fas fa-file-contract mr-1"></i> Official ELKE-AUEB Contracts
-                                </p>
-                                <ul class="mt-3 work-desc leading-relaxed space-y-2 work-list">
-                                    <li>
-                                        Built a Python parsing pipeline for
-                                        <a href="http://www.areiospagos.gr/en/" target="_blank" rel="noopener noreferrer" class="accent-link">Areios Pagos</a>
-                                        judicial decisions (Contract #50126), extracting structured legal metadata — judges, attorneys, expenses, and parties — for quantitative policy analysis.
-                                    </li>
-                                    <li>
-                                        Generalized parsing rules across multiple decisions to scale the pipeline and ensure consistency.
-                                    </li>
-                                    <li>
-                                        Automated data collection for macroeconomic research using Python (Selenium/Pandas) — scraping, cleaning, and structuring over <strong class="about-highlight">50,000 observations</strong>, saving weeks of manual entry.
-                                    </li>
-                                    <li>
-                                        Verified dataset accuracy and supported macroeconomic modeling projects (Contract #45122).
-                                    </li>
-                                </ul>
-                                <div class="flex flex-wrap gap-2 mt-4">
-                                    <span class="skill-badge">Data Engineering</span>
-                                    <span class="skill-badge">NLP / Text Parsing</span>
-                                    <span class="skill-badge">Web Scraping</span>
-                                    <span class="skill-badge">Selenium</span>
-                                    <span class="skill-badge">Pandas</span>
-                                    <span class="skill-badge">Python</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- ========== LEADERSHIP, ENTREPRENEURSHIP & VOLUNTEERING ========== -->
-        <section id="leadership" class="section-block">
-            <h2 class="section-heading">Leadership, Entrepreneurship &amp; Volunteering</h2>
-            <div class="space-y-6">
-
-                <!-- Asymmetria -->
-                <div class="glass-card project-card">
-                    <div class="flex items-start gap-4">
-                        <div class="project-icon">
-                            <i class="fas fa-chart-line text-2xl"></i>
-                        </div>
-                        <div class="flex-1">
-                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                                <h3 class="text-xl font-bold project-title">Founder &amp; Technical Lead — Asymmetria</h3>
-                                <span class="text-sm project-date font-medium mt-1 sm:mt-0">
-                                    <i class="fas fa-clock mr-1"></i> Oct 2025 – Present
-                                </span>
-                            </div>
-                            <ul class="mt-3 project-desc leading-relaxed space-y-2 work-list">
-                                <li>Co-founded a 4-person student project building an algorithmic trading system for insider trading detection.</li>
-                                <li>Programmed the Python backend to ingest insider filings, prices, and volumes, and rank signals by historical reliability.</li>
-                                <li>Set up dynamic stop-loss and profit-taking rules tested through econometric backtesting.</li>
-                            </ul>
-                            <div class="flex flex-wrap gap-2 mt-3">
-                                <span class="skill-badge">Python</span>
-                                <span class="skill-badge">Algorithmic Trading</span>
-                                <span class="skill-badge">Econometrics</span>
-                                <span class="skill-badge">Backtesting</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- EMOP Student Research Team -->
-                <div class="glass-card project-card research-card">
-                    <div class="flex items-start gap-4">
-                        <div class="project-icon research-icon">
-                            <i class="fas fa-users text-2xl"></i>
-                        </div>
-                        <div class="flex-1">
-                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                                <h3 class="text-xl font-bold project-title">
-                                    Project Lead —
-                                    <a href="https://www.dept.aueb.gr/en/emop" target="_blank" rel="noopener noreferrer" class="accent-link">EMOP</a>
-                                    Student Research Team
-                                </h3>
-                                <span class="text-sm project-date font-medium mt-1 sm:mt-0">
-                                    <i class="fas fa-clock mr-1"></i> Apr 2025 – Present
-                                </span>
-                            </div>
-                            <ul class="mt-3 project-desc leading-relaxed space-y-2 work-list">
-                                <li>Managed a team of 10 students to construct a comprehensive dataset of Greek university faculty.</li>
-                                <li>Taught a 3-hour technical workshop on web scraping fundamentals to prepare the team before project launch.</li>
-                                <li>Merged and refined individual contributions into a single, research-ready dataset.</li>
-                            </ul>
-                            <div class="flex flex-wrap gap-2 mt-3">
-                                <span class="skill-badge">Team Management</span>
-                                <span class="skill-badge">Web Scraping</span>
-                                <span class="skill-badge">Teaching</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Socioeconomics Lab -->
-                <div class="glass-card project-card">
-                    <div class="flex items-start gap-4">
-                        <div class="project-icon" style="background:rgba(16,185,129,0.1); color:#10b981; border-color:rgba(16,185,129,0.2);">
-                            <i class="fas fa-globe-europe text-2xl"></i>
-                        </div>
-                        <div class="flex-1">
-                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                                <h3 class="text-xl font-bold project-title">
-                                    Junior Researcher (Volunteer) — Socioeconomics Lab
-                                </h3>
-                                <span class="text-sm project-date font-medium mt-1 sm:mt-0">
-                                    <i class="fas fa-clock mr-1"></i> Present
-                                </span>
-                            </div>
-                            <p class="text-sm project-meta mt-1">
-                                <a href="https://www.elidek.gr/en/homepage/" target="_blank" rel="noopener noreferrer" class="accent-link">H.F.R.I.</a>
-                                Project 16017 · Funded by
-                                <a href="https://next-generation-eu.europa.eu/index_en" target="_blank" rel="noopener noreferrer" class="accent-link">EU NextGenerationEU</a>
-                            </p>
-                            <ul class="mt-3 project-desc leading-relaxed space-y-2 work-list">
-                                <li>Helped build a regional behavioral dataset for Greece to inform socio-economic policies.</li>
-                            </ul>
-                            <div class="flex flex-wrap gap-2 mt-3">
-                                <span class="skill-badge">Behavioral Data</span>
-                                <span class="skill-badge">Regional Economics</span>
-                                <span class="skill-badge">EU Policy</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- AUEB SIFC -->
-                <div class="glass-card project-card">
-                    <div class="flex items-start gap-4">
-                        <div class="project-icon" style="background:rgba(59,130,246,0.1); color:#3b82f6; border-color:rgba(59,130,246,0.2);">
-                            <i class="fas fa-hand-holding-usd text-2xl"></i>
-                        </div>
-                        <div class="flex-1">
-                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                                <h3 class="text-xl font-bold project-title">
-                                    Commodities Analyst (Volunteer) —
-                                    <a href="https://auebsifc.com/" target="_blank" rel="noopener noreferrer" class="accent-link">AUEB SIFC</a>
-                                </h3>
-                                <span class="text-sm project-date font-medium mt-1 sm:mt-0">
-                                    <i class="fas fa-clock mr-1"></i> Present
-                                </span>
-                            </div>
-                            <p class="text-sm project-meta mt-1">AUEB Students' Investment and Finance Club</p>
-                            <ul class="mt-3 project-desc leading-relaxed space-y-2 work-list">
-                                <li>Researched European TTF natural gas trends for the club's Monthly Market Report, summarizing price drivers for university-wide publication.</li>
-                                <li>Analyzed fundamental relationships in global liquid markets to explain energy commodity trends.</li>
-                            </ul>
-                            <div class="flex flex-wrap gap-2 mt-3">
-                                <span class="skill-badge">Commodities</span>
-                                <span class="skill-badge">Energy Markets</span>
-                                <span class="skill-badge">Financial Analysis</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- ========== SKILLS & CERTIFICATIONS ========== -->
-        <section id="skills" class="section-block">
-            <h2 class="section-heading">Skills &amp; Certifications</h2>
-
-            <!-- Programming & Data -->
-            <div class="mb-10">
-                <h3 class="text-xl font-semibold skill-category-title mb-4 flex items-center gap-2">
-                    <i class="fas fa-laptop-code"></i> Programming &amp; Data
-                </h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <div class="skill-tile">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python" class="skill-icon" loading="lazy"
-                             onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/200px-Python-logo-notext.svg.png';">
-                        <div>
-                            <a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank" class="skill-name">Python</a>
-                            <p class="skill-source">Pandas · NumPy · Scikit-learn · BeautifulSoup · Selenium</p>
-                        </div>
-                    </div>
-                    <div class="skill-tile">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/R_logo.svg" alt="R" class="skill-icon" loading="lazy"
-                             onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/200px-R_logo.svg.png';">
-                        <div>
-                            <a href="https://en.wikipedia.org/wiki/R_(programming_language)" target="_blank" class="skill-name">R</a>
-                            <p class="skill-source">Statistical computing &amp; visualization</p>
-                        </div>
-                    </div>
-                    <div class="skill-tile">
-                        <img src="https://www.svgrepo.com/show/374098/stata.svg" alt="Stata" class="skill-icon" loading="lazy">
-                        <div>
-                            <a href="https://en.wikipedia.org/wiki/Stata" target="_blank" class="skill-name">Stata</a>
-                            <p class="skill-source">Econometric analysis</p>
-                        </div>
-                    </div>
-                    <div class="skill-tile">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Microsoft_Office_Excel_%282019%E2%80%932025%29.svg" alt="Excel" class="skill-icon" loading="lazy">
-                        <div>
-                            <a href="https://en.wikipedia.org/wiki/Microsoft_Excel" target="_blank" class="skill-name">Microsoft Excel</a>
-                            <p class="skill-source">Data analysis &amp; modeling</p>
-                        </div>
-                    </div>
-                    <div class="skill-tile">
-                        <img src="https://img.icons8.com/color/48/000000/web-design.png" alt="Web Dev" class="skill-icon" loading="lazy">
-                        <div>
-                            <a href="https://en.wikipedia.org/wiki/HTML" target="_blank" class="skill-name">HTML, CSS, JavaScript</a>
-                            <p class="skill-source">Self-taught · This website</p>
-                        </div>
-                    </div>
-                    <div class="skill-tile">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/TeXShop_icon.png" alt="TeX" class="skill-icon" loading="lazy">
-                        <div>
-                            <a href="https://en.wikipedia.org/wiki/TeX" target="_blank" class="skill-name">TeX / LaTeX</a>
-                            <p class="skill-source">Academic typesetting</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Certifications -->
-            <div class="mb-10">
-                <h3 class="text-xl font-semibold skill-category-title mb-4 flex items-center gap-2">
-                    <i class="fas fa-certificate"></i> Certifications
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="glass-card cert-card">
-                        <div class="cert-badge">
-                            <i class="fas fa-brain text-2xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-base font-bold cert-title">Advanced Learning Algorithms</h4>
-                            <p class="text-sm cert-issuer mt-1">
-                                <a href="https://www.coursera.org/specializations/machine-learning-introduction" target="_blank" rel="noopener noreferrer" class="accent-link">
-                                    Machine Learning Specialization
-                                </a>
-                                — Stanford / DeepLearning.AI
-                            </p>
-                            <p class="text-xs cert-id mt-1">Issued Sep 2024 · ID: 0VBO30MD43SW</p>
-                        </div>
-                    </div>
-                    <div class="glass-card cert-card">
-                        <div class="cert-badge">
-                            <i class="fas fa-robot text-2xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-base font-bold cert-title">Supervised ML: Regression &amp; Classification</h4>
-                            <p class="text-sm cert-issuer mt-1">
-                                <a href="https://www.coursera.org/specializations/machine-learning-introduction" target="_blank" rel="noopener noreferrer" class="accent-link">
-                                    Machine Learning Specialization
-                                </a>
-                                — Stanford / DeepLearning.AI
-                            </p>
-                            <p class="text-xs cert-id mt-1">Issued Sep 2024 · ID: K0LUN9P0CDMV</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Languages -->
-            <div>
-                <h3 class="text-xl font-semibold skill-category-title mb-4 flex items-center gap-2">
-                    <i class="fas fa-language"></i> Languages
-                </h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div class="skill-tile">
-                        <img src="https://img.icons8.com/color/48/000000/greece.png" alt="Greek" class="w-8 h-8 flex-shrink-0">
-                        <div>
-                            <span class="skill-name">Greek</span>
-                            <p class="skill-source">Native Speaker</p>
-                        </div>
-                    </div>
-                    <div class="skill-tile">
-                        <img src="https://img.icons8.com/color/48/000000/great-britain.png" alt="English" class="w-8 h-8 flex-shrink-0">
-                        <div>
-                            <span class="skill-name">English (C2)</span>
-                            <p class="skill-source">Proficient — Pass with Distinction</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========== CONTACT ========== -->
-        <section id="contact" class="section-block">
-            <h2 class="section-heading">Get in Touch</h2>
-            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
-                <!-- Info Panel -->
-                <div class="lg:col-span-2 space-y-6">
-                    <p class="contact-text text-lg leading-relaxed">
-                        Have a question, research opportunity, or collaboration idea? I'd love to hear from you.
-                    </p>
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-3 contact-detail">
-                            <div class="contact-icon-circle"><i class="fas fa-envelope"></i></div>
-                            <a href="mailto:kourtalistheodoros@gmail.com">kourtalistheodoros@gmail.com</a>
-                        </div>
-                        <div class="flex items-center gap-3 contact-detail">
-                            <div class="contact-icon-circle"><i class="fas fa-phone"></i></div>
-                            <a href="tel:+306974187646">+30 697 418 7646</a>
-                        </div>
-                        <div class="flex items-center gap-3 contact-detail">
-                            <div class="contact-icon-circle"><i class="fas fa-map-marker-alt"></i></div>
-                            <span>Athens, Greece</span>
-                        </div>
-                        <div class="flex items-center gap-3 contact-detail">
-                            <div class="contact-icon-circle"><i class="fas fa-file-alt"></i></div>
-                            <a href="https://drive.google.com/file/d/15x3xAGLD4806E1IUCCWQbtj0rcDuMhwJ/view?usp=sharing"
-                               target="_blank" rel="noopener noreferrer">Download my CV</a>
-                        </div>
-                    </div>
-                    <div class="flex gap-4 mt-4">
-                        <a href="https://www.linkedin.com/in/theodoros-kourtalis-16a1a0297/" target="_blank" rel="noopener noreferrer" class="social-btn" title="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://github.com/TheodorosKourtalis" target="_blank" rel="noopener noreferrer" class="social-btn" title="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </div>
-                </div>
-                <!-- Form -->
-                <div class="lg:col-span-3">
-                    <form id="contact-form" action="https://formspree.io/f/mdknnlvp" method="POST" class="glass-card space-y-4">
-                        <div>
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" id="name" name="name" required class="form-input" placeholder="Your name">
-                        </div>
-                        <div>
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" id="email" name="email" required class="form-input" placeholder="you@example.com">
-                        </div>
-                        <div>
-                            <label for="message" class="form-label">Message</label>
-                            <textarea id="message" name="message" rows="5" required class="form-input" placeholder="Your message..."></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">
-                            <i class="fas fa-paper-plane mr-2"></i> Send Message
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- ==================== FOOTER ==================== -->
-    <footer class="border-t">
-        <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p class="footer-text text-sm">&copy; 2025 Theodoros Kourtalis. All rights reserved.</p>
-            <div class="flex gap-4">
-                <a href="https://www.linkedin.com/in/theodoros-kourtalis-16a1a0297/" target="_blank" rel="noopener noreferrer" class="footer-social text-lg transition">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://github.com/TheodorosKourtalis" target="_blank" rel="noopener noreferrer" class="footer-social text-lg transition">
-                    <i class="fab fa-github"></i>
-                </a>
-            </div>
+            <p class="text-sm t-mute mt-1">Students' Investment and Finance Club</p>
+            <ul class="blist mt-3 t-body leading-relaxed">
+              <li>Researched European TTF natural gas trends for the Monthly Market Report.</li>
+              <li>Analyzed fundamental relationships in global liquid markets for energy commodity trends.</li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mt-3"><span class="sb">Commodities</span><span class="sb">Energy Markets</span><span class="sb">Financial Analysis</span></div>
+          </div>
         </div>
-    </footer>
+      </div>
 
-    <!-- Floating CV Button (Mobile) -->
-    <a href="https://drive.google.com/file/d/15x3xAGLD4806E1IUCCWQbtj0rcDuMhwJ/view?usp=sharing"
-       target="_blank" rel="noopener noreferrer"
-       class="floating-cv-btn md:hidden"
-       title="View CV">
-        <i class="fas fa-file-alt"></i>
-    </a>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
+  <!-- SKILLS & CERTS -->
+  <section id="skills" class="section">
+    <h2 class="sec-title">Skills &amp; Certifications</h2>
+
+    <h3 class="t-acc font-semi mb-4" style="font-size:1.15rem"><i class="fas fa-laptop-code"></i> Programming &amp; Data</h3>
+    <div class="grid g3 gap-4 mb-10">
+      <div class="skill-tile">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python" onerror="this.src='https://img.icons8.com/color/48/python.png'">
+        <div><a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank" class="sn">Python</a><p class="ss">Pandas · NumPy · Scikit-learn · BS4 · Selenium</p></div>
+      </div>
+      <div class="skill-tile">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/R_logo.svg" alt="R" onerror="this.src='https://img.icons8.com/color/48/r-project.png'">
+        <div><a href="https://en.wikipedia.org/wiki/R_(programming_language)" target="_blank" class="sn">R</a><p class="ss">Statistical computing &amp; visualization</p></div>
+      </div>
+      <div class="skill-tile">
+        <img src="https://www.svgrepo.com/show/374098/stata.svg" alt="Stata">
+        <div><a href="https://en.wikipedia.org/wiki/Stata" target="_blank" class="sn">Stata</a><p class="ss">Econometric analysis</p></div>
+      </div>
+      <div class="skill-tile">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Microsoft_Office_Excel_%282019%E2%80%932025%29.svg" alt="Excel">
+        <div><a href="https://en.wikipedia.org/wiki/Microsoft_Excel" target="_blank" class="sn">Excel</a><p class="ss">Data analysis &amp; modeling</p></div>
+      </div>
+      <div class="skill-tile">
+        <img src="https://img.icons8.com/color/48/000000/web-design.png" alt="Web Dev">
+        <div><a href="https://en.wikipedia.org/wiki/HTML" target="_blank" class="sn">HTML, CSS, JS</a><p class="ss">Self-taught · This website</p></div>
+      </div>
+      <div class="skill-tile">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/TeXShop_icon.png" alt="TeX">
+        <div><a href="https://en.wikipedia.org/wiki/TeX" target="_blank" class="sn">TeX / LaTeX</a><p class="ss">Academic typesetting</p></div>
+      </div>
+    </div>
+
+    <h3 class="t-acc font-semi mb-4" style="font-size:1.15rem"><i class="fas fa-certificate"></i> Certifications</h3>
+    <div class="grid g2 gap-4 mb-10">
+      <div class="card flex items-s gap-3">
+        <div class="cert-icon"><i class="fas fa-brain"></i></div>
+        <div>
+          <h4 class="font-bold t-head" style="font-size:.95rem">Advanced Learning Algorithms</h4>
+          <p class="text-sm t-mute mt-1"><a href="https://www.coursera.org/specializations/machine-learning-introduction" target="_blank" class="link-acc">ML Specialization</a> — Stanford / DeepLearning.AI</p>
+          <p class="text-xs t-mute mt-1" style="opacity:.7">Sep 2024 · 0VBO30MD43SW</p>
+        </div>
+      </div>
+      <div class="card flex items-s gap-3">
+        <div class="cert-icon"><i class="fas fa-robot"></i></div>
+        <div>
+          <h4 class="font-bold t-head" style="font-size:.95rem">Supervised ML: Regression &amp; Classification</h4>
+          <p class="text-sm t-mute mt-1"><a href="https://www.coursera.org/specializations/machine-learning-introduction" target="_blank" class="link-acc">ML Specialization</a> — Stanford / DeepLearning.AI</p>
+          <p class="text-xs t-mute mt-1" style="opacity:.7">Sep 2024 · K0LUN9P0CDMV</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="t-acc font-semi mb-4" style="font-size:1.15rem"><i class="fas fa-language"></i> Languages</h3>
+    <div class="grid g2 gap-4">
+      <div class="skill-tile">
+        <img src="https://img.icons8.com/color/48/000000/greece.png" alt="Greek" style="width:30px;height:30px">
+        <div><span class="sn">Greek</span><p class="ss">Native Speaker</p></div>
+      </div>
+      <div class="skill-tile">
+        <img src="https://img.icons8.com/color/48/000000/great-britain.png" alt="English" style="width:30px;height:30px">
+        <div><span class="sn">English (C2)</span><p class="ss">Proficient — Pass with Distinction</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <h2 class="sec-title">Get in Touch</h2>
+    <div class="contact-grid">
+      <div>
+        <p class="t-mute text-lg leading-relaxed mb-6">Have a question, research opportunity, or collaboration idea? I'd love to hear from you.</p>
+        <div class="flex flex-col gap-4 mb-6">
+          <div class="flex items-c gap-3 t-body"><div class="c-icon"><i class="fas fa-envelope"></i></div><a href="mailto:kourtalistheodoros@gmail.com" class="link-acc" style="color:inherit">kourtalistheodoros@gmail.com</a></div>
+          <div class="flex items-c gap-3 t-body"><div class="c-icon"><i class="fas fa-phone"></i></div><a href="tel:+306974187646" style="text-decoration:none;color:inherit">+30 697 418 7646</a></div>
+          <div class="flex items-c gap-3 t-body"><div class="c-icon"><i class="fas fa-map-marker-alt"></i></div><span>Athens, Greece</span></div>
+          <div class="flex items-c gap-3 t-body"><div class="c-icon"><i class="fas fa-file-alt"></i></div><a href="https://drive.google.com/file/d/15x3xAGLD4806E1IUCCWQbtj0rcDuMhwJ/view?usp=sharing" target="_blank" class="link-acc" style="color:inherit">Download my CV</a></div>
+        </div>
+        <div class="flex gap-3">
+          <a href="https://www.linkedin.com/in/theodoros-kourtalis-16a1a0297/" target="_blank" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/TheodorosKourtalis" target="_blank" class="social-btn"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      <form action="https://formspree.io/f/mdknnlvp" method="POST" class="card flex flex-col gap-4">
+        <div><label class="form-label" for="name">Name</label><input type="text" id="name" name="name" required class="form-input" placeholder="Your name"></div>
+        <div><label class="form-label" for="email">Email</label><input type="email" id="email" name="email" required class="form-input" placeholder="you@example.com"></div>
+        <div><label class="form-label" for="message">Message</label><textarea id="message" name="message" rows="5" required class="form-input" placeholder="Your message..."></textarea></div>
+        <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Send Message</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>&copy; 2025 Theodoros Kourtalis. All rights reserved.</p>
+  <div style="margin-top:.75rem">
+    <a href="https://www.linkedin.com/in/theodoros-kourtalis-16a1a0297/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://github.com/TheodorosKourtalis" target="_blank"><i class="fab fa-github"></i></a>
+  </div>
+</footer>
+
+<a href="https://drive.google.com/file/d/15x3xAGLD4806E1IUCCWQbtj0rcDuMhwJ/view?usp=sharing" target="_blank" class="float-cv" title="View CV"><i class="fas fa-file-alt"></i></a>
+
+<!-- ====== ALL JS INLINE ====== -->
+<script>
+(function(){
+  const body = document.body;
+  const tog = document.getElementById('mode-toggle');
+  const mobTog = document.getElementById('mob-toggle');
+  const favicon = document.getElementById('favicon');
+
+  function apply(t){
+    body.className = t;
+    if(favicon) favicon.href = t==='dark'?'favicon-dark.png':'favicon-light.png';
+  }
+
+  const saved = localStorage.getItem('theme') || 'dark';
+  apply(saved);
+  if(tog) tog.checked = saved==='dark';
+  if(mobTog) mobTog.checked = saved==='dark';
+
+  function flip(isDark){
+    const t = isDark?'dark':'light';
+    apply(t); localStorage.setItem('theme',t);
+    if(t==='dark') startEq(); else stopEq();
+  }
+
+  if(tog) tog.addEventListener('change',()=>{flip(tog.checked);if(mobTog)mobTog.checked=tog.checked;});
+  if(mobTog) mobTog.addEventListener('change',()=>{flip(mobTog.checked);if(tog)tog.checked=mobTog.checked;});
+
+  // Hamburger
+  const hamBtn=document.getElementById('ham-btn'), mobMenu=document.getElementById('mob-menu');
+  if(hamBtn&&mobMenu){
+    hamBtn.addEventListener('click',()=>{
+      mobMenu.classList.toggle('open');
+      const i=hamBtn.querySelector('i');
+      i.classList.toggle('fa-bars');i.classList.toggle('fa-times');
+    });
+    mobMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+      mobMenu.classList.remove('open');
+      const i=hamBtn.querySelector('i');i.classList.add('fa-bars');i.classList.remove('fa-times');
+    }));
+  }
+
+  // Reveal
+  const els=document.querySelectorAll('.section,.card,.skill-tile,.tl-item');
+  els.forEach(e=>e.classList.add('reveal'));
+  const ro=new IntersectionObserver(entries=>{
+    entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('vis');ro.unobserve(en.target);}});
+  },{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+  els.forEach(e=>ro.observe(e));
+
+  // Active nav
+  const secs=document.querySelectorAll('section[id]');
+  const navAs=document.querySelectorAll('.nav-links a:not(.cv-btn)');
+  const no=new IntersectionObserver(entries=>{
+    entries.forEach(en=>{
+      if(en.isIntersecting){
+        navAs.forEach(a=>{a.classList.remove('active');
+          if(a.getAttribute('href')==='#'+en.target.id) a.classList.add('active');
+        });
+      }
+    });
+  },{threshold:.25});
+  secs.forEach(s=>no.observe(s));
+
+  // Nav shrink
+  const nav=document.querySelector('.nav');
+  if(nav) window.addEventListener('scroll',()=>{
+    nav.style.padding=window.scrollY>80?'.5rem 1.5rem':'1rem 1.5rem';
+  },{passive:true});
+
+  // Equations
+  const eqs=['P_x X + P_y Y = I','Q = A L^α K^β','π = PQ - C(Q)','MR = dTR/dQ','Q_d = a - bP','Y = C+I+G+(X-M)','C = a + bY_d','M/P = L(Y,r)','π = π_e - β(u-u_n)','Y = β₀ + β₁X + ε','R² = 1 - SS_res/SS_tot','NPV = Σ Cₜ/(1+r)^t','E(R) = Rₑ + β(Rₘ-Rₑ)','F = S·e^{rT}','Cov(X,Y) = E[(X-μ)(Y-μ)]','Sharpe = (E(Rₚ)-Rₑ)/σₚ','P(Y=1) = 1/(1+e^{-Xβ})','dx/dt = f(x_i,x_j)'];
+  const box=document.getElementById('eq-box');
+  let eqInt;
+  function mkEq(){
+    if(!box)return;
+    const d=document.createElement('div');d.className='eq';
+    d.textContent=eqs[Math.floor(Math.random()*eqs.length)];
+    d.style.left=Math.random()*(box.clientWidth-180)+'px';
+    d.style.animationDuration=(Math.random()*6+5)+'s';
+    d.style.fontSize=(Math.random()*6+13)+'px';
+    box.appendChild(d);
+    d.addEventListener('animationend',()=>d.remove());
+  }
+  function startEq(){if(!box)return;eqInt=setInterval(mkEq,200);setTimeout(()=>clearInterval(eqInt),10000);}
+  function stopEq(){clearInterval(eqInt);if(box)box.querySelectorAll('.eq').forEach(e=>e.remove());}
+  if(saved==='dark') startEq();
+})();
+</script>
 </body>
 </html>
