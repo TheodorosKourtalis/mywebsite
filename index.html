@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Theodoros Kourtalis — Economics Student &amp; Data Analyst</title>
-  <link rel="stylesheet" href="./style.css">
   <link id="favicon" rel="icon" type="image/png" href="favicon-light.png" sizes="32x32">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-P8K50EM5G6"></script>
   <script>
@@ -27,11 +26,11 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <meta name="description" content="Personal portfolio of Theodoros Kourtalis — Economics student, data analyst, and researcher.">
-  <meta name="keywords" content="portfolio, economics, data analyst, projects, skills, Theodoros Kourtalis">
+  <meta name="description" content="Personal portfolio of Theodoros Kourtalis — Economics student, data analyst, and researcher at AUEB.">
+  <meta name="keywords" content="portfolio, economics, data analyst, AUEB, research, Theodoros Kourtalis">
   <meta name="author" content="Theodoros Kourtalis">
 </head>
-<body class="bg-gray-900 text-white transition-colors duration-500">
+<body class="transition-colors duration-500">
 
     <!-- ==================== HEADER ==================== -->
     <header class="relative bg-cover bg-center h-screen overflow-hidden" style="background-image: url('header-bg.jpg');">
@@ -46,10 +45,9 @@
             <ul class="hidden md:flex space-x-6 items-center text-sm font-medium uppercase tracking-wider">
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#leadership" class="nav-link">Leadership</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#work" class="nav-link">Work</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#research" class="nav-link">Research</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
                 <li>
                     <a href="https://drive.google.com/file/d/15x3xAGLD4806E1IUCCWQbtj0rcDuMhwJ/view?usp=sharing"
@@ -71,10 +69,9 @@
             <ul id="mobile-menu" class="hidden flex-col space-y-4 items-center p-8 md:hidden absolute top-16 left-0 w-full rounded-b-2xl shadow-2xl" style="z-index:40;">
                 <li><a href="#about" class="nav-link-mobile">About</a></li>
                 <li><a href="#education" class="nav-link-mobile">Education</a></li>
+                <li><a href="#experience" class="nav-link-mobile">Experience</a></li>
+                <li><a href="#leadership" class="nav-link-mobile">Leadership</a></li>
                 <li><a href="#skills" class="nav-link-mobile">Skills</a></li>
-                <li><a href="#work" class="nav-link-mobile">Work</a></li>
-                <li><a href="#projects" class="nav-link-mobile">Projects</a></li>
-                <li><a href="#research" class="nav-link-mobile">Research</a></li>
                 <li><a href="#contact" class="nav-link-mobile">Contact</a></li>
                 <li>
                     <a href="https://drive.google.com/file/d/15x3xAGLD4806E1IUCCWQbtj0rcDuMhwJ/view?usp=sharing"
@@ -94,12 +91,12 @@
 
         <!-- Hero Content -->
         <div class="flex h-full items-center justify-center flex-col text-center px-4 relative" style="z-index:10; margin-top:-4rem;">
-            <p class="hero-label text-sm font-semibold uppercase tracking-widest mb-4 fade-in">Economics · Data · Research</p>
+            <p class="hero-label text-sm font-semibold uppercase tracking-widest mb-4 fade-in">Economics · Data Science · Research</p>
             <h1 class="text-5xl md:text-7xl font-black fade-in leading-tight" style="color:#fff;">
                 Theodoros<br><span style="color:var(--accent);">Kourtalis</span>
             </h1>
             <p class="text-lg md:text-xl mt-6 max-w-2xl fade-in-delay hero-tagline-muted">
-                Economics student &amp; data analyst building tools at the intersection of econometrics, algorithmic finance, and cultural economics.
+                Economics student &amp; research assistant building data pipelines, algorithmic systems, and structured datasets at the intersection of econometrics, policy, and finance.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 mt-10 fade-in-delay">
                 <a href="https://drive.google.com/file/d/15x3xAGLD4806E1IUCCWQbtj0rcDuMhwJ/view?usp=sharing"
@@ -126,7 +123,7 @@
     <!-- ==================== MAIN ==================== -->
     <main class="max-w-6xl mx-auto px-6">
 
-        <!-- ABOUT -->
+        <!-- ========== ABOUT ========== -->
         <section id="about" class="section-block">
             <h2 class="section-heading">About Me</h2>
             <div class="flex flex-col md:flex-row items-center gap-8">
@@ -137,67 +134,304 @@
                 </div>
                 <div class="space-y-4">
                     <p class="text-lg leading-relaxed about-text">
-                        I am an undergraduate economics student at the <strong class="about-highlight">Athens University of Economics and Business</strong> with a strong interest in trade, cultural economics, and complex economic systems. I work as a Data &amp; Text Analyst at the EMOP Center and lead <strong class="about-accent">Asymmetria</strong>, a student-driven project focused on algorithmic analysis of insider trading signals.
+                        I am a second-year economics undergraduate at the
+                        <strong class="about-highlight">Athens University of Economics and Business</strong>,
+                        ranked <strong class="about-accent">1st in my cohort</strong> (GPA 9.09/10).
+                        I work as a Research Assistant at AUEB's
+                        <strong class="about-highlight">EMOP Economic Policy Laboratory</strong> and have collaborated with researchers from
+                        <strong class="about-highlight">Monash University</strong>.
+                        I also founded <strong class="about-accent">Asymmetria</strong>, a student-driven algorithmic trading project focused on insider-signal detection.
                     </p>
                     <p class="text-lg leading-relaxed about-text-muted">
-                        Beyond academics, my interests include literature (Cormac McCarthy, Albert Camus), philosophy &amp; logic (Epictetus, Wittgenstein), music from rebetika and jazz to hip-hop and post-rock, and hiking in nature.
+                        My research interests span trade, cultural economics, complex economic systems, and quantitative policy analysis.
+                        Beyond academics I enjoy literature (McCarthy, Camus), philosophy &amp; logic (Epictetus, Wittgenstein),
+                        cinema (Kubrick, Lynch, Edward Yang), music from rebetika and jazz to hip-hop and post-rock, and hiking in nature.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- EDUCATION -->
+        <!-- ========== EDUCATION ========== -->
         <section id="education" class="section-block">
             <h2 class="section-heading">Education</h2>
             <div class="space-y-6">
+                <!-- AUEB -->
                 <div class="glass-card flex flex-col md:flex-row items-center gap-6">
                     <img src="Athens_University_of_Economics_and_Business_Logo.jpg" alt="AUEB" class="w-20 h-20 rounded-xl object-contain edu-logo-bg p-2" loading="lazy">
                     <div>
-                        <h3 class="text-xl font-bold edu-title">Athens University of Economics and Business</h3>
+                        <h3 class="text-xl font-bold edu-title">
+                            <a href="https://www.aueb.gr/en" target="_blank" rel="noopener noreferrer" class="hover:underline">
+                                Athens University of Economics and Business
+                            </a>
+                        </h3>
+                        <p class="edu-subtitle">Bachelor of Science in Economics</p>
                         <p class="edu-date mt-1">Oct 2023 – Jul 2027</p>
                         <div class="mt-2 inline-flex items-center gap-2 flex-wrap">
                             <span class="badge-gold"><i class="fas fa-trophy mr-1"></i> GPA: 9.09/10</span>
-                            <span class="badge-outline">First in Cohort</span>
+                            <span class="badge-outline">Ranked 1st in Cohort</span>
                         </div>
                     </div>
                 </div>
+                <!-- High School -->
                 <div class="glass-card flex flex-col md:flex-row items-center gap-6">
                     <div class="w-20 h-20 rounded-xl flex items-center justify-center text-3xl edu-logo-bg">
                         🎓
                     </div>
                     <div>
                         <h3 class="text-xl font-bold edu-title">3rd General High School of Keratsini</h3>
+                        <p class="edu-subtitle">Valedictorian</p>
                         <p class="edu-date mt-1">Graduated 2023</p>
                         <div class="mt-2 inline-flex items-center gap-2 flex-wrap">
                             <span class="badge-gold"><i class="fas fa-star mr-1"></i> 19.9/20</span>
-                            <span class="badge-outline">Top Graduate</span>
+                            <span class="badge-outline">Ranked 1st in School</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SKILLS -->
-        <section id="skills" class="section-block">
-            <h2 class="section-heading">Skills</h2>
+        <!-- ========== PROFESSIONAL EXPERIENCE ========== -->
+        <section id="experience" class="section-block">
+            <h2 class="section-heading">Professional Experience</h2>
+            <div class="timeline">
 
-            <div class="mb-10">
-                <h3 class="text-xl font-semibold skill-category-title mb-4 flex items-center gap-2">
-                    <i class="fas fa-chart-bar"></i> Data Analysis &amp; Statistical Tools
-                </h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div class="skill-tile">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Microsoft_Office_Excel_%282019%E2%80%932025%29.svg" alt="Excel" class="skill-icon" loading="lazy">
-                        <div>
-                            <a href="https://en.wikipedia.org/wiki/Microsoft_Excel" target="_blank" class="skill-name">Microsoft Excel</a>
-                            <p class="skill-source">AUEB</p>
+                <!-- Monash / AUEB Research Assistant -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <div class="flex flex-col md:flex-row items-start gap-4">
+                            <div class="w-16 h-16 rounded-xl flex items-center justify-center work-logo-bg p-2 flex-shrink-0">
+                                <i class="fas fa-flask text-2xl" style="color:var(--accent);"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold work-title">Research Assistant</h3>
+                                <h4 class="work-company font-medium mt-1">
+                                    <a href="https://www.monash.edu/business/economics" target="_blank" rel="noopener noreferrer" class="hover:underline">Monash University</a>
+                                    &amp;
+                                    <a href="https://www.aueb.gr/en" target="_blank" rel="noopener noreferrer" class="hover:underline">AUEB</a>
+                                </h4>
+                                <p class="text-sm work-meta mt-1">
+                                    <i class="fas fa-calendar-alt mr-1"></i> Nov 2025
+                                    <span class="mx-2">·</span>
+                                    <i class="fas fa-file-contract mr-1"></i> Monash Purchase Order #20683891
+                                </p>
+                                <p class="mt-3 work-desc leading-relaxed">
+                                    Collaborated with
+                                    <a href="https://www.aueb.gr/en/faculty_page/dioikitopoulos-evangelos" target="_blank" rel="noopener noreferrer" class="accent-link">Prof. Evangelos Dioikitopoulos</a>,
+                                    <a href="https://research.monash.edu/en/persons/rigissa-megalokonomou" target="_blank" rel="noopener noreferrer" class="accent-link">Prof. R. Megalokonomou</a>, and
+                                    <a href="https://research.monash.edu/en/persons/yves-zenou" target="_blank" rel="noopener noreferrer" class="accent-link">Yves Zenou</a>
+                                    on the behavioral experiment <em>"Beyond the Facts: Who Changes Minds?"</em>.
+                                    Managed sessions and logistics for paid research to deliver clean datasets.
+                                    Built a Google Apps Script to automate scheduling and track availability, alongside custom Python scripts to identify no-shows and send SMS notifications.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    <span class="skill-badge">Behavioral Economics</span>
+                                    <span class="skill-badge">Experiment Design</span>
+                                    <span class="skill-badge">Python</span>
+                                    <span class="skill-badge">Google Apps Script</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </div>
+
+                <!-- EMOP Research Assistant -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content glass-card">
+                        <div class="flex flex-col md:flex-row items-start gap-4">
+                            <img src="athens_university_of_economics_and_business_logo.jpg" alt="EMOP" class="w-16 h-16 rounded-xl object-contain work-logo-bg p-2 flex-shrink-0" loading="lazy">
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold work-title">Research Assistant (Data Science &amp; Policy)</h3>
+                                <h4 class="work-company font-medium mt-1">
+                                    <a href="https://www.dept.aueb.gr/en/imop" target="_blank" rel="noopener noreferrer" class="hover:underline">
+                                        AUEB Economic Policy Laboratory (EMOP)
+                                    </a>
+                                </h4>
+                                <p class="text-sm work-meta mt-1">
+                                    <i class="fas fa-calendar-alt mr-1"></i> Sep 2024 – Present
+                                    <span class="mx-2">·</span>
+                                    <i class="fas fa-map-marker-alt mr-1"></i> Athens, Greece
+                                    <span class="mx-2">·</span>
+                                    <i class="fas fa-file-contract mr-1"></i> Official ELKE-AUEB Contracts
+                                </p>
+                                <ul class="mt-3 work-desc leading-relaxed space-y-2 work-list">
+                                    <li>
+                                        Built a Python parsing pipeline for
+                                        <a href="http://www.areiospagos.gr/en/" target="_blank" rel="noopener noreferrer" class="accent-link">Areios Pagos</a>
+                                        judicial decisions (Contract #50126), extracting structured legal metadata — judges, attorneys, expenses, and parties — for quantitative policy analysis.
+                                    </li>
+                                    <li>
+                                        Generalized parsing rules across multiple decisions to scale the pipeline and ensure consistency.
+                                    </li>
+                                    <li>
+                                        Automated data collection for macroeconomic research using Python (Selenium/Pandas) — scraping, cleaning, and structuring over <strong class="about-highlight">50,000 observations</strong>, saving weeks of manual entry.
+                                    </li>
+                                    <li>
+                                        Verified dataset accuracy and supported macroeconomic modeling projects (Contract #45122).
+                                    </li>
+                                </ul>
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    <span class="skill-badge">Data Engineering</span>
+                                    <span class="skill-badge">NLP / Text Parsing</span>
+                                    <span class="skill-badge">Web Scraping</span>
+                                    <span class="skill-badge">Selenium</span>
+                                    <span class="skill-badge">Pandas</span>
+                                    <span class="skill-badge">Python</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========== LEADERSHIP, ENTREPRENEURSHIP & VOLUNTEERING ========== -->
+        <section id="leadership" class="section-block">
+            <h2 class="section-heading">Leadership, Entrepreneurship &amp; Volunteering</h2>
+            <div class="space-y-6">
+
+                <!-- Asymmetria -->
+                <div class="glass-card project-card">
+                    <div class="flex items-start gap-4">
+                        <div class="project-icon">
+                            <i class="fas fa-chart-line text-2xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                                <h3 class="text-xl font-bold project-title">Founder &amp; Technical Lead — Asymmetria</h3>
+                                <span class="text-sm project-date font-medium mt-1 sm:mt-0">
+                                    <i class="fas fa-clock mr-1"></i> Oct 2025 – Present
+                                </span>
+                            </div>
+                            <ul class="mt-3 project-desc leading-relaxed space-y-2 work-list">
+                                <li>Co-founded a 4-person student project building an algorithmic trading system for insider trading detection.</li>
+                                <li>Programmed the Python backend to ingest insider filings, prices, and volumes, and rank signals by historical reliability.</li>
+                                <li>Set up dynamic stop-loss and profit-taking rules tested through econometric backtesting.</li>
+                            </ul>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="skill-badge">Python</span>
+                                <span class="skill-badge">Algorithmic Trading</span>
+                                <span class="skill-badge">Econometrics</span>
+                                <span class="skill-badge">Backtesting</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EMOP Student Research Team -->
+                <div class="glass-card project-card research-card">
+                    <div class="flex items-start gap-4">
+                        <div class="project-icon research-icon">
+                            <i class="fas fa-users text-2xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                                <h3 class="text-xl font-bold project-title">
+                                    Project Lead —
+                                    <a href="https://www.dept.aueb.gr/en/emop" target="_blank" rel="noopener noreferrer" class="accent-link">EMOP</a>
+                                    Student Research Team
+                                </h3>
+                                <span class="text-sm project-date font-medium mt-1 sm:mt-0">
+                                    <i class="fas fa-clock mr-1"></i> Apr 2025 – Present
+                                </span>
+                            </div>
+                            <ul class="mt-3 project-desc leading-relaxed space-y-2 work-list">
+                                <li>Managed a team of 10 students to construct a comprehensive dataset of Greek university faculty.</li>
+                                <li>Taught a 3-hour technical workshop on web scraping fundamentals to prepare the team before project launch.</li>
+                                <li>Merged and refined individual contributions into a single, research-ready dataset.</li>
+                            </ul>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="skill-badge">Team Management</span>
+                                <span class="skill-badge">Web Scraping</span>
+                                <span class="skill-badge">Teaching</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Socioeconomics Lab -->
+                <div class="glass-card project-card">
+                    <div class="flex items-start gap-4">
+                        <div class="project-icon" style="background:rgba(16,185,129,0.1); color:#10b981; border-color:rgba(16,185,129,0.2);">
+                            <i class="fas fa-globe-europe text-2xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                                <h3 class="text-xl font-bold project-title">
+                                    Junior Researcher (Volunteer) — Socioeconomics Lab
+                                </h3>
+                                <span class="text-sm project-date font-medium mt-1 sm:mt-0">
+                                    <i class="fas fa-clock mr-1"></i> Present
+                                </span>
+                            </div>
+                            <p class="text-sm project-meta mt-1">
+                                <a href="https://www.elidek.gr/en/homepage/" target="_blank" rel="noopener noreferrer" class="accent-link">H.F.R.I.</a>
+                                Project 16017 · Funded by
+                                <a href="https://next-generation-eu.europa.eu/index_en" target="_blank" rel="noopener noreferrer" class="accent-link">EU NextGenerationEU</a>
+                            </p>
+                            <ul class="mt-3 project-desc leading-relaxed space-y-2 work-list">
+                                <li>Helped build a regional behavioral dataset for Greece to inform socio-economic policies.</li>
+                            </ul>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="skill-badge">Behavioral Data</span>
+                                <span class="skill-badge">Regional Economics</span>
+                                <span class="skill-badge">EU Policy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AUEB SIFC -->
+                <div class="glass-card project-card">
+                    <div class="flex items-start gap-4">
+                        <div class="project-icon" style="background:rgba(59,130,246,0.1); color:#3b82f6; border-color:rgba(59,130,246,0.2);">
+                            <i class="fas fa-hand-holding-usd text-2xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                                <h3 class="text-xl font-bold project-title">
+                                    Commodities Analyst (Volunteer) —
+                                    <a href="https://auebsifc.com/" target="_blank" rel="noopener noreferrer" class="accent-link">AUEB SIFC</a>
+                                </h3>
+                                <span class="text-sm project-date font-medium mt-1 sm:mt-0">
+                                    <i class="fas fa-clock mr-1"></i> Present
+                                </span>
+                            </div>
+                            <p class="text-sm project-meta mt-1">AUEB Students' Investment and Finance Club</p>
+                            <ul class="mt-3 project-desc leading-relaxed space-y-2 work-list">
+                                <li>Researched European TTF natural gas trends for the club's Monthly Market Report, summarizing price drivers for university-wide publication.</li>
+                                <li>Analyzed fundamental relationships in global liquid markets to explain energy commodity trends.</li>
+                            </ul>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="skill-badge">Commodities</span>
+                                <span class="skill-badge">Energy Markets</span>
+                                <span class="skill-badge">Financial Analysis</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========== SKILLS & CERTIFICATIONS ========== -->
+        <section id="skills" class="section-block">
+            <h2 class="section-heading">Skills &amp; Certifications</h2>
+
+            <!-- Programming & Data -->
+            <div class="mb-10">
+                <h3 class="text-xl font-semibold skill-category-title mb-4 flex items-center gap-2">
+                    <i class="fas fa-laptop-code"></i> Programming &amp; Data
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <div class="skill-tile">
-                        <img src="https://www.svgrepo.com/show/374098/stata.svg" alt="Stata" class="skill-icon" loading="lazy">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python" class="skill-icon" loading="lazy"
+                             onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/200px-Python-logo-notext.svg.png';">
                         <div>
-                            <a href="https://en.wikipedia.org/wiki/Stata" target="_blank" class="skill-name">Stata</a>
-                            <p class="skill-source">AUEB</p>
+                            <a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank" class="skill-name">Python</a>
+                            <p class="skill-source">Pandas · NumPy · Scikit-learn · BeautifulSoup · Selenium</p>
                         </div>
                     </div>
                     <div class="skill-tile">
@@ -205,199 +439,108 @@
                              onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/200px-R_logo.svg.png';">
                         <div>
                             <a href="https://en.wikipedia.org/wiki/R_(programming_language)" target="_blank" class="skill-name">R</a>
-                            <p class="skill-source">AUEB</p>
+                            <p class="skill-source">Statistical computing &amp; visualization</p>
                         </div>
                     </div>
                     <div class="skill-tile">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python" class="skill-icon" loading="lazy"
-                             onerror="this.onerror=null;this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/200px-Python-logo-notext.svg.png';">
+                        <img src="https://www.svgrepo.com/show/374098/stata.svg" alt="Stata" class="skill-icon" loading="lazy">
                         <div>
-                            <a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank" class="skill-name">Python</a>
-                            <p class="skill-source">AUEB</p>
+                            <a href="https://en.wikipedia.org/wiki/Stata" target="_blank" class="skill-name">Stata</a>
+                            <p class="skill-source">Econometric analysis</p>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="mb-10">
-                <h3 class="text-xl font-semibold skill-category-title mb-4 flex items-center gap-2">
-                    <i class="fas fa-code"></i> Web Development
-                </h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="skill-tile">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Microsoft_Office_Excel_%282019%E2%80%932025%29.svg" alt="Excel" class="skill-icon" loading="lazy">
+                        <div>
+                            <a href="https://en.wikipedia.org/wiki/Microsoft_Excel" target="_blank" class="skill-name">Microsoft Excel</a>
+                            <p class="skill-source">Data analysis &amp; modeling</p>
+                        </div>
+                    </div>
                     <div class="skill-tile">
                         <img src="https://img.icons8.com/color/48/000000/web-design.png" alt="Web Dev" class="skill-icon" loading="lazy">
                         <div>
-                            <a href="https://en.wikipedia.org/wiki/HTML" target="_blank" class="skill-name">HTML, CSS, JS</a>
-                            <p class="skill-source">Self-taught</p>
+                            <a href="https://en.wikipedia.org/wiki/HTML" target="_blank" class="skill-name">HTML, CSS, JavaScript</a>
+                            <p class="skill-source">Self-taught · This website</p>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div>
-                <h3 class="text-xl font-semibold skill-category-title mb-4 flex items-center gap-2">
-                    <i class="fas fa-tools"></i> Other Programming &amp; Tools
-                </h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     <div class="skill-tile">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/TeXShop_icon.png" alt="TeX" class="skill-icon" loading="lazy">
                         <div>
                             <a href="https://en.wikipedia.org/wiki/TeX" target="_blank" class="skill-name">TeX / LaTeX</a>
-                            <p class="skill-source">Self-taught</p>
+                            <p class="skill-source">Academic typesetting</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="mb-10">
+                <h3 class="text-xl font-semibold skill-category-title mb-4 flex items-center gap-2">
+                    <i class="fas fa-certificate"></i> Certifications
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="glass-card cert-card">
+                        <div class="cert-badge">
+                            <i class="fas fa-brain text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-base font-bold cert-title">Advanced Learning Algorithms</h4>
+                            <p class="text-sm cert-issuer mt-1">
+                                <a href="https://www.coursera.org/specializations/machine-learning-introduction" target="_blank" rel="noopener noreferrer" class="accent-link">
+                                    Machine Learning Specialization
+                                </a>
+                                — Stanford / DeepLearning.AI
+                            </p>
+                            <p class="text-xs cert-id mt-1">Issued Sep 2024 · ID: 0VBO30MD43SW</p>
+                        </div>
+                    </div>
+                    <div class="glass-card cert-card">
+                        <div class="cert-badge">
+                            <i class="fas fa-robot text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-base font-bold cert-title">Supervised ML: Regression &amp; Classification</h4>
+                            <p class="text-sm cert-issuer mt-1">
+                                <a href="https://www.coursera.org/specializations/machine-learning-introduction" target="_blank" rel="noopener noreferrer" class="accent-link">
+                                    Machine Learning Specialization
+                                </a>
+                                — Stanford / DeepLearning.AI
+                            </p>
+                            <p class="text-xs cert-id mt-1">Issued Sep 2024 · ID: K0LUN9P0CDMV</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Languages -->
+            <div>
+                <h3 class="text-xl font-semibold skill-category-title mb-4 flex items-center gap-2">
+                    <i class="fas fa-language"></i> Languages
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="skill-tile">
+                        <img src="https://img.icons8.com/color/48/000000/greece.png" alt="Greek" class="w-8 h-8 flex-shrink-0">
+                        <div>
+                            <span class="skill-name">Greek</span>
+                            <p class="skill-source">Native Speaker</p>
                         </div>
                     </div>
                     <div class="skill-tile">
-                        <i class="fas fa-terminal text-2xl mr-3 skill-category-title"></i>
+                        <img src="https://img.icons8.com/color/48/000000/great-britain.png" alt="English" class="w-8 h-8 flex-shrink-0">
                         <div>
-                            <a href="https://en.wikipedia.org/wiki/Pascal_(programming_language)" target="_blank" class="skill-name">Pascal / ΓΛΩΣΣΑ</a>
-                            <p class="skill-source">High School</p>
+                            <span class="skill-name">English (C2)</span>
+                            <p class="skill-source">Proficient — Pass with Distinction</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CERTIFICATIONS -->
-        <section id="certifications" class="section-block">
-            <h2 class="section-heading">Certifications</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="glass-card cert-card">
-                    <div class="cert-badge">
-                        <i class="fas fa-brain text-2xl"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-bold cert-title">Advanced Learning Algorithms</h3>
-                        <p class="text-sm cert-issuer mt-1">DeepLearning.AI — Stanford University</p>
-                        <p class="text-xs cert-id mt-1">Issued Sep 2024 · ID: 0VBO30MD43SW</p>
-                    </div>
-                </div>
-                <div class="glass-card cert-card">
-                    <div class="cert-badge">
-                        <i class="fas fa-robot text-2xl"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-bold cert-title">Supervised ML: Regression &amp; Classification</h3>
-                        <p class="text-sm cert-issuer mt-1">DeepLearning.AI — Stanford University</p>
-                        <p class="text-xs cert-id mt-1">Issued Sep 2024 · ID: K0LUN9P0CDMV</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- LANGUAGES -->
-        <section id="languages" class="section-block">
-            <h2 class="section-heading">Languages</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="glass-card flex items-center gap-4">
-                    <img src="https://img.icons8.com/color/48/000000/greece.png" alt="Greek" class="w-12 h-12">
-                    <div>
-                        <h3 class="text-xl font-bold lang-title">Greek</h3>
-                        <p class="lang-detail">Native Speaker</p>
-                    </div>
-                </div>
-                <div class="glass-card flex items-center gap-4">
-                    <img src="https://img.icons8.com/color/48/000000/great-britain.png" alt="English" class="w-12 h-12">
-                    <div>
-                        <h3 class="text-xl font-bold lang-title">English (C2)</h3>
-                        <p class="lang-detail">Pass with Distinction</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- WORK EXPERIENCE -->
-        <section id="work" class="section-block">
-            <h2 class="section-heading">Work Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-card">
-                        <div class="flex flex-col md:flex-row items-start gap-4">
-                            <img src="athens_university_of_economics_and_business_logo.jpg" alt="EMOP" class="w-16 h-16 rounded-xl object-contain work-logo-bg p-2" loading="lazy">
-                            <div class="flex-1">
-                                <h3 class="text-xl font-bold work-title">Data &amp; Text Analyst</h3>
-                                <h4 class="work-company font-medium mt-1">
-                                    <a href="https://www.dept.aueb.gr/en/imop" target="_blank" rel="noopener noreferrer" class="hover:underline">
-                                        EMOP Center
-                                    </a>
-                                </h4>
-                                <p class="text-sm work-meta mt-1">
-                                    <i class="fas fa-calendar-alt mr-1"></i> Sept 2024 – Present
-                                    <span class="mx-2">·</span>
-                                    <i class="fas fa-map-marker-alt mr-1"></i> Athens, Greece
-                                </p>
-                                <p class="mt-3 work-desc leading-relaxed">
-                                    Collaborating closely with
-                                    <a href="https://evdioikitopoulos.com/" target="_blank" rel="noopener noreferrer" class="accent-link">Dr. Evangelos V. Dioikitopoulos</a>,
-                                    I design and implement Python-based pipelines to scrape, clean, and transform unstructured legal and administrative texts into structured datasets (50,000+ rows, 10+ variables) suitable for quantitative and econometric analysis.
-                                </p>
-                                <div class="flex flex-wrap gap-2 mt-4">
-                                    <span class="skill-badge">Data Engineering</span>
-                                    <span class="skill-badge">Text Processing</span>
-                                    <span class="skill-badge">Web Scraping</span>
-                                    <span class="skill-badge">Python</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROJECTS -->
-        <section id="projects" class="section-block">
-            <h2 class="section-heading">Projects</h2>
-            <div class="glass-card project-card">
-                <div class="flex items-start gap-4">
-                    <div class="project-icon">
-                        <i class="fas fa-chart-line text-2xl"></i>
-                    </div>
-                    <div class="flex-1">
-                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                            <h3 class="text-2xl font-bold project-title">Asymmetria</h3>
-                            <span class="text-sm project-date font-medium mt-1 sm:mt-0">
-                                <i class="fas fa-clock mr-1"></i> Oct 2025 – Present
-                            </span>
-                        </div>
-                        <p class="text-sm project-meta mt-1">Founder &amp; CTO · 4-member team</p>
-                        <p class="mt-4 project-desc leading-relaxed">
-                            A student initiative building a Python-based system that automates the detection and algorithmic replication of insider trading signals. The platform ingests insider filings, prices, and volumes, then applies ranking algorithms to identify the most reliable signals and simulate dynamic strategies with stop-loss and profit-taker rules calibrated through econometric models.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- RESEARCH -->
-        <section id="research" class="section-block">
-            <h2 class="section-heading">Research Groups</h2>
-            <div class="glass-card project-card research-card">
-                <div class="flex items-start gap-4">
-                    <div class="project-icon research-icon">
-                        <i class="fas fa-flask text-2xl"></i>
-                    </div>
-                    <div class="flex-1">
-                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                            <h3 class="text-2xl font-bold project-title">EMOP Student Research Team</h3>
-                            <span class="text-sm project-date font-medium mt-1 sm:mt-0">
-                                <i class="fas fa-clock mr-1"></i> Apr 2025 – Present
-                            </span>
-                        </div>
-                        <p class="text-sm project-meta mt-1">Athens University of Economics and Business</p>
-                        <p class="mt-4 project-desc leading-relaxed">
-                            Collaborating with
-                            <a href="https://evdioikitopoulos.com/" target="_blank" rel="noopener noreferrer" class="accent-link">Dr. Evangelos V. Dioikitopoulos</a>
-                            on university-level projects in macroeconomics and cultural economics. Led a three-week web scraping project with a team of ten top students, delivering a three-hour introductory lecture on web scraping, coordinating contributions, and producing a research-grade dataset of university instructors across Greece.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CONTACT -->
+        <!-- ========== CONTACT ========== -->
         <section id="contact" class="section-block">
             <h2 class="section-heading">Get in Touch</h2>
             <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+                <!-- Info Panel -->
                 <div class="lg:col-span-2 space-y-6">
                     <p class="contact-text text-lg leading-relaxed">
                         Have a question, research opportunity, or collaboration idea? I'd love to hear from you.
@@ -408,24 +551,29 @@
                             <a href="mailto:kourtalistheodoros@gmail.com">kourtalistheodoros@gmail.com</a>
                         </div>
                         <div class="flex items-center gap-3 contact-detail">
+                            <div class="contact-icon-circle"><i class="fas fa-phone"></i></div>
+                            <a href="tel:+306974187646">+30 697 418 7646</a>
+                        </div>
+                        <div class="flex items-center gap-3 contact-detail">
                             <div class="contact-icon-circle"><i class="fas fa-map-marker-alt"></i></div>
                             <span>Athens, Greece</span>
                         </div>
                         <div class="flex items-center gap-3 contact-detail">
                             <div class="contact-icon-circle"><i class="fas fa-file-alt"></i></div>
                             <a href="https://drive.google.com/file/d/15x3xAGLD4806E1IUCCWQbtj0rcDuMhwJ/view?usp=sharing"
-                               target="_blank" rel="noopener noreferrer">View my CV</a>
+                               target="_blank" rel="noopener noreferrer">Download my CV</a>
                         </div>
                     </div>
                     <div class="flex gap-4 mt-4">
-                        <a href="https://www.linkedin.com/in/theodoros-kourtalis-16a1a0297/" target="_blank" class="social-btn">
+                        <a href="https://www.linkedin.com/in/theodoros-kourtalis-16a1a0297/" target="_blank" rel="noopener noreferrer" class="social-btn" title="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="https://github.com/TheodorosKourtalis" target="_blank" class="social-btn">
+                        <a href="https://github.com/TheodorosKourtalis" target="_blank" rel="noopener noreferrer" class="social-btn" title="GitHub">
                             <i class="fab fa-github"></i>
                         </a>
                     </div>
                 </div>
+                <!-- Form -->
                 <div class="lg:col-span-3">
                     <form id="contact-form" action="https://formspree.io/f/mdknnlvp" method="POST" class="glass-card space-y-4">
                         <div>
@@ -450,14 +598,14 @@
     </main>
 
     <!-- ==================== FOOTER ==================== -->
-    <footer class="border-t border-gray-800">
+    <footer class="border-t">
         <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
             <p class="footer-text text-sm">&copy; 2025 Theodoros Kourtalis. All rights reserved.</p>
             <div class="flex gap-4">
-                <a href="https://www.linkedin.com/in/theodoros-kourtalis-16a1a0297/" target="_blank" class="footer-social text-lg transition">
+                <a href="https://www.linkedin.com/in/theodoros-kourtalis-16a1a0297/" target="_blank" rel="noopener noreferrer" class="footer-social text-lg transition">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
-                <a href="https://github.com/TheodorosKourtalis" target="_blank" class="footer-social text-lg transition">
+                <a href="https://github.com/TheodorosKourtalis" target="_blank" rel="noopener noreferrer" class="footer-social text-lg transition">
                     <i class="fab fa-github"></i>
                 </a>
             </div>
