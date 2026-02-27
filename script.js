@@ -19,17 +19,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    const currentTheme = localStorage.getItem("theme") || "dark";
+    const currentTheme = localStorage.getItem('theme') || 'dark';
     applyTheme(currentTheme);
 
-    if (modeToggle) modeToggle.checked = currentTheme === "dark";
-    if (mobileModeToggle) mobileModeToggle.checked = currentTheme === "dark";
+    if (modeToggle) modeToggle.checked = currentTheme === 'dark';
+    if (mobileModeToggle) mobileModeToggle.checked = currentTheme === 'dark';
 
     const toggleMode = (isDarkMode) => {
         const theme = isDarkMode ? 'dark' : 'light';
         applyTheme(theme);
         localStorage.setItem('theme', theme);
-
         if (theme === 'dark') {
             startEquationAnimation();
         } else {
@@ -71,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Close menu on link click
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
@@ -96,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 revealObserver.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 
     revealElements.forEach(el => revealObserver.observe(el));
 
@@ -117,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
         });
-    }, { threshold: 0.3 });
+    }, { threshold: 0.25 });
 
     sections.forEach(section => navObserver.observe(section));
 
@@ -134,15 +132,13 @@ document.addEventListener('DOMContentLoaded', () => {
         'Y = C + I + G + (X - M)',
         'C = a + bY_d',
         'I = I_0 - b r',
-        'Y = C(Y - T) + I(r) + G',
+        'Y = C(Y-T) + I(r) + G',
         'M/P = L(Y, r)',
         'π = π_e - β(u - u_n)',
         'F = G (M_1 M_2)/D^2',
-        'LQ = (E_i/E) / (E\'_i/E\')',
         'T_{ij} = k (P_i P_j)/D_{ij}^θ',
         'R_i = R_0 - c_i x_i',
         'X_i = Σ a_{ij} X_j + Y_i',
-        'C_B(v) = Σ (σ_{st}(v)/σ_{st})',
         'Y = β_0 + β_1X + ε',
         'E(Y|X) = β_0 + β_1X',
         'P(Y=1|X) = 1/(1+e^{-Xβ})',
@@ -169,7 +165,6 @@ document.addEventListener('DOMContentLoaded', () => {
         eq.style.fontSize = (Math.random() * 6 + 14) + 'px';
         eq.style.opacity = Math.random() * 0.4 + 0.2;
         container.appendChild(eq);
-
         eq.addEventListener('animationend', () => eq.remove());
     }
 
@@ -197,10 +192,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (nav) {
         window.addEventListener('scroll', () => {
             if (window.scrollY > 100) {
-                nav.style.padding = '0.5rem 1.5rem';
+                nav.style.paddingTop = '0.5rem';
+                nav.style.paddingBottom = '0.5rem';
             } else {
-                nav.style.padding = '1rem 1.5rem';
+                nav.style.paddingTop = '1rem';
+                nav.style.paddingBottom = '1rem';
             }
-        });
+        }, { passive: true });
     }
 });
