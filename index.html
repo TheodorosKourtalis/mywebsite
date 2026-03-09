@@ -103,11 +103,6 @@ body.light .btn-g:hover{border-color:#93c5fd;color:#93c5fd;background:rgba(147,1
 .scr-m::before{content:'';position:absolute;top:7px;left:50%;transform:translateX(-50%);width:4px;height:7px;background:var(--hero-dot);border-radius:4px;animation:sd 2s infinite}
 @keyframes sd{0%{transform:translateX(-50%) translateY(0);opacity:1}100%{transform:translateX(-50%) translateY(16px);opacity:0}}
 
-#eq-box{position:absolute;inset:0;overflow:hidden;z-index:1}
-.eq{position:absolute;font-family:'JetBrains Mono',monospace;white-space:nowrap;pointer-events:none;animation:eqm 8s linear forwards}
-body.dark .eq{color:rgba(0,255,100,.5);text-shadow:0 0 8px rgba(0,255,100,.3)}
-body.light .eq{color:rgba(147,197,253,.35);text-shadow:0 0 6px rgba(147,197,253,.2)}
-@keyframes eqm{0%{transform:translateY(-10vh);opacity:0}20%{opacity:.7}80%{opacity:.7}100%{transform:translateY(110vh);opacity:0}}
 .fi{opacity:0;animation:fin 1s ease-out forwards}
 .fid{opacity:0;animation:fin 1s .5s ease-out forwards}
 @keyframes fin{to{opacity:1}}
@@ -265,7 +260,6 @@ body.dark .foot{background:var(--bg)}body.light .foot{background:var(--bg)}
 <body class="dark">
 
 <header class="hero">
-  <div id="eq-box"></div>
   <div class="hero-ov"></div>
 
   <nav class="nav">
@@ -305,7 +299,7 @@ body.dark .foot{background:var(--bg)}body.light .foot{background:var(--bg)}
     <div class="mr ac g8">
       <div class="s0"><div class="pr"><img src="Myprofilephoto.jpg" alt="Theodoros Kourtalis" loading="lazy"></div></div>
       <div>
-        <p class="tlg lr tp">I am a third-year economics undergraduate at the <strong class="th">Athens University of Economics and Business</strong>, ranked <strong class="ta2">1st in my cohort</strong> (GPA 9.09/10). I work as a Research Assistant at AUEB's <strong class="th">EMOP Economic Policy Laboratory</strong> and have collaborated with researchers from <strong class="th">Monash University</strong>. I also founded <strong class="ta2">Asymmetria</strong>, a student-driven algorithmic trading project focused on insider-signal detection.</p>
+        <p class="tlg lr tp">I am a third-year economics undergraduate at the <strong class="th">Athens University of Economics and Business</strong>, ranked <strong class="ta2">1st in my cohort</strong> (GPA 9.14/10). I work as a Research Assistant at AUEB's <strong class="th">EMOP Economic Policy Laboratory</strong> and collaborate with researchers from <strong class="th">King's College London</strong> and <strong class="th">Monash University</strong>. I also founded <strong class="ta2">Asymmetria</strong>, a student-driven algorithmic trading project focused on insider-signal detection.</p>
         <p class="tlg lr tm mt4">My research interests span trade, cultural economics, complex economic systems, and quantitative policy analysis. Beyond academics I enjoy literature (McCarthy, Camus), philosophy &amp; logic (Epictetus, Wittgenstein), cinema (Kubrick, Lynch, Edward Yang), music from rebetika and jazz to hip-hop and post-rock, and hiking.</p>
       </div>
     </div>
@@ -321,7 +315,7 @@ body.dark .foot{background:var(--bg)}body.light .foot{background:var(--bg)}
           <h3 class="fb th" style="font-size:1.15rem"><a href="https://www.aueb.gr/en" target="_blank" class="la" style="color:inherit">Athens University of Economics and Business</a></h3>
           <p class="tp tsm fm">Bachelor of Science in Economics</p>
           <p class="tm tsm mt1">Oct 2023 – Jul 2027</p>
-          <div class="fx fw g2 mt2"><span class="bdg bdg-a"><i class="fas fa-trophy"></i> GPA: 9.09/10</span><span class="bdg bdg-o">1st in Cohort</span></div>
+          <div class="fx fw g2 mt2"><span class="bdg bdg-a"><i class="fas fa-trophy"></i> GPA: 9.14/10</span><span class="bdg bdg-o">1st in Cohort</span></div>
         </div>
       </div>
       <div class="card mr ac g6">
@@ -340,6 +334,28 @@ body.dark .foot{background:var(--bg)}body.light .foot{background:var(--bg)}
   <section id="experience" class="sec">
     <h2 class="st">Professional Experience</h2>
     <div class="tl">
+
+      <!-- King's College London -->
+      <div class="tli">
+        <div class="tld"></div>
+        <div class="tlc card">
+          <div class="mr as g4">
+            <!-- Updated KCL Logo -->
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9jo14ztlXrTnpBJ5YezuYlLzPHnNrH-3Z_A&s" alt="King's College London" class="wlogo" loading="lazy">
+            <div class="f1">
+              <h3 class="fb th" style="font-size:1.15rem">Research Assistant</h3>
+              <p class="ta fm mt1"><a href="https://www.kcl.ac.uk/business" target="_blank" class="la">King's Business School, King's College London</a></p>
+              <p class="tsm tm mt1"><i class="fas fa-calendar-alt"></i> Mar 2026 – Present · <i class="fas fa-user-tie"></i> PI: <a href="https://www.kcl.ac.uk/people/pierre-louis-vezina" target="_blank" class="la">Prof. Pierre-Louis Vézina</a></p>
+              <ul class="blist mt3 tp lr">
+                <li>Built Python ETL pipeline to transform 60 years of unstructured Indian district data (scanned PDFs, legacy tables) into harmonized longitudinal datasets (1951–2011).</li>
+                <li>Applied geospatial mapping to reconcile shifting administrative boundaries across census waves for consistent econometric analysis units.</li>
+                <li>Integrated multi-source datasets (Census, Lok Sabha elections, NIMHANS mental health metrics) into unified research repository using Pandas, PDFPlumber, and Git.</li>
+              </ul>
+              <div class="fx fw g2 mt3"><span class="sb">ETL</span><span class="sb">Geospatial</span><span class="sb">Python</span><span class="sb">PDFPlumber</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- Monash -->
       <div class="tli">
@@ -415,11 +431,11 @@ body.dark .foot{background:var(--bg)}body.light .foot{background:var(--bg)}
           <div class="f1">
             <div class="mr ac" style="justify-content:space-between"><h3 class="fb th" style="font-size:1.1rem">Project Lead — <a href="https://www.dept.aueb.gr/en/imop" target="_blank" class="la">EMOP</a> Student Research Team</h3><span class="tsm ta fm"><i class="fas fa-clock"></i> Apr 2025 – Present</span></div>
             <ul class="blist mt3 tp lr">
-              <li>Managed 10 students to construct a dataset of Greek university faculty.</li>
-              <li>Delivered a 3-hour web scraping workshop before launch.</li>
-              <li>Merged &amp; refined contributions into a research-ready dataset.</li>
+              <li>Selected from a competitive pool of 600 candidates to lead a 10-member team of top-performing peers and seniors in the construction of a comprehensive Greek university faculty dataset.</li>
+              <li>Taught a 3-hour technical workshop on web scraping fundamentals to prepare the team before project launch.</li>
+              <li>Assisted in organizing large-scale international events (200+ attendees) featuring professors from <a href="https://www.youtube.com/live/LebuJI9zbX0?si=p7j3p191iNpCbyLl" target="_blank" class="la">Yale</a> and <a href="https://www.dept.aueb.gr/en/imop/news/lecture-series-science-and-society-dialogue-toward-sustainable-future" target="_blank" class="la">Harvard</a>, with audiences including policymakers and industry leaders.</li>
             </ul>
-            <div class="fx fw g2 mt3"><span class="sb">Team Lead</span><span class="sb">Web Scraping</span><span class="sb">Teaching</span></div>
+            <div class="fx fw g2 mt3"><span class="sb">Team Lead</span><span class="sb">Web Scraping</span><span class="sb">Teaching</span><span class="sb">Event Organizing</span></div>
           </div>
         </div>
       </div>
@@ -429,7 +445,7 @@ body.dark .foot{background:var(--bg)}body.light .foot{background:var(--bg)}
         <div class="fx as g4">
           <div class="lico green"><i class="fas fa-globe-europe"></i></div>
           <div class="f1">
-            <div class="mr ac" style="justify-content:space-between"><h3 class="fb th" style="font-size:1.1rem">Junior Researcher (Vol.) — Socioeconomics Lab</h3><span class="tsm ta fm"><i class="fas fa-clock"></i> Present</span></div>
+            <div class="mr ac" style="justify-content:space-between"><h3 class="fb th" style="font-size:1.1rem">Junior Researcher (Vol.) — Socioeconomics Lab</h3><span class="tsm ta fm"><i class="fas fa-clock"></i> 2026 – Present</span></div>
             <p class="tsm tm mt1"><a href="https://www.elidek.gr/en/homepage/" target="_blank" class="la">H.F.R.I.</a> Project 16017 · <a href="https://next-generation-eu.europa.eu/index_en" target="_blank" class="la">EU NextGenerationEU</a></p>
             <ul class="blist mt3 tp lr"><li>Helped build a regional behavioral dataset for Greece to inform socio-economic policies.</li></ul>
             <div class="fx fw g2 mt3"><span class="sb">Behavioral Data</span><span class="sb">Regional Econ</span><span class="sb">EU Policy</span></div>
@@ -442,13 +458,12 @@ body.dark .foot{background:var(--bg)}body.light .foot{background:var(--bg)}
         <div class="fx as g4">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZWTpw6Ic7GhzxAl7i2GMP_59CSYH_X9t6rw&s" alt="AUEB SIFC" class="limg" loading="lazy">
           <div class="f1">
-            <div class="mr ac" style="justify-content:space-between"><h3 class="fb th" style="font-size:1.1rem">Commodities Analyst (Vol.) — <a href="https://auebsifc.com/" target="_blank" class="la">AUEB SIFC</a></h3><span class="tsm ta fm"><i class="fas fa-clock"></i> Present</span></div>
+            <div class="mr ac" style="justify-content:space-between"><h3 class="fb th" style="font-size:1.1rem">Commodities Analyst (Vol.) — <a href="https://auebsifc.com/" target="_blank" class="la">AUEB SIFC</a></h3><span class="tsm ta fm"><i class="fas fa-clock"></i> 2026 – Present</span></div>
             <p class="tsm tm mt1">Students' Investment and Finance Club</p>
             <ul class="blist mt3 tp lr">
-              <li>Researched European TTF natural gas trends for the Monthly Market Report.</li>
-              <li>Analyzed fundamentals in global liquid markets for energy commodity analysis.</li>
+              <li>Authored the <strong>Gold Market Analysis</strong> for the March Monthly Market Report, synthesizing macroeconomic drivers for university-wide publication.</li>
             </ul>
-            <div class="fx fw g2 mt3"><span class="sb">Commodities</span><span class="sb">Energy Markets</span><span class="sb">Financial Analysis</span></div>
+            <div class="fx fw g2 mt3"><span class="sb">Commodities</span><span class="sb">Gold Markets</span><span class="sb">Financial Analysis</span></div>
           </div>
         </div>
       </div>
@@ -474,94 +489,7 @@ body.dark .foot{background:var(--bg)}body.light .foot{background:var(--bg)}
     <div class="gr gc2 g4 mb10">
       <div class="card fx as g3"><div class="ci"><i class="fas fa-brain"></i></div><div><h4 class="fb th" style="font-size:.95rem">Advanced Learning Algorithms</h4><p class="tsm tm mt1"><a href="https://www.coursera.org/specializations/machine-learning-introduction" target="_blank" class="la">ML Specialization</a> — Stanford / DeepLearning.AI</p><p class="txs tm mt1" style="opacity:.65">Sep 2024 · 0VBO30MD43SW</p></div></div>
       <div class="card fx as g3"><div class="ci"><i class="fas fa-robot"></i></div><div><h4 class="fb th" style="font-size:.95rem">Supervised ML: Regression &amp; Classification</h4><p class="tsm tm mt1"><a href="https://www.coursera.org/specializations/machine-learning-introduction" target="_blank" class="la">ML Specialization</a> — Stanford / DeepLearning.AI</p><p class="txs tm mt1" style="opacity:.65">Sep 2024 · K0LUN9P0CDMV</p></div></div>
-    </div>
-
-    <h3 class="ta fs6 mb4" style="font-size:1.15rem"><i class="fas fa-language"></i> Languages</h3>
-    <div class="gr gc2 g4">
-      <div class="stile"><img src="https://img.icons8.com/color/48/000000/greece.png" alt="GR" style="width:30px;height:30px"><div><span class="sn">Greek</span><p class="ss">Native Speaker</p></div></div>
-      <div class="stile"><img src="https://img.icons8.com/color/48/000000/great-britain.png" alt="EN" style="width:30px;height:30px"><div><span class="sn">English (C2)</span><p class="ss">Proficient — Pass with Distinction</p></div></div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="sec">
-    <h2 class="st">Get in Touch</h2>
-    <div class="cgrid">
-      <div>
-        <p class="tm tlg lr mb6">Have a question, research opportunity, or collaboration idea? I'd love to hear from you.</p>
-        <div class="fx fc g4 mb6">
-          <div class="fx ac g3 tp"><div class="cic"><i class="fas fa-envelope"></i></div><a href="mailto:kourtalistheodoros@gmail.com" style="text-decoration:none;color:inherit">kourtalistheodoros@gmail.com</a></div>
-          <div class="fx ac g3 tp"><div class="cic"><i class="fas fa-phone"></i></div><a href="tel:+306974187646" style="text-decoration:none;color:inherit">+30 697 418 7646</a></div>
-          <div class="fx ac g3 tp"><div class="cic"><i class="fas fa-map-marker-alt"></i></div><span>Athens, Greece</span></div>
-          <div class="fx ac g3 tp"><div class="cic"><i class="fas fa-file-alt"></i></div><a href="https://drive.google.com/file/d/1g4goiVeCotRb-SkSc5GeRk97UibuY_oX/view?usp=sharing" target="_blank" style="text-decoration:none;color:inherit">Download my CV</a></div>
-        </div>
-        <div class="fx g3">
-          <a href="https://www.linkedin.com/in/theodoros-kourtalis-16a1a0297/" target="_blank" class="sbtn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://github.com/TheodorosKourtalis" target="_blank" class="sbtn"><i class="fab fa-github"></i></a>
-        </div>
-      </div>
-      <form action="https://formspree.io/f/mdknnlvp" method="POST" class="card fx fc g4">
-        <div><label class="fl" for="name">Name</label><input type="text" id="name" name="name" required class="fi2" placeholder="Your name"></div>
-        <div><label class="fl" for="email">Email</label><input type="email" id="email" name="email" required class="fi2" placeholder="you@example.com"></div>
-        <div><label class="fl" for="message">Message</label><textarea id="message" name="message" rows="5" required class="fi2" placeholder="Your message..."></textarea></div>
-        <button type="submit" class="sub"><i class="fas fa-paper-plane"></i> Send Message</button>
-      </form>
-    </div>
-  </section>
-
-</main>
-
-<footer class="foot">
-  <p>&copy; 2025 Theodoros Kourtalis. All rights reserved.</p>
-  <div style="margin-top:.75rem">
-    <a href="https://www.linkedin.com/in/theodoros-kourtalis-16a1a0297/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-    <a href="https://github.com/TheodorosKourtalis" target="_blank"><i class="fab fa-github"></i></a>
-  </div>
-</footer>
-
-<a href="https://drive.google.com/file/d/1g4goiVeCotRb-SkSc5GeRk97UibuY_oX/view?usp=sharing" target="_blank" class="fcv" title="View CV"><i class="fas fa-file-alt"></i></a>
-
-<script>
-(function(){
-  const B=document.body,t1=document.getElementById('mt'),t2=document.getElementById('mt2'),fav=document.getElementById('favicon');
-  function ap(t){B.className=t;if(fav)fav.href=t==='dark'?'favicon-dark.png':'favicon-light.png'}
-  const sv=localStorage.getItem('theme')||'dark';ap(sv);
-  if(t1)t1.checked=sv==='dark';if(t2)t2.checked=sv==='dark';
-
-  function fl(d){const t=d?'dark':'light';ap(t);localStorage.setItem('theme',t);t==='dark'?startE():stopE()}
-  if(t1)t1.addEventListener('change',()=>{fl(t1.checked);if(t2)t2.checked=t1.checked});
-  if(t2)t2.addEventListener('change',()=>{fl(t2.checked);if(t1)t1.checked=t2.checked});
-
-  // hamburger
-  const hb=document.getElementById('hb'),mm=document.getElementById('mmenu');
-  if(hb&&mm){
-    hb.addEventListener('click',()=>{mm.classList.toggle('open');const i=hb.querySelector('i');i.classList.toggle('fa-bars');i.classList.toggle('fa-times')});
-    mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mm.classList.remove('open');const i=hb.querySelector('i');i.classList.add('fa-bars');i.classList.remove('fa-times')}));
-  }
-
-  // reveal
-  const els=document.querySelectorAll('.sec,.card,.stile,.tli');
-  els.forEach(e=>e.classList.add('rv'));
-  const ro=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');ro.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
-  els.forEach(e=>ro.observe(e));
-
-  // active nav
-  const secs=document.querySelectorAll('section[id]'),navAs=document.querySelectorAll('.nl a:not(.cv-btn)');
-  const no=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting)navAs.forEach(a=>{a.classList.remove('act');if(a.getAttribute('href')==='#'+e.target.id)a.classList.add('act')})})},{threshold:.25});
-  secs.forEach(s=>no.observe(s));
-
-  // nav shrink
-  const nav=document.querySelector('.nav');
-  if(nav)window.addEventListener('scroll',()=>{nav.style.padding=window.scrollY>80?'.5rem 1.5rem':'1rem 1.5rem'},{passive:true});
-
-  // equations
-  const eqs=['P_x X + P_y Y = I','Q = A L^α K^β','π = PQ - C(Q)','MR = dTR/dQ','Q_d = a - bP','Y = C+I+G+(X-M)','C = a + bY_d','M/P = L(Y,r)','π = πₑ - β(u-uₙ)','Y = β₀+β₁X+ε','R² = 1-SS_res/SS_tot','NPV = Σ Cₜ/(1+r)^t','E(R) = Rf+β(Rm-Rf)','F = S·e^{rT}','Cov(X,Y)=E[(X-μ)(Y-μ)]','Sharpe=(E(Rp)-Rf)/σp','P(Y=1)=1/(1+e^{-Xβ})','dx/dt=f(xᵢ,xⱼ)'];
-  const box=document.getElementById('eq-box');let eqI;
-  function mkE(){if(!box)return;const d=document.createElement('div');d.className='eq';d.textContent=eqs[Math.floor(Math.random()*eqs.length)];d.style.left=Math.random()*(box.clientWidth-180)+'px';d.style.animationDuration=(Math.random()*6+5)+'s';d.style.fontSize=(Math.random()*6+13)+'px';box.appendChild(d);d.addEventListener('animationend',()=>d.remove())}
-  function startE(){if(!box)return;eqI=setInterval(mkE,200);setTimeout(()=>clearInterval(eqI),10000)}
-  function stopE(){clearInterval(eqI);if(box)box.querySelectorAll('.eq').forEach(e=>e.remove())}
-  if(sv==='dark')startE();
-})();
-</script>
-</body>
-</html>
+      
+      <!-- SFI Certs with Base64 Image -->
+      <div class="card fx as g3">
+        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxIQEhUSEhMVFRUXFxgZGBcYFhkeGBgiHhgfGhgYGhodHiggHiExHh0YIjEhJiorLi4uGx8zODUsNygtLi4BCgoKDg0OGxAQGysgHyAtLS0tLS0rMS8tKzcrNy8uLi0tLy0tLS0tNTYuNS0tLS8tLy0tKy0tLS0tLS0tLSstLf/AABEIAMgAyAMBIgACEQEDEQH/xAAcAAEBAAMBAQEBAAAAAAAAAAAABgQFBwMBAgj/xABOEAACAQMCAwQECQQOCgMAAAABAgMABBESIQUGMRMiQVEyYXGBBxQjQlJzkaGxM2JywRUWJDRTgoOSorLR4fDxFzVDVGOTlLPC0zZV4//EABkBAQADAQEAAAAAAAAAAAAAAAACAwQBBf/EADARAAICAQMCBQMDAwUAAAAAAAECAAMREiExBEETIlFhoXGB8DKx0SPB4RQzQlKR/9oADAMBAAIRAxEAPwDuNKUpEUpSkRSlKRFKV5yyBQWYgADJJOAPWTSJ+68p50jUs7KqjqWIAHvNSt5zVJOdFigK50m4kB7PPiI1A1SN7PwrAj4Issn7od7mYblXw2n+SB7KLzGsnPlVgr/7bSg3dlGf2m6m50tclYu0uGHzYI2f7/R++sWXm2fPdsiPrbiKM/zSSa195LcC6Wxht490Dl5GLRhc41dmoVAQdth1+2qqx4UUXDSs3mFVY19wQAj7TUiEXt+faVq1jkjPHt/M0f7aLv8A3W3/AOsT+yv3DzbPnvWTH6meKQ/zQQa8OD8Hu5pppJbuZIhNIsaK25CuRkkg7bYx6q3HF7YQ28kjSO4RGbDhGyQMgd5a6SucYHzC+JjVk/E8IOdLQkLKXt2PzZ42T7z3fvrfwTq4DIwZT0IIIPsIqH4THfTRjt7JFUjosgXb6l9SZ9uKNwExNqtmktpD4LsD6jESY5Nt+4w/RrhReP8AM6tr4yRn4l5SpCx5reEhL5AozpFwmeyz5SA96NvU34VWI4YAggg7gjoarZSJelitxPSlKVGTilKUiKUpSIpSlIilKUiKUpSIpSvw7hQSSAAMknoKRPDiF7HBG0srBUUZJP8Ajr6qiLqWS/PaXGYrZcFYTkas+i8+NyTtpiG526dT+nnPEZe2ba2jPyKkHDEHSZ2Xx37qL4n2NXpYwTNxNUuE0QpG0kC5yHbuguzfOkwzZ8vDzOhVC/WY3cucdvzmfvmXh1ytm72xMbKBkADtCg6qCNk8DoXyPUmqfgfDI7WFIowMAbnxY+LE+JNZ5qE5m50+IxqtuqyhiwjkzmNQpwV23JHTw20neoLqs8ok20UnWZXXEarMkpwMqyE/Y493db7axbjmiyjOGuYs9MBgx+xc1yWLmGe9FxFcyltcLMg2Cq0ZEgwOgyFYevNa/hvK97KQyW8mMggsNIPvYitA6YD9ZxMrdcx/21zmdZHOVjAzwyTaXWSTI0SHHfJ6hceNZj8dtZ0QrNGY2lCkk4GVHaae9jfZftrmfHOTr2a4mkWJcPI7AGWPOCCRtqrF45wO7it4IjbyYTtHkIXK6mbHVcjZFTf108Cs4w284equGcrsJ3FWzuKnOZ+DvxAiES9lFGwZ2UZZm+ao8sA5z5keVcx5N4tNa9pN2riGJfyee7I7ZEaYPvJI8FNWvJ3wgRTaYbgCKTwbPccnrkn0ST59fuqDUOhJXfEtXqq7QFbbM2y8CmjXS8nxlMYyyjtgPok+jKvXutv4g5xWqt5JeGnVEDJbHJeEZJQfOeHO+BvqjO67/pVZXtwyjTGA0hHdBOFH5z
